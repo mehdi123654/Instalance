@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="565.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.AddLessonController">
+   <children>
+      <TextField fx:id="name" layoutX="232.0" layoutY="161.0" />
+      <TextField fx:id="fil" layoutX="232.0" layoutY="229.0" prefHeight="9.0" prefWidth="187.0" />
+      <Text layoutX="122.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Text layoutX="121.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text layoutX="122.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File" wrappingWidth="39.61670994758606">
+         <font>
+            <Font size="21.0" />
+         </font></Text>
+      <Button fx:id="searchbutt" layoutX="476.0" layoutY="229.0" mnemonicParsing="false" text="Search..." />
+      <Button fx:id="addLess" layoutX="321.0" layoutY="331.0" mnemonicParsing="false" text="Add Lesson">
+         <font>
+            <Font size="19.0" />
+         </font></Button>
+      <Button fx:id="shwall" layoutX="810.0" layoutY="494.0" mnemonicParsing="false" text="Back" />
+      <Label layoutX="229.0" layoutY="30.0" text="Add a lesson">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label fx:id="CID" layoutX="229.0" layoutY="107.0" prefHeight="31.0" prefWidth="51.0" />
+      <Circle layoutX="34.0" radius="100.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#420a39" />
+                  <Stop color="#6137b5" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+   </children>
+</AnchorPane>
