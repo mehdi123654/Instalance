@@ -6,11 +6,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="665.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.ShowCourseController">
    <children>
-      <TableView fx:id="courseTable" layoutX="90.0" layoutY="129.0" prefHeight="382.0" prefWidth="958.0">
+      <TableView fx:id="courseTable" layoutX="90.0" layoutY="129.0" prefHeight="382.0" prefWidth="899.0">
         <columns>
           <TableColumn fx:id="cidcolumn" prefWidth="75.0" text="Cid" />
           <TableColumn fx:id="titlecolumn" prefWidth="165.0" text="Title" />
@@ -24,11 +27,22 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
-      <Label layoutX="125.0" layoutY="34.0" text="Courses:" textFill="#9a1b6c">
+      <Label layoutX="191.0" layoutY="39.0" text="Courses:" textFill="#9a1b6c">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
       <Separator layoutX="-3.0" layoutY="108.0" prefHeight="0.0" prefWidth="1118.0" />
+      <Circle layoutX="20.0" layoutY="-1.0" radius="100.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#361fff" />
+                  <Stop color="#9e0b6d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Button fx:id="stat" layoutX="594.0" layoutY="39.0" mnemonicParsing="false" text="Statistics" />
    </children>
 </AnchorPane>

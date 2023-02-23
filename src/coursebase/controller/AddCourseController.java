@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -30,6 +31,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.image.Image;
@@ -64,13 +67,10 @@ public class AddCourseController implements Initializable {
     private Button btn;
     @FXML
     private ImageView img;
-    
+
     @FXML
     private Button showall_btn;
 
-private Stage stage;
-    private Scene scene;
-    private Parent root;
     /**
      * Initializes the controller class.
      *
@@ -79,10 +79,17 @@ private Stage stage;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        category.setItems(FXCollections.observableArrayList("Development", "Bussiness", "Marketing", "Mathematics"));
-       
 
+        category.setItems(FXCollections.observableArrayList("Development", "Bussiness", "Marketing", "Mathematics"));
+        UnaryOperator<Change> numericFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d*")) {
+                return change;
+            }
+            return null;
+        };
+        TextFormatter<String> formatter = new TextFormatter<>(numericFilter);
+        price.setTextFormatter(formatter);
         search_button.setOnAction(
                 event -> {
 
@@ -105,7 +112,7 @@ private Stage stage;
         );
         btn.setOnAction(
                 event -> {
- String selectedChoice = category.getSelectionModel().getSelectedItem();
+                    String selectedChoice = category.getSelectionModel().getSelectedItem();
                     Course p = new Course(title.getText(), description.getText(), Integer.parseInt(price.getText()), selectedChoice, photo.getText());
                     CourseDao pdao = CourseDao.getInstance();
                     pdao.insert(p);
@@ -115,12 +122,10 @@ private Stage stage;
                     alert.setHeaderText(null);
                     alert.setContentText("Course added successfully!");
                     alert.show();
-                    
 
-              
                 });
 
-          showall_btn.setOnAction(event -> {
+        showall_btn.setOnAction(event -> {
 
             try {
                 Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/ShowCourse.fxml"));

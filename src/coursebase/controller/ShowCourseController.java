@@ -29,7 +29,8 @@ import javafx.stage.Stage;
  * @author user
  */
 public class ShowCourseController implements Initializable {
-
+    @FXML
+    private Button stat;
     @FXML
     private TableView<Course> courseTable;
 
@@ -50,16 +51,11 @@ public class ShowCourseController implements Initializable {
 
     @FXML
     private TableColumn<Course, String> photocolumn;
-    
-
-
 
     @FXML
     private Button add_button;
 
-
     private ListData listdata;
-
 
     /**
      * Initializes the controller class.
@@ -73,7 +69,7 @@ public class ShowCourseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
+
         add_button.setOnAction(
                 event -> {
                     try {
@@ -87,7 +83,19 @@ public class ShowCourseController implements Initializable {
                     }
 
                 });
-      
+ stat.setOnAction(
+                event -> {
+                    try {
+                        Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/PieChart.fxml"));
+                        Scene scene = new Scene(page1);
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException ex) {
+                        Logger.getLogger(AddCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                });
         listdata = new ListData();
         courseTable.setItems(listdata.getCourses());
         cidcolumn.setCellValueFactory(cell -> cell.
@@ -105,8 +113,7 @@ public class ShowCourseController implements Initializable {
 //        lescol.setCellValueFactory(cell -> cell.
 //                getValue().getnbLessonsProperty());
 
-
-        courseTable.setOnMouseClicked( event -> {
+        courseTable.setOnMouseClicked(event -> {
 
             try {
                 String id = String.valueOf(listdata.getCourses().get(courseTable.getSelectionModel().getSelectedIndex()).getCid());

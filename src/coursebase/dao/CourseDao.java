@@ -10,6 +10,7 @@ import coursebase.utils.ConnexionSingleton;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 //import java.util.ArrayList;
 //import java.util.List;
 import java.util.logging.Level;
@@ -72,7 +73,40 @@ public class CourseDao implements Idao<Course> {
             System.out.println("n'existe pas");
         }
     }
+    @Override
+  public ArrayList<String> getCategories(){
 
+     // String req = " SELECT c.cid,title,description,price,category,photo,count(lesson.lid)  FROM course c  INNER JOIN lesson ON c.cid = lesson.cid GROUP BY c.cid";
+         String req="select category FROM course";
+   ArrayList<String> categories = new ArrayList<>();
+
+        try {
+            rs =  st.executeQuery(req);
+            while (rs.next()) {
+               categories.add(rs.getString("category"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return categories;
+    }
+       
+//          String req = "SELECT category FROM course";
+//            ArrayList<String> categories = new ArrayList<>();
+//        try {
+//            st.executeQuery(req);
+//            
+// rs.next();
+// categories.add(rs.getString("category"));
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return categories;
+   
+
+  
     @Override
     public ObservableList<Course> displayAll() {
      // String req = " SELECT c.cid,title,description,price,category,photo,count(lesson.lid)  FROM course c  INNER JOIN lesson ON c.cid = lesson.cid GROUP BY c.cid";

@@ -15,17 +15,16 @@ import javafx.collections.ObservableList;
  * @author user
  */
 class ListData {
-     
-    private ObservableList<Course> courses=FXCollections.observableArrayList();
+
+    private ObservableList<Course> courses = FXCollections.observableArrayList();
 
     public ListData() {
-        
-        CourseDao pdao=CourseDao.getInstance();
-        courses= pdao.displayAll();
+
+        CourseDao pdao = CourseDao.getInstance();
+        courses = pdao.displayAll();
         System.out.println(courses);
     }
-    
-   
+
     public ObservableList<Course> getCourses() {
         return courses;
     }

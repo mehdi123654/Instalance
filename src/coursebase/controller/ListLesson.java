@@ -5,8 +5,6 @@
  */
 package coursebase.controller;
 
-
-
 import coursebase.dao.LessonDao;
 import coursebase.entity.Lesson;
 import javafx.collections.FXCollections;
@@ -17,25 +15,23 @@ import javafx.collections.ObservableList;
  * @author user
  */
 public class ListLesson {
-     
-    private ObservableList<Lesson> joins=FXCollections.observableArrayList();
 
-    public ListLesson( int i) {
-        
-        LessonDao pdao=LessonDao.getInstance();
-      joins= (ObservableList<Lesson>) pdao.displayAll(i);
+    private ObservableList<Lesson> joins = FXCollections.observableArrayList();
+
+    public ListLesson(int i) {
+
+        LessonDao pdao = LessonDao.getInstance();
+        joins = (ObservableList<Lesson>) pdao.displayAll(i);
         System.out.println(joins);
     }
-    
-    public ListLesson( ) {
-        
-        LessonDao pdao=LessonDao.getInstance();
-      joins= (ObservableList<Lesson>) pdao.displayAll2();
+
+    public ListLesson() {
+
+        LessonDao pdao = LessonDao.getInstance();
+        joins = (ObservableList<Lesson>) pdao.displayAll2();
         System.out.println(joins);
     }
-    
-    
-   
+
     public ObservableList<Lesson> getJoins() {
         return joins;
     }

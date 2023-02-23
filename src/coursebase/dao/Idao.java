@@ -5,6 +5,7 @@
  */
 package coursebase.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
 public interface Idao<Course> {
 
     public void insert(Course o);
-
+    public ArrayList<String> getCategories();
     public void delete(int id);
  //public List<Course> displayAll2();
     public List<Course> displayAll();

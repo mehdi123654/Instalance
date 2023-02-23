@@ -19,7 +19,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -47,8 +46,9 @@ public class AddLessonController implements Initializable {
     @FXML
     private Button addLess;
     private String id;
-@FXML
+    @FXML
     private Button shwall;
+
     /**
      * Initializes the controller class.
      *
@@ -75,17 +75,17 @@ public class AddLessonController implements Initializable {
                     }
                 }
         );
-          shwall.setOnAction(
+        shwall.setOnAction(
                 event -> {
-                     try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/ShowCourse.fxml"));
-                Scene scene = new Scene(page1);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    try {
+                        Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/ShowCourse.fxml"));
+                        Scene scene = new Scene(page1);
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException ex) {
+                        Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
         );
         addLess.setOnAction(
@@ -94,20 +94,18 @@ public class AddLessonController implements Initializable {
                     LessonDao pdao = LessonDao.getInstance();
                     pdao.insert(p);
 
-                      try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/ShowCourse.fxml"));
-                Scene scene = new Scene(page1);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                 
+                    try {
+                        Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/ShowCourse.fxml"));
+                        Scene scene = new Scene(page1);
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException ex) {
+                        Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                 }
         );
     }
-
-   
 
 }

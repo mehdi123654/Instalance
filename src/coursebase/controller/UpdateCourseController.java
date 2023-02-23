@@ -11,10 +11,8 @@ import coursebase.entity.Course;
 import coursebase.entity.Lesson;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
-import static java.util.Spliterators.iterator;
+import java.util.function.UnaryOperator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -32,6 +30,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 
 /**
@@ -75,8 +74,6 @@ public class UpdateCourseController implements Initializable {
     @FXML
     private Button lsnad;
 
-    @FXML
-    private Button delete;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -98,7 +95,15 @@ public class UpdateCourseController implements Initializable {
         price_field.setText(price);
         photo_field.setText(photo);
         categ_choice.setValue(catg);
-
+   UnaryOperator<TextFormatter.Change> numericFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d*")) {
+                return change;
+            }
+            return null;
+        };
+        TextFormatter<String> formatter = new TextFormatter<>(numericFilter);
+        price_field.setTextFormatter(formatter);
         update_butt.setOnAction(
                 event -> {
                     String selectedChoice = categ_choice.getSelectionModel().getSelectedItem();
@@ -147,24 +152,6 @@ public class UpdateCourseController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-        });
-        delete.setOnAction(event -> {
-            int valueOf = listdata.getJoins()
-                    .get(lesstable.getSelectionModel().getSelectedIndex())
-                    .getLid();
-
-            LessonDao pdao = LessonDao.getInstance();
-            pdao.delete(valueOf);
-
-            Lesson selectedItem = lesstable.getSelectionModel().getSelectedItem();
-            lesstable.getItems().remove(selectedItem);
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("lesson deleted !");
-            alert.show();
 
         });
         delall.setOnAction(event -> {
