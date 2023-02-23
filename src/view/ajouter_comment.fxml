@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Ajouter_commentController">
+   <children>
+      <Label layoutX="232.0" layoutY="153.0" text="ID Blog" />
+      <Label layoutX="238.0" layoutY="103.0" text="Body" />
+      <TextField fx:id="fx_id_blog" layoutX="280.0" layoutY="149.0" />
+      <TextField fx:id="fx_body" layoutX="280.0" layoutY="99.0" />
+      <Button fx:id="ajouter" layoutX="450.0" layoutY="256.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #ffab40;" text="ajouter" />
+      <Label layoutX="280.0" layoutY="57.0" prefHeight="18.0" prefWidth="122.0" text="Ajouter un comment" textAlignment="JUSTIFY" textFill="#f41616">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
