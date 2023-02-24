@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.Cursor?>
 
 <AnchorPane id="AnchorPane" prefHeight="537.0" prefWidth="722.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="instalance1.pkg0.controllers.SignupFXMLController">
     <stylesheets>
@@ -45,23 +44,23 @@
                </cursor>
             </Label>
             <Label fx:id="error_numtel" layoutX="98.0" layoutY="397.0" prefHeight="17.0" prefWidth="250.0" />
-            <Button fx:id="btnSignup" layoutX="51.0" layoutY="414.0" mnemonicParsing="false" onAction="#addUser" prefHeight="15.0" prefWidth="170.0" styleClass="all-btn" stylesheets="@../css/Style.css" text="Signup" textFill="WHITE">
+            <Button fx:id="btnSignup" layoutX="98.0" layoutY="414.0" mnemonicParsing="false" onAction="#addUser" prefHeight="51.0" prefWidth="118.0" style="-fx-background-color: e8b923;" styleClass="all-btn" stylesheets="@../css/Style.css" text="Signup" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btnCancel" layoutX="230.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="25.0" prefWidth="170.0" styleClass="normal-btn" stylesheets="@../css/Style.css" text="Cancel" textFill="WHITE">
+            <Button fx:id="btnCancel" layoutX="229.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="51.0" prefWidth="118.0" styleClass="normal-btn" stylesheets="@../css/Style.css" text="Cancel" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="276.0" fitWidth="274.0" layoutX="27.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="243.0" fitWidth="211.0" layoutX="27.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Ressources/Logo.png" />
+            <Image url="@..assets\images\instalance.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="565.0" layoutX="-24.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" width="292.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ae5bc8" height="623.0" layoutX="-88.0" layoutY="-69.0" rotate="20.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
    </children>
 </AnchorPane>

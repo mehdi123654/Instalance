@@ -45,8 +45,8 @@ public class UserServices implements UserDAO{
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, u.getUsername());
-            pst.setString(2, u.getEmail());
-            pst.setString(3, PasswordEncryption.cryptage(u.getPassword()));
+            pst.setString(3, u.getEmail());
+            pst.setString(2, PasswordEncryption.cryptage(u.getPassword()));
             pst.setString(4, u.getRole());
             pst.executeUpdate();
             return true;
@@ -61,13 +61,13 @@ public class UserServices implements UserDAO{
     @Override
     public boolean updateUser(User u) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String req = "update user set username = ? email= ?  ,password= ?, role = ?  where id = ?";
+        String req = "update user set username = ? email= ?  ,password= ?, role = ?  where idUser = ?";
 
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, u.getUsername());
-            pst.setString(2, u.getEmail());
-            pst.setString(3, u.getPassword());
+            pst.setString(3, u.getEmail());
+            pst.setString(2, u.getPassword());
             pst.setString(4, u.getRole());
             pst.setInt(5, u.getId());
             pst.executeUpdate();
@@ -84,7 +84,7 @@ public class UserServices implements UserDAO{
     public boolean deleteUser(User u) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
-        String req = "delete from user where id = ?";
+        String req = "delete from user where idUser = ?";
 
         try {
             pst = conn.prepareStatement(req);
@@ -110,7 +110,7 @@ public class UserServices implements UserDAO{
             ste = conn.createStatement();
             rs = ste.executeQuery(req);
             while (rs.next()) {//parcourir le resultset
-                UsersList.add(new User(rs.getInt("id"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("roles")));
+                UsersList.add(new User(rs.getInt("idUser"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("role")));
 
             }
 
@@ -135,7 +135,7 @@ public class UserServices implements UserDAO{
             ste = conn.createStatement();
             rs = ste.executeQuery(req);
             while (rs.next()) {//parcourir le resultset
-                 list.add(new User(rs.getInt("id"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("roles")));
+                 list.add(new User(rs.getInt("idUser"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("role")));
 
             }
 
@@ -148,14 +148,14 @@ public class UserServices implements UserDAO{
 
     @Override
     public ObservableList<User> filterRole(String value) {
-        String req = "select * from user where roles = '" + value + "'";
+        String req = "select * from user where role = '" + value + "'";
 
         ObservableList<User> list = FXCollections.observableArrayList();
         try {
             ste = conn.createStatement();
             rs = ste.executeQuery(req);
             while (rs.next()) {//parcourir le resultset
-                list.add(new User(rs.getInt("id"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("roles")));
+                list.add(new User(rs.getInt("idUser"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("role")));
 
             }
 

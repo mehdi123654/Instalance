@@ -5,40 +5,38 @@
  */
 package instalance1.pkg0;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
  * @author Louay
  */
-public class UserFXMain extends Application {
+public class LoginFXMain extends Application {
     
-    @Override
+     @Override
    public void start(Stage primaryStage) throws Exception {
        try {
-       Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("instalance1/pkg0/views/AllUsers/SignupFXML.fxml"));
+       Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("instalance1/pkg0/views/AllUsers/LoginFXML.fxml"));
        primaryStage.setScene(new Scene(root));
        primaryStage.show();
     } catch (Exception e){
         e.printStackTrace();   
     }
    }
-   
-   
+
     /**
      * @param args the command line arguments
-     * @throws java.sql.SQLException
-     * @throws java.io.IOException
      */
-
-    public static void main(String[] args) throws SQLException, IOException {
-       launch(args);
+    public static void main(String[] args) {
+        launch(args);
     }
     
 }

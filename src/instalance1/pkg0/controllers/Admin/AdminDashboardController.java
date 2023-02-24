@@ -191,7 +191,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private void getClients(ActionEvent event) {
-        ObservableList<User> users = us.filterRole("Admin");
+        ObservableList<User> users = us.filterRole("Freelancer");
         colUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colPass.setCellValueFactory(new PropertyValueFactory<>("password"));
