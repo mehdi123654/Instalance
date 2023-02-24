@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/entities/Freelance.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/utils/MyConnection.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/DAO/IServicesFreelance.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/entities/Application.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/services/CRUDFreelance.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/freelancemanagement/FreelanceManagement.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/card.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/FreelanceManagementController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/MyOffers.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/CardController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/MyOffersController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/AddOfferController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/addOffer.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com.crossify.css/StyleSheet.css</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/FreelanceManagement.fxml</file>
+        </group>
+    </open-files>
+</project-private>
