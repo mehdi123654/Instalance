@@ -13,7 +13,6 @@
 <AnchorPane id="AnchorPane" prefHeight="565.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.AddLessonController">
    <children>
       <TextField fx:id="name" layoutX="232.0" layoutY="161.0" />
-      <TextField fx:id="fil" layoutX="232.0" layoutY="229.0" prefHeight="9.0" prefWidth="187.0" />
       <Text layoutX="122.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID">
          <font>
             <Font size="19.0" />
@@ -48,5 +47,6 @@
             </LinearGradient>
          </fill>
       </Circle>
+      <Label fx:id="fil" layoutX="255.0" layoutY="234.0" prefHeight="31.0" prefWidth="139.0" />
    </children>
 </AnchorPane>

@@ -9,6 +9,7 @@ import coursebase.dao.CourseDao;
 import coursebase.dao.LessonDao;
 import coursebase.entity.Course;
 import coursebase.entity.Lesson;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,11 +27,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -52,8 +55,9 @@ public class UpdateCourseController implements Initializable {
     @FXML
     private TextField price_field;
 
+  
     @FXML
-    private TextField photo_field;
+    private Label photo_field;
 
     @FXML
     private Button update_butt;
@@ -77,7 +81,8 @@ public class UpdateCourseController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+  @FXML
+    private Button search;
     /**
      * Initializes the controller class.
      *
@@ -88,13 +93,28 @@ public class UpdateCourseController implements Initializable {
      * @param photo
      * @param catg
      */
+     FileChooser fileChooser = new FileChooser();
     public void displayName(String id, String desc, String title, String price, String photo, String catg) {
+        
         id_field.setText(id);
         desc_field.setText(desc);
         title_field.setText(title);
         price_field.setText(price);
         photo_field.setText(photo);
         categ_choice.setValue(catg);
+         search.setOnAction(
+                event -> {
+
+                    fileChooser.setTitle("Open File");
+                    File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
+
+                    if (file != null) {
+                        photo_field.setText(file.getAbsolutePath());
+                        //creating the image object
+
+                    }
+                }
+        );
    UnaryOperator<TextFormatter.Change> numericFilter = change -> {
             String newText = change.getControlNewText();
             if (newText.matches("\\d*")) {

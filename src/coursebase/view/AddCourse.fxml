@@ -20,7 +20,6 @@
       <Label layoutX="645.0" layoutY="104.0" text="Price:" />
       <Label layoutX="626.0" layoutY="170.0" prefHeight="21.0" prefWidth="74.0" text="Category:" />
       <Label layoutX="626.0" layoutY="242.0" prefHeight="21.0" prefWidth="95.0" text="Photo:" />
-      <TextField fx:id="photo" layoutX="728.0" layoutY="289.0" prefHeight="31.0" prefWidth="61.0" />
       <TextArea fx:id="description" layoutX="134.0" layoutY="151.0" prefHeight="436.0" prefWidth="423.0" />
       <ChoiceBox fx:id="category" layoutX="725.0" layoutY="165.0" prefHeight="31.0" prefWidth="142.0" />
       <TextField fx:id="price" layoutX="725.0" layoutY="105.0" prefHeight="31.0" prefWidth="142.0" />
@@ -51,5 +50,6 @@
       </Circle>
       <Separator layoutX="586.0" layoutY="-6.0" orientation="VERTICAL" prefHeight="668.0" prefWidth="22.0" />
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="852.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="photo" layoutX="850.0" layoutY="279.0" prefHeight="31.0" prefWidth="51.0" />
    </children>
 </AnchorPane>

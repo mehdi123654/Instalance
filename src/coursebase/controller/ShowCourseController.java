@@ -6,6 +6,7 @@
 package coursebase.controller;
 
 import coursebase.entity.Course;
+import java.io.File;
 import java.io.IOException;
 
 import java.net.URL;
@@ -21,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -57,6 +59,7 @@ public class ShowCourseController implements Initializable {
 
     private ListData listdata;
 
+  
     /**
      * Initializes the controller class.
      *
@@ -67,9 +70,10 @@ public class ShowCourseController implements Initializable {
     private Scene scene;
     private Parent root;
 
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+  
         add_button.setOnAction(
                 event -> {
                     try {

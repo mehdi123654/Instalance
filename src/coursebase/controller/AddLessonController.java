@@ -38,8 +38,9 @@ public class AddLessonController implements Initializable {
     @FXML
     private TextField name;
 
+    
     @FXML
-    private TextField fil;
+    private Label fil;
 
     @FXML
     private Button searchbutt;

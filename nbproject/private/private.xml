@@ -10,6 +10,7 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/UpdateCourseController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/entity/Course.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/dao/CourseDao.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/PieChart.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/entity/Lesson.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/AddLessonController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/AddCourseController.java</file>
@@ -21,6 +22,7 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/AddCourse.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/ShowCourse.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/utils/ConnexionSingleton.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/PieChartController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/AddLesson.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/UpdateLesson.fxml</file>
