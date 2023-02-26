@@ -40,13 +40,13 @@ public class UserServices implements UserDAO{
     @Override
     public boolean insertUser(User u) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String req = "insert into user (username,password,email,role) values (?,?,?,?)";
+        String req = "insert into user (username,email,password,role) values (?,?,?,?)";
 
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, u.getUsername());
-            pst.setString(3, u.getEmail());
             pst.setString(2, PasswordEncryption.cryptage(u.getPassword()));
+            pst.setString(3, u.getEmail());
             pst.setString(4, u.getRole());
             pst.executeUpdate();
             return true;
@@ -61,13 +61,13 @@ public class UserServices implements UserDAO{
     @Override
     public boolean updateUser(User u) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String req = "update user set username = ? email= ?  ,password= ?, role = ?  where idUser = ?";
+        /*String req = "update user set username = ? email= ?  ,password= ?, role = ?  where idUser = ?";
 
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, u.getUsername());
-            pst.setString(3, u.getEmail());
-            pst.setString(2, u.getPassword());
+            pst.setString(2, u.getEmail());
+            pst.setString(3, u.getPassword());
             pst.setString(4, u.getRole());
             pst.setInt(5, u.getId());
             pst.executeUpdate();
@@ -77,8 +77,21 @@ public class UserServices implements UserDAO{
             Logger.getLogger(UserServices.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
+        return false; */
+        
+         String qry = "UPDATE user SET username = '" + u.getUsername() + "', email = '" + u.getEmail() + "', password '" + u.getRole() + "' WHERE idUser = " + u.getId();
+
+        try {
+            if (ste.executeUpdate(qry) > 0) {
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
-    }
+        
+    } 
 
     @Override
     public boolean deleteUser(User u) throws SQLException {
@@ -164,7 +177,6 @@ public class UserServices implements UserDAO{
                     .getName()).log(Level.SEVERE, null, ex);
         }
         return list;
-
     }
     
 }

@@ -131,24 +131,26 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private void updateUser(ActionEvent event) throws SQLException {
         
-        User u = (User) tableuser.getSelectionModel().getSelectedItem();
+        User u;
+        u = tableuser.getSelectionModel().getSelectedItem();
 
         String username = tfUsername.getText();
         String email = tfEmail.getText();
         String password = tfpassword.getText();
        
         
-        String role = (String) cbrole.getSelectionModel().getSelectedItem();
+        String Urole;
+        Urole = cbrole.getSelectionModel().getSelectedItem();
 
         u.setUsername(username);
         u.setEmail(email);
         u.setPassword(password);
        
-        u.setRole(role);
+        u.setRole(Urole);
         if (us.updateUser(u)) {
-            AlertWindow("Updating " + role, role + " ************ Updated Sucessfully *******************", Alert.AlertType.INFORMATION);
+            AlertWindow("Updating " + Urole, Urole + " ************ Updated Sucessfully *******************", Alert.AlertType.INFORMATION);
         } else {
-            AlertWindow("Updating " + role, "****************** Update Failed ************************", Alert.AlertType.ERROR);
+            AlertWindow("Updating " + Urole, "****************** Update Failed ************************", Alert.AlertType.ERROR);
         }
         init();
     }
@@ -215,7 +217,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private void handleReturnMenuAdmin(ActionEvent event) {
-        GotoFXML("MainFXML", "Instalance", event);
+        GotoFXML("AdminChoiceFxml", "Instalance", event);
     }
 
     @FXML

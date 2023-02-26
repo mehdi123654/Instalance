@@ -102,7 +102,7 @@ public class SignupFXMLController implements Initializable {
             if (us.insertUser(u)) {
                 AlertWindow("Instalance", "Welcome " + username, Alert.AlertType.INFORMATION);
             } else {
-                AlertWindow("Instalance", "Try again", Alert.AlertType.ERROR);
+                AlertWindow("Instalance", "Try again ", Alert.AlertType.ERROR);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SignupFXMLController.class.getName()).log(Level.SEVERE, null, ex);
