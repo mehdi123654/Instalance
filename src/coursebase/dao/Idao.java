@@ -7,6 +7,7 @@ package coursebase.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.List;
  *
  */
 public interface Idao<Course> {
-
+     public ObservableList<Course> filter(String cat) ;
     public void insert(Course o);
     public ArrayList<String> getCategories();
     public void delete(int id);

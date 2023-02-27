@@ -107,6 +107,7 @@ public class AddLessonController implements Initializable {
 
                 }
         );
+        CID.setVisible(false);
     }
 
 }

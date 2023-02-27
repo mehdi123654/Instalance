@@ -37,12 +37,12 @@
                   <Font size="21.0" />
                </font>
             </TextField>
-            <Label text=" title:" GridPane.rowIndex="3">
+            <Label text=" Title:" GridPane.rowIndex="3">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text=" file" GridPane.rowIndex="4">
+            <Label text=" File:" GridPane.rowIndex="4">
                <font>
                   <Font size="21.0" />
                </font>
@@ -52,12 +52,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="course id:" GridPane.rowIndex="1">
+            <Label GridPane.rowIndex="1">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label text=" id:" GridPane.rowIndex="2">
+            <Label GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
@@ -89,6 +89,6 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Button fx:id="search" layoutX="801.0" layoutY="368.0" mnemonicParsing="false" text="search" />
+      <Button fx:id="search" layoutX="801.0" layoutY="368.0" mnemonicParsing="false" text="Find file" />
    </children>
 </AnchorPane>

@@ -8,8 +8,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="913.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="coursebase.controller.PieChartController">
+<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.PieChartController">
    <children>
       <PieChart fx:id="pieChart" layoutX="96.0" layoutY="75.0" />
       <Button fx:id="back" layoutX="806.0" layoutY="459.0" mnemonicParsing="false" text="Back">
@@ -24,8 +23,8 @@
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
-                  <Stop color="#22186b" />
-                  <Stop color="#d01ad0" offset="1.0" />
+                  <Stop color="#51120a" />
+                  <Stop color="#cfb81d" offset="1.0" />
                </stops>
             </LinearGradient>
          </textFill>

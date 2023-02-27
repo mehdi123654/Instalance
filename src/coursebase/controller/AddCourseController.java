@@ -98,12 +98,16 @@ public class AddCourseController implements Initializable {
                     File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
 
                     if (file != null) {
-                        photo.setText(file.getAbsolutePath());
+                      
                         //creating the image object
                         InputStream stream;
                         try {
                             stream = new FileInputStream(file.getAbsolutePath());
                             Image image = new Image(stream);
+                         String p= file.getAbsolutePath().replace("\\","@");
+                           
+                       
+                              photo.setText(p);
                             img.setImage(image);
                         } catch (FileNotFoundException ex) {
                             Logger.getLogger(AddCourseController.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,7 +118,7 @@ public class AddCourseController implements Initializable {
         btn.setOnAction(
                 event -> {
                     String selectedChoice = category.getSelectionModel().getSelectedItem();
-                    Course p = new Course(title.getText(), description.getText(), Integer.parseInt(price.getText()), selectedChoice, photo.getText());
+                    Course p = new Course(title.getText(), description.getText(), Integer.parseInt(price.getText()), selectedChoice,photo.getText());
                     CourseDao pdao = CourseDao.getInstance();
                     pdao.insert(p);
 

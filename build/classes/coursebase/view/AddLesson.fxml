@@ -13,10 +13,6 @@
 <AnchorPane id="AnchorPane" prefHeight="565.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.AddLessonController">
    <children>
       <TextField fx:id="name" layoutX="232.0" layoutY="161.0" />
-      <Text layoutX="122.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID">
-         <font>
-            <Font size="19.0" />
-         </font></Text>
       <Text layoutX="121.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
          <font>
             <Font size="18.0" />
@@ -25,7 +21,7 @@
          <font>
             <Font size="21.0" />
          </font></Text>
-      <Button fx:id="searchbutt" layoutX="476.0" layoutY="229.0" mnemonicParsing="false" text="Search..." />
+      <Button fx:id="searchbutt" layoutX="229.0" layoutY="229.0" mnemonicParsing="false" text="Search..." />
       <Button fx:id="addLess" layoutX="321.0" layoutY="331.0" mnemonicParsing="false" text="Add Lesson">
          <font>
             <Font size="19.0" />
@@ -47,6 +43,6 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Label fx:id="fil" layoutX="255.0" layoutY="234.0" prefHeight="31.0" prefWidth="139.0" />
+      <Label fx:id="fil" layoutX="326.0" layoutY="229.0" prefHeight="31.0" prefWidth="139.0" />
    </children>
 </AnchorPane>

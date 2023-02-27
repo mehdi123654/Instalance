@@ -102,6 +102,7 @@ public class UpdateCourseController implements Initializable {
         price_field.setText(price);
         photo_field.setText(photo);
         categ_choice.setValue(catg);
+    
          search.setOnAction(
                 event -> {
 
@@ -174,6 +175,7 @@ public class UpdateCourseController implements Initializable {
             }
 
         });
+            id_field.setVisible(false);
         delall.setOnAction(event -> {
 
             ObservableList<Lesson> items = lesstable.getItems();

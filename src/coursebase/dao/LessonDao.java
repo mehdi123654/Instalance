@@ -10,14 +10,11 @@ import coursebase.utils.ConnexionSingleton;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
-
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 
 /**
  *

@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-//import java.util.ArrayList;
-//import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -91,22 +89,35 @@ public class CourseDao implements Idao<Course> {
         }
         return categories;
     }
-       
-//          String req = "SELECT category FROM course";
-//            ArrayList<String> categories = new ArrayList<>();
-//        try {
-//            st.executeQuery(req);
-//            
-// rs.next();
-// categories.add(rs.getString("category"));
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return categories;
+    
    
+    @Override
+    public ObservableList<Course> filter(String cat) {
+     // String req = " SELECT c.cid,title,description,price,category,photo,count(lesson.lid)  FROM course c  INNER JOIN lesson ON c.cid = lesson.cid GROUP BY c.cid";
+         String req="select * from course where category =" + cat;
+     ObservableList<Course> list = FXCollections.observableArrayList();
 
-  
+        try {
+            rs = st.executeQuery(req);
+            while (rs.next()) {
+                Course p = new Course();
+                p.setCid(rs.getInt(1));
+                  p.setTitle(rs.getString(2));
+                p.setDecription(rs.getString(3));
+                p.setPrice(rs.getInt(4));
+                p.setCategory(rs.getString(5));
+                p.setPhoto(rs.getString(6));
+              //   p.setnbLessons(rs.getInt(7));
+
+                list.add(p);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }   
+
     @Override
     public ObservableList<Course> displayAll() {
      // String req = " SELECT c.cid,title,description,price,category,photo,count(lesson.lid)  FROM course c  INNER JOIN lesson ON c.cid = lesson.cid GROUP BY c.cid";
@@ -134,10 +145,8 @@ public class CourseDao implements Idao<Course> {
         return list;
     }
 
- 
-    @Override
-    public Course displayById(int id) {
-        String req = "select * from course where cid =" + id;
+    public Course display(Course c) {
+        String req = "select * from course where cid =" + c.getCid();
         Course p = new Course();
         try {
             rs = st.executeQuery(req);
@@ -145,6 +154,25 @@ public class CourseDao implements Idao<Course> {
             rs.next();
 
             p.setCid(rs.getInt("cid"));
+            p.setDecription(rs.getString("description"));
+            p.setPrice(rs.getInt("price"));
+            p.setCategory(rs.getString("category"));
+            p.setPhoto(rs.getString("photo"));
+            //}  
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
+ 
+    
+    public Course search(int id) {
+        String req = "SELECT * FROM course WHERE cid LIKE "+ id;
+        Course p = new Course();
+        try {
+            rs = st.executeQuery(req);
+            // while(rs.next()){
+             p.setCid(rs.getInt("cid"));
             p.setDecription(rs.getString("description"));
             p.setPrice(rs.getInt("price"));
             p.setCategory(rs.getString("category"));
@@ -170,6 +198,11 @@ public class CourseDao implements Idao<Course> {
             Logger.getLogger(CourseDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    @Override
+    public Course displayById(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

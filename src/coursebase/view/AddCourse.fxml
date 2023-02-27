@@ -49,7 +49,7 @@
          </fill>
       </Circle>
       <Separator layoutX="586.0" layoutY="-6.0" orientation="VERTICAL" prefHeight="668.0" prefWidth="22.0" />
-      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="852.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="photo" layoutX="850.0" layoutY="279.0" prefHeight="31.0" prefWidth="51.0" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="852.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="photo" layoutX="663.0" layoutY="313.0" prefHeight="31.0" prefWidth="151.0" />
    </children>
 </AnchorPane>
