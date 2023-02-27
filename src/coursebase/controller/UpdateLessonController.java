@@ -7,12 +7,14 @@ package coursebase.controller;
 
 import coursebase.dao.LessonDao;
 import coursebase.entity.Lesson;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,14 +27,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
+import java.awt.Desktop;  
+import java.io.*;  
 /**
  * FXML Controller class
  *
  * @author user
  */
 public class UpdateLessonController implements Initializable {
-
+    @FXML
+    private Button vw;
     @FXML
     private Button delete;
     @FXML
@@ -50,6 +54,9 @@ public class UpdateLessonController implements Initializable {
     private Button save;
       @FXML
     private Button search;
+      
+    @FXML
+    private Button bk;
   FileChooser fileChooser = new FileChooser();
 
     /**
@@ -57,19 +64,39 @@ public class UpdateLessonController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+  
+
     }
 
     void displayName(String h) {
-  search.setOnAction(
+ 
+          vw.setOnAction(
+                event -> {
+                  
+    String p = fil.getText().replace("@", "\\");
+         File file=new File(p);
+         Desktop desktop = Desktop.getDesktop();  
+              try { 
+                  desktop.open(file);
+              } catch (IOException ex) {
+                  Logger.getLogger(UpdateLessonController.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+
+                }
+        );
+            search.setOnAction(
                 event -> {
 
-                    fileChooser.setTitle("Open File");
-                    File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
-
+                     fileChooser.setTitle("Open File");
+                    File file = fileChooser.showOpenDialog(null); 
+                   
                     if (file != null) {
-                        fil.setText(file.getAbsolutePath());
-                        //creating the image object                     
+                      
+                        //creating the image object
+                        InputStream stream;
+                        String p = file.getAbsolutePath().replace("\\", "@");
+                        fil.setText(p);
                     }
                 }
         );

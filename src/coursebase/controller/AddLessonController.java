@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 /**
@@ -38,7 +39,6 @@ public class AddLessonController implements Initializable {
     @FXML
     private TextField name;
 
-    
     @FXML
     private Label fil;
 
@@ -55,7 +55,6 @@ public class AddLessonController implements Initializable {
      *
      * @param username
      */
-
     public void displayName(String username) {
         CID.setText(username);
 
@@ -63,17 +62,17 @@ public class AddLessonController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+ fileChooser.getExtensionFilters().addAll(
+         new FileChooser.ExtensionFilter("pdf files",".pdf")
+ );
         searchbutt.setOnAction(
                 event -> {
 
                     fileChooser.setTitle("Open File");
                     File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
+                    String p = file.getAbsolutePath().replace("\\", "@");
+                    fil.setText(p);
 
-                    if (file != null) {
-                        fil.setText(file.getAbsolutePath());
-                        //creating the image object
-
-                    }
                 }
         );
         shwall.setOnAction(

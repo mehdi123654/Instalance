@@ -34,6 +34,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 /**
@@ -94,8 +95,9 @@ public class UpdateCourseController implements Initializable {
      * @param catg
      */
      FileChooser fileChooser = new FileChooser();
+     
     public void displayName(String id, String desc, String title, String price, String photo, String catg) {
-        
+
         id_field.setText(id);
         desc_field.setText(desc);
         title_field.setText(title);

@@ -3,29 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/dao/Idao.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/ListLesson.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/UpdateCourse.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/UpdateLessonController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/UpdateCourseController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/entity/Course.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/dao/CourseDao.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/PieChart.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/entity/Lesson.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/AddLessonController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/AddCourseController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/dao/Ldao.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/ShowCourseController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/ListData.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/test/ConnexionBDJavafx.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/dao/LessonDao.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/AddCourse.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/ShowCourse.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/utils/ConnexionSingleton.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/controller/PieChartController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/AddLesson.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/CourseManagement/src/coursebase/view/UpdateLesson.fxml</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ShowCourseController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/AddLessonController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/UpdateLessonController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/AddCourseController.java</file>
         </group>
     </open-files>
 </project-private>

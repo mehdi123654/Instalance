@@ -80,7 +80,9 @@ public class AddCourseController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+fileChooser.getExtensionFilters().addAll(
+         new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+ );
         category.setItems(FXCollections.observableArrayList("Development", "Bussiness", "Marketing", "Mathematics"));
         UnaryOperator<Change> numericFilter = change -> {
             String newText = change.getControlNewText();
