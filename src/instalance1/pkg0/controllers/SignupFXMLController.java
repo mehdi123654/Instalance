@@ -116,6 +116,5 @@ public class SignupFXMLController implements Initializable {
     private void handleCloseButtonAction(ActionEvent event) {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
          stage.close();
-    }
-    
+    }  
 }
