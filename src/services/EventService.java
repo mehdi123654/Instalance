@@ -101,21 +101,7 @@ public class EventService implements EventInterface {
         }
     }
 
-    /*@Override
-    public void updateEvent(Event event) throws SQLException {
-        String query = "UPDATE event SET  description=?, event_name=?, start_date=?, end_date=?, location=?, max_attendees=?, registrationDeadline=? WHERE event_id=?";//
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, event.getDescription());
-            statement.setString(2, event.getEvent_name());
-            statement.setDate(3, (java.sql.Date) event.getStart_date());
-            statement.setDate(4, (java.sql.Date) event.getEnd_date());
-            statement.setString(5, event.getLocation());
-            statement.setInt(6, event.getMax_attendees());
-            statement.setDate(7, (java.sql.Date) event.getRegistrationDeadline());
-            statement.setInt(8, event.getEvent_id());
-            statement.executeUpdate();
-        }
-    }*/
+    
     @Override
     public void updateEvent(int eventId, Event event) throws SQLException {
         String query = "UPDATE event SET  description=?, event_name=?, start_date=?, end_date=?, location=?, max_attendees=?, registrationDeadline=? WHERE event_id=? ";
