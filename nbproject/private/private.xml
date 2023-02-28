@@ -4,18 +4,22 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/entities/Hackathon.java</file>
+            <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/controller/WorkshopController.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/view/Hackathon.fxml</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/entities/Workshop.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/utils/DataBaseConnection.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/services/HackathonService.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/dao/WorkshopInterface.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/controller/BOmanagementController.java</file>
-            <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/view/User.fxml</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/services/EventService.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/pidev_desktop_instalance/PIDEV_DESKTOP_INSTALANCE.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/entities/Event.java</file>
+            <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/view/BOmanagement.fxml</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/controller/UserController.java</file>
+            <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/dao/EventInterface.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/dao/HackathonInterface.java</file>
+            <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/controller/UpdateController.java</file>
+            <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/services/WorkshopService.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/controller/HackathonController.java</file>
             <file>file:/C:/Users/fatha/Documents/NetBeansProjects/PIDEV_DESKTOP_INSTALANCE/src/controller/FreelancermanagementController.java</file>
         </group>

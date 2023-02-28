@@ -51,7 +51,7 @@
         <Button fx:id="saveButton1" onAction="#saveWorkshop" text="Save" />
         <Button fx:id="cancelButton1" onAction="#cancell" text="Cancel" />
     </HBox>
-   <columnConstraints>
+   <!--<columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
@@ -66,6 +66,6 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
-   </rowConstraints>
+   </rowConstraints>-->
 
 </GridPane>

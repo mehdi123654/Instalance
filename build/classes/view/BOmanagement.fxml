@@ -36,13 +36,13 @@
                 <TableColumn fx:id="hackathonPrizesColumn" text="Prizes" />
             </columns>
         </TableView>
-        <Button fx:id="addWorkshopButton" layoutX="911.0" layoutY="161.0" onAction="#addWorkshop" text="Add Workshop" AnchorPane.rightAnchor="95.40000000000009" AnchorPane.topAnchor="161.0" />
-        <Button fx:id="addHackathonButton" layoutX="700.0" layoutY="441.0" onAction="#addHackathon" text="Add Hackathon" AnchorPane.rightAnchor="93.60000000000002" AnchorPane.topAnchor="441.0" />
+        <Button fx:id="addWorkshopButton" layoutX="702.0" layoutY="101.0" onAction="#addWorkshop" prefHeight="30.0" prefWidth="127.0" text="Add Workshop" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="101.0" />
+        <Button fx:id="addHackathonButton" layoutX="689.0" layoutY="441.0" onAction="#addHackathon" prefHeight="30.0" prefWidth="127.0" text="Add Hackathon" AnchorPane.rightAnchor="87.0" AnchorPane.topAnchor="441.0" />
       <AmbientLight color="CHARTREUSE" lightOn="true" />
-      <Button fx:id="deleteButton" layoutX="689.0" layoutY="232.0" mnemonicParsing="false" onAction="#Delete" text="Delete Workshop" />
-      <Button fx:id="deleteButton2" layoutX="688.0" layoutY="506.0" mnemonicParsing="false" onAction="#Deletee" text="Delete hackathon" />
-      <Button fx:id="updateButton" layoutX="684.0" layoutY="101.0" mnemonicParsing="false" onAction="#update" text="Update Workshop" />
-      <Button fx:id="updateButton2" layoutX="682.0" layoutY="381.0" mnemonicParsing="false" onAction="#update2" text="Update Hackathon" />
+      <Button fx:id="deleteButton" layoutX="684.0" layoutY="232.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="127.0" text="Delete Workshop" />
+      <Button fx:id="deleteButton2" layoutX="688.0" layoutY="506.0" mnemonicParsing="false" onAction="#Deletee" prefHeight="30.0" prefWidth="127.0" text="Delete hackathon" />
+      <Button fx:id="updateButton" layoutX="684.0" layoutY="169.0" mnemonicParsing="false" onAction="#Update" prefHeight="30.0" prefWidth="127.0" text="Update Workshop" />
+      
     </children>
    <effect>
       <ColorAdjust />

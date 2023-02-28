@@ -63,7 +63,7 @@ public class PIDEV_DESKTOP_INSTALANCE extends Application {
     //}
     @Override
 public void start(Stage primaryStage) throws Exception{
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/BOmanagement.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/User.fxml"));
     Parent root = loader.load();
     Scene scene = new Scene(root);
     primaryStage.setScene(scene);

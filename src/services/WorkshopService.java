@@ -132,7 +132,7 @@ public ObservableList<Workshop> getAllWorkshops() {
         }
     }
 
-    @Override
+    /*@Override
     public void updateWorkshop(Workshop workshop) {
         String updateSql = "UPDATE event SET description = ?, event_name = ?, start_date = ?, end_date = ?, location = ?, max_attendees = ?, registrationDeadline = ? WHERE event_id = ?";
         String updateWorkshopSql = "UPDATE workshop SET  agenda = ? WHERE event_id = ?";
@@ -157,7 +157,33 @@ public ObservableList<Workshop> getAllWorkshops() {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }*/
+    @Override
+public void updateWorkshop(Workshop workshop) {
+    String updateSql = "UPDATE event SET description = ?, event_name = ?, start_date = ?, end_date = ?, location = ?, max_attendees = ?, registrationDeadline = ? WHERE event_id = ?";
+    String updateWorkshopSql = "UPDATE workshop SET  agenda = ? WHERE event_id = ?";
+    try (PreparedStatement statement = connection.prepareStatement(updateSql);
+         PreparedStatement workshopStatement = connection.prepareStatement(updateWorkshopSql)) {
+        // update the event table
+        statement.setString(1, workshop.getDescription());
+        statement.setString(2, workshop.getEvent_name());
+        statement.setObject(3, workshop.getStart_date());
+        statement.setObject(4, workshop.getEnd_date());
+        statement.setString(5, workshop.getLocation());
+        statement.setInt(6, workshop.getMax_attendees());
+        statement.setObject(7, workshop.getRegistrationDeadline());
+        statement.setInt(8, workshop.getEvent_id());
+        statement.executeUpdate();
+
+        // update the workshop table
+        workshopStatement.setString(1, workshop.getAgenda());
+        workshopStatement.setInt(2, workshop.getEvent_id());
+        workshopStatement.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
+
     
 
     @Override
