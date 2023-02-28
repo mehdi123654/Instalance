@@ -40,33 +40,7 @@ public class HackathonService implements HackathonInterface {
 
     }
 
-    /*@Override
-    public ObservableList<Hackathon> getAllHackathons() {
-        ObservableList<Hackathon> hackathons = FXCollections.observableArrayList();
-
-        String sql = "SELECT * FROM hackathon";
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-
-            while (resultSet.next()) {
-                int eventId = resultSet.getInt("event_id");
-                Event event = eventService.getEventById(eventId);
-
-                Date submissionDeadline = resultSet.getDate("submissionDeadline");
-                String prizes = resultSet.getString("prizes");
-
-                Hackathon hackathon = new Hackathon(event.getEvent_id(), event.getDescription(), event.getEvent_name(),
-                        event.getStart_date(), event.getEnd_date(), event.getLocation(),
-                        event.getMax_attendees(), event.getRegistrationDeadline(), submissionDeadline, prizes);
-                hackathons.add(hackathon);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return hackathons;
-    }*/
+    
     @Override
 public ObservableList<Hackathon> getAllHackathons() {
     ObservableList<Hackathon> hackathons = FXCollections.observableArrayList();
