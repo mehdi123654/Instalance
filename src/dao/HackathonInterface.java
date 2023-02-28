@@ -19,4 +19,5 @@ public interface HackathonInterface {
     void updateHackathon(Hackathon hackathon) throws SQLException;
     void deleteHackathon(Hackathon hackathon) throws SQLException;
     Hackathon getHackathonById(int id);
+
 }

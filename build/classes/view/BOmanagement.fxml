@@ -20,6 +20,7 @@
                 <TableColumn fx:id="workshopMaxAttendeesColumn" prefWidth="108.79998779296875" text="Max Attendees" />
                 <TableColumn fx:id="workshopRegistrationDeadlineColumn" prefWidth="116.800048828125" text="Registration Deadline" />
                 <TableColumn fx:id="workshopAgendaColumn" prefWidth="84.800048828125" text="Agenda" />
+                
             </columns>
         </TableView>
         <TableView fx:id="hackathonsTable" layoutY="332.0" prefHeight="327.0" prefWidth="722.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="360" AnchorPane.topAnchor="332.0">
