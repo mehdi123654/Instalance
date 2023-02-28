@@ -40,29 +40,7 @@ public class WorkshopService implements WorkshopInterface {
         }
     }
 
-    /*@Override
-    public ObservableList<Workshop> getAllWorkshops() {
-        ObservableList<Workshop> workshops = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM workshop";
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-
-            while (resultSet.next()) {
-                int eventId = resultSet.getInt("event_id");
-                Event event = eventService.getEventById(eventId);
-                String agenda = resultSet.getString("agenda");
-
-                Workshop workshop = new Workshop(event.getEvent_id(), event.getDescription(), event.getEvent_name(),
-                        event.getStart_date(), event.getEnd_date(), event.getLocation(),
-                        event.getMax_attendees(), event.getRegistrationDeadline(), agenda);
-                workshops.add(workshop);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return workshops;
-    }*/
+    
     @Override
 public ObservableList<Workshop> getAllWorkshops() {
     ObservableList<Workshop> workshops = FXCollections.observableArrayList();
