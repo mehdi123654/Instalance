@@ -5,6 +5,7 @@
  */
 package instalance1.pkg0.entities;
 
+import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
@@ -14,6 +15,12 @@ import java.util.Objects;
 public class User {
     private int id;
     private String username, password, email,role;
+    private int isVerified =0;
+    private int isBanned =0;
+    private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
+    private Timestamp updatedAt = new Timestamp(System.currentTimeMillis());
+    public User() {
+    }
 
     public User(int id) {
         this.id = id;
@@ -32,7 +39,9 @@ public class User {
         this.password = password;
         this.email = email;
         this.role = role;
-    }
+    } 
+    
+    
 
     public int getId() {
         return id;
@@ -73,6 +82,33 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public int getIsVerified() {
+        return isVerified;
+    }
+
+    public void setIsVerified(int isVerified) {
+        this.isVerified = isVerified;
+    }
+
+    public int getIsBanned() {
+        return isBanned;
+    }
+
+    public void setIsBanned(int isBanned) {
+        this.isBanned = isBanned;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    
+    
 
     @Override
     public int hashCode() {

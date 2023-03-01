@@ -43,7 +43,7 @@
          <font>
             <Font name="Monospaced Bold" size="12.0" />
          </font></Button>
-      <TableView fx:id="tableuser" layoutX="330.0" layoutY="145.0" prefHeight="581.0" prefWidth="962.0" style="-fx-border-color: #6aa84f; -fx-background-color: #a9a9a9 , white , white; -fx-background-radius: 7px 7px 0px 0px; -fx-background-insets: 0 11px 0 0; -fx-padding: 0 0 5px 0;" styleClass="ba">
+      <TableView fx:id="tableuser" layoutX="330.0" layoutY="145.0" onMouseClicked="#fillForm" prefHeight="581.0" prefWidth="962.0" style="-fx-border-color: #6aa84f; -fx-background-color: #a9a9a9 , white , white; -fx-background-radius: 7px 7px 0px 0px; -fx-background-insets: 0 11px 0 0; -fx-padding: 0 0 5px 0;" styleClass="ba">
         <columns>
           <TableColumn fx:id="colUsername" prefWidth="226.4000244140625" text="Username" />
             <TableColumn fx:id="colEmail" prefWidth="239.20001220703125" text="Email" />

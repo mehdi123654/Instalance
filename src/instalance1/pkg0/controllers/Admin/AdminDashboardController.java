@@ -127,26 +127,34 @@ public class AdminDashboardController implements Initializable {
         alert.setContentText(contenu);
         alert.showAndWait();
     }
+    
+    @FXML
+    private void fillForm(Event event){
+        
+        User u;
+        u = tableuser.getSelectionModel().getSelectedItem();
+        tfUsername.setText(u.getUsername());
+        tfEmail.setText(u.getEmail());
+        //tfpassword.setText(u.getPassword());
+    }
 
     @FXML
     private void updateUser(ActionEvent event) throws SQLException {
         
         User u;
         u = tableuser.getSelectionModel().getSelectedItem();
-
+        
+        System.out.println(u);
         String username = tfUsername.getText();
         String email = tfEmail.getText();
-        String password = tfpassword.getText();
-       
-        
-        String Urole;
-        Urole = cbrole.getSelectionModel().getSelectedItem();
+        String password = tfpassword.getText();        
+        String Urole = cbrole.getSelectionModel().getSelectedItem();
 
         u.setUsername(username);
         u.setEmail(email);
-        u.setPassword(password);
-       
+        u.setPassword(password);       
         u.setRole(Urole);
+        
         if (us.updateUser(u)) {
             AlertWindow("Updating " + Urole, Urole + " ************ Updated Sucessfully *******************", Alert.AlertType.INFORMATION);
         } else {

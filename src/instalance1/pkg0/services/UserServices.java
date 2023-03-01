@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,30 +40,47 @@ public class UserServices implements UserDAO{
 
     @Override
     public boolean insertUser(User u) throws SQLException {
+        boolean connectedUser = false;
+        System.out.print("Creating User ********************************");
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String req = "insert into user (username,email,password,role) values (?,?,?,?)";
+        String req = "insert into user (username,email,password,role,createdAt,isVerified,isBanned,isConnected) values (?,?,?,?,?,?,?,?)";
 
         try {
-            pst = conn.prepareStatement(req);
+            pst = conn.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, u.getUsername());
             pst.setString(2, PasswordEncryption.cryptage(u.getPassword()));
             pst.setString(3, u.getEmail());
             pst.setString(4, u.getRole());
-            pst.executeUpdate();
-            return true;
+            pst.setTimestamp(5, u.getCreatedAt());
+            pst.setInt(6, 0);
+            pst.setInt(7, 0);
+            pst.setInt(8, 1);
+            
+            System.out.print(pst);
+            
+            int ok = pst.executeUpdate();
+            if(ok != -1){
+                rs = pst.getGeneratedKeys();
+                rs.next();
+                System.out.println("Successfully signed user! *****************************");
+                System.out.print(rs.getInt(1)  + "    OOOOOOOOOOOOOOOOOOOO");
+                connectedUser = true;
+            } else {
+                System.out.println("Failed to sign user! ************************");
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(UserServices.class
                     .getName()).log(Level.SEVERE, null, ex);
-            return false;
     }       
+        return connectedUser;
 }
 
     @Override
     public boolean updateUser(User u) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        /*String req = "update user set username = ? email= ?  ,password= ?, role = ?  where idUser = ?";
-
+        String req = "UPDATE `user` SET `username`=?,`email`=?,`password`=?,`role`=? WHERE idUser = ?";
+        
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, u.getUsername());
@@ -70,6 +88,7 @@ public class UserServices implements UserDAO{
             pst.setString(3, u.getPassword());
             pst.setString(4, u.getRole());
             pst.setInt(5, u.getId());
+            //System.out.println(pst.);
             pst.executeUpdate();
 
             return true;
@@ -77,19 +96,7 @@ public class UserServices implements UserDAO{
             Logger.getLogger(UserServices.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        return false; */
-        
-         String qry = "UPDATE user SET username = '" + u.getUsername() + "', email = '" + u.getEmail() + "', password '" + u.getRole() + "' WHERE idUser = " + u.getId();
-
-        try {
-            if (ste.executeUpdate(qry) > 0) {
-                return true;
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UserServices.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
+        return false; 
         
     } 
 
