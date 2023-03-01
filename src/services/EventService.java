@@ -88,10 +88,10 @@ public class EventService implements EventInterface {
 
     @Override
     public void addEvent(Event event) throws SQLException {
-        String query = "INSERT INTO event (description , event_name, start_date, end_date, location, max_attendees, registrationDeadline) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO event ( event_name, description, start_date, end_date, location, max_attendees, registrationDeadline) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, event.getDescription());
-            statement.setString(2, event.getEvent_name());
+            statement.setString(1, event.getEvent_name());
+            statement.setString(2, event.getDescription());
             statement.setDate(3, (Date) event.getStart_date());
             statement.setDate(4, (Date) event.getEnd_date());
             statement.setString(5, event.getLocation());
@@ -104,11 +104,11 @@ public class EventService implements EventInterface {
     
     @Override
     public void updateEvent(int eventId, Event event) throws SQLException {
-        String query = "UPDATE event SET  description=?, event_name=?, start_date=?, end_date=?, location=?, max_attendees=?, registrationDeadline=? WHERE event_id=? ";
+        String query = "UPDATE event SET   event_name=?, description=?, start_date=?, end_date=?, location=?, max_attendees=?, registrationDeadline=? WHERE event_id=? ";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, event.getDescription());
-            statement.setString(2, event.getEvent_name());
+            statement.setString(1, event.getEvent_name());
+            statement.setString(2, event.getDescription());
             statement.setDate(3, (Date) event.getStart_date());
             statement.setDate(4, (Date) event.getEnd_date());
             statement.setString(5, event.getLocation());

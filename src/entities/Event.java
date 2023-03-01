@@ -25,10 +25,10 @@ public class Event {
     private Date registrationDeadline;
     //private List<User> participants;
 
-    public Event(int event_id, String description, String event_name, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline) { 
+    public Event(int event_id,  String event_name,String description, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline) { 
         this.event_id = event_id;
-        this.description = description;
         this.event_name = event_name;
+        this.description = description;
         this.start_date = start_date;
         this.end_date = end_date;
         this.location = location;
@@ -36,9 +36,9 @@ public class Event {
         this.registrationDeadline = registrationDeadline;
     }
 
-    public Event(String description, String event_name, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline) {
-        this.description = description;
+    public Event(String event_name,String description,  Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline) {
         this.event_name = event_name;
+        this.description = description;
         this.start_date = start_date;
         this.end_date = end_date;
         this.location = location;

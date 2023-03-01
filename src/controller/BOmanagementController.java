@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -131,32 +132,61 @@ public class BOmanagementController implements Initializable {
         ObservableList HackathonList = hackathonService.getAllHackathons();
         workshopsTable.setItems(WorkshopList);
         hackathonsTable.setItems(HackathonList);
+        workshopNameColumn.setSortable(true);
+        workshopNameColumn.setComparator(
+                (workshop1, workshop2) -> workshop1.compareTo(workshop2));
+
+        workshopsTable.setOnSort(event -> {
+            ObservableList<Workshop> WorkshopSortedList = workshopsTable.getItems().sorted((w1, w2) -> {
+                String workshopName1 = w1.getEvent_name();
+                String workshopName2 = w2.getEvent_name();
+                return workshopName1.compareToIgnoreCase(workshopName2);
+            });
+            workshopsTable.setItems(WorkshopSortedList);
+        });
+        hackathonNameColumn.setSortable(true);
+        hackathonNameColumn.setComparator(
+                (hackathon1, hackathon2) -> hackathon1.compareTo(hackathon2));
+
+        hackathonsTable.setOnSort(event -> {
+            ObservableList<Hackathon> HackathonSortedList = hackathonsTable.getItems().sorted((w1, w2) -> {
+                String hackathonName1 = w1.getEvent_name();
+                String hackathonName2 = w2.getEvent_name();
+                return hackathonName1.compareToIgnoreCase(hackathonName2);
+            });
+            hackathonsTable.setItems(HackathonSortedList);
+        });
         loadData();
     }
 
-    
-
     public void loadData() {
-
+        /*
+         * workshopsTable.getSortOrder().add(workshopNameColumn);
+         * hackathonsTable.getSortOrder().add(hackathonNameColumn);
+         * 
+         * workshopNameColumn.setSortable(true);
+         * hackathonNameColumn.setSortable(true);
+         */
         hackathonEvent_idColumn.setCellValueFactory(new PropertyValueFactory<>("event_id"));
-        hackathonDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("event_name"));
+        hackathonDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         hackathonEndDateColumn.setCellValueFactory(new PropertyValueFactory<>("end_date"));
         hackathonLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
         hackathonMaxAttendeesColumn.setCellValueFactory(new PropertyValueFactory<>("max_attendees"));
-        hackathonNameColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        hackathonNameColumn.setCellValueFactory(new PropertyValueFactory<>("event_name"));
         hackathonPrizesColumn.setCellValueFactory(new PropertyValueFactory<>("prizes"));
         hackathonRegistrationDeadlineColumn.setCellValueFactory(new PropertyValueFactory<>("registrationDeadline"));
         hackathonStartDateColumn.setCellValueFactory(new PropertyValueFactory<>("start_date"));
         hackathonSubmissionDeadlineColumn.setCellValueFactory(new PropertyValueFactory<>("submissionDeadline"));
         workshopEvent_idColumn.setCellValueFactory(new PropertyValueFactory<>("event_id"));
         workshopAgendaColumn.setCellValueFactory(new PropertyValueFactory<>("agenda"));
-        workshopDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("event_name"));
+        workshopDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         workshopEndDateColumn.setCellValueFactory(new PropertyValueFactory<>("end_date"));
         workshopLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
         workshopMaxAttendeesColumn.setCellValueFactory(new PropertyValueFactory<>("max_attendees"));
-        workshopNameColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        workshopNameColumn.setCellValueFactory(new PropertyValueFactory<>("event_name"));
         workshopRegistrationDeadlineColumn.setCellValueFactory(new PropertyValueFactory<>("registrationDeadline"));
         workshopStartDateColumn.setCellValueFactory(new PropertyValueFactory<>("start_date"));
+
     }
 
     /*

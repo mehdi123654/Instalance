@@ -60,7 +60,7 @@ public ObservableList<Workshop> getAllWorkshops() {
             Date registrationDeadline = resultSet.getDate("registrationDeadline");
             String agenda = resultSet.getString("agenda");
 
-            Workshop workshop = new Workshop(eventId, description, eventName, startDate, endDate, location, maxAttendees, registrationDeadline, agenda);
+            Workshop workshop = new Workshop(eventId,  eventName, description, startDate, endDate, location, maxAttendees, registrationDeadline, agenda);
             workshops.add(workshop);
         }
     } catch (SQLException e) {

@@ -14,13 +14,13 @@ import java.sql.Date;
 public class Workshop extends Event{
     private String agenda;
 
-    public Workshop(int event_id, String description, String event_name, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline, String agenda) {
-        super(event_id, description, event_name, start_date, end_date, location, max_attendees, registrationDeadline);
+    public Workshop(int event_id,  String event_name,String description, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline, String agenda) {
+        super(event_id, event_name, description, start_date, end_date, location, max_attendees, registrationDeadline);
         this.agenda = agenda;
     }
 
-    public Workshop( String description, String event_name, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline,String agenda) {
-        super(description, event_name, start_date, end_date, location, max_attendees, registrationDeadline);
+    public Workshop( String event_name, String description, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline,String agenda) {
+        super( event_name,description, start_date, end_date, location, max_attendees, registrationDeadline);
         this.agenda = agenda;
     }
 

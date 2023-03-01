@@ -61,7 +61,7 @@ public ObservableList<Hackathon> getAllHackathons() {
             Date submissionDeadline = resultSet.getDate("submissionDeadline");
             String prizes = resultSet.getString("prizes");
 
-            Hackathon hackathon = new Hackathon(eventId, description, eventName, startDate, endDate, location, maxAttendees, registrationDeadline, submissionDeadline, prizes);
+            Hackathon hackathon = new Hackathon(eventId, eventName,description, startDate, endDate, location, maxAttendees, registrationDeadline, submissionDeadline, prizes);
             hackathons.add(hackathon);
         }
     } catch (SQLException e) {
@@ -114,15 +114,15 @@ public void addHackathon(Hackathon hackathon) {
 }*/
     @Override
     public void addHackathon(Hackathon hackathon) {
-        String insertEventSql = "INSERT INTO event (description, event_name, start_date, end_date, location, max_attendees, registrationDeadline) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String insertEventSql = "INSERT INTO event ( event_name, description, start_date, end_date, location, max_attendees, registrationDeadline) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         String insertHackathonSql = "INSERT INTO hackathon (event_id, submissionDeadline, prizes) VALUES (?, ?, ?)";
 
         try {
             // Insert data into event table
             PreparedStatement eventStatement = connection.prepareStatement(insertEventSql, Statement.RETURN_GENERATED_KEYS);
-            eventStatement.setString(1, hackathon.getDescription());
-            eventStatement.setString(2, hackathon.getEvent_name());
+            eventStatement.setString(1, hackathon.getEvent_name());
+            eventStatement.setString(2, hackathon.getDescription());
             eventStatement.setDate(3, (Date) hackathon.getStart_date());
             eventStatement.setDate(4, (Date) hackathon.getEnd_date());
             eventStatement.setString(5, hackathon.getLocation());
@@ -169,13 +169,13 @@ public void addHackathon(Hackathon hackathon) {
     }*/
     @Override
     public void updateHackathon(Hackathon hackathon) {
-        String updateSql = "UPDATE event SET description = ?, event_name = ?, start_date = ?, end_date = ?, location = ?, max_attendees = ?, registrationDeadline = ? WHERE event_id = ?";
+        String updateSql = "UPDATE event SET  event_name = ?, description = ?, start_date = ?, end_date = ?, location = ?, max_attendees = ?, registrationDeadline = ? WHERE event_id = ?";
         String updateHackathonSql = "UPDATE hackathon SET submissionDeadline = ?, prizes = ? WHERE event_id = ?";
         try {
             // update the event table
             PreparedStatement statement = connection.prepareStatement(updateSql);
-            statement.setString(1, hackathon.getDescription());
-            statement.setString(2, hackathon.getEvent_name());
+            statement.setString(1, hackathon.getEvent_name());
+            statement.setString(2, hackathon.getDescription());
             statement.setDate(3, (Date) hackathon.getStart_date());
             statement.setDate(4, (Date) hackathon.getEnd_date());
             statement.setString(5, hackathon.getLocation());

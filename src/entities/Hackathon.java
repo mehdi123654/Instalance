@@ -15,14 +15,14 @@ public class Hackathon extends Event{
     private String prizes;
     private Date submissionDeadline;
 
-    public Hackathon(int event_id, String description, String event_name, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline, Date submissionDeadline ,  String prizes) {
-        super(event_id, description, event_name, start_date, end_date, location, max_attendees, registrationDeadline);
+    public Hackathon(int event_id, String event_name,String description,  Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline, Date submissionDeadline ,  String prizes) {
+        super(event_id,  event_name,description, start_date, end_date, location, max_attendees, registrationDeadline);
         this.prizes = prizes;
         this.submissionDeadline = submissionDeadline;
     }
 
-    public Hackathon(String description, String event_name, Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline, Date submissionDeadline, String prizes) {
-        super(description, event_name, start_date, end_date, location, max_attendees, registrationDeadline);
+    public Hackathon(String event_name,String description,  Date start_date, Date end_date, String location, int max_attendees, Date registrationDeadline, Date submissionDeadline, String prizes) {
+        super( event_name,description, start_date, end_date, location, max_attendees, registrationDeadline);
         this.prizes = prizes;
         this.submissionDeadline = submissionDeadline;
     }
