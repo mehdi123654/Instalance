@@ -106,6 +106,9 @@ import entities.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.mail.MessagingException;
+
 import javafx.fxml.Initializable;
 import java.time.LocalDate;
 import java.sql.Date;
@@ -122,7 +125,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import services.*;
-
+import mail.Mailing;
 /**
  * FXML Controller class
  *
@@ -178,7 +181,7 @@ public class WorkshopController implements Initializable {
         return isSaveClicked1;
     }
 
-    public void saveWorkshop() {
+    public void saveWorkshop() throws MessagingException {
         // Check if input is valid
         if (!isInputValid()) {
             return;
@@ -202,6 +205,17 @@ public class WorkshopController implements Initializable {
         // Add the workshop to the database
         WorkshopService workshopService = new WorkshopService();
         workshopService.addWorkshop(workshop);
+        String subject = "Don't miss Our New Workshop!!!!!";
+        String body = "A new workshop has been added:\n\n"
+            + "Event Name: " + workshop.getEvent_name() + "\n"
+            + "Description: " + workshop.getDescription() + "\n"
+            + "Start Date: " + workshop.getStart_date() + "\n"
+            + "End Date: " + workshop.getEnd_date() + "\n"
+            + "Location: " + workshop.getLocation() + "\n"
+            + "Max Attendees: " + workshop.getMax_attendees() + "\n"
+            + "Registration Deadline: " + workshop.getRegistrationDeadline() + "\n"
+            + "Agenda: " + workshop.getAgenda();
+        Mailing.sendEmail("mehdi.fathallah69@gmail.com",subject,body);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Workshop added");

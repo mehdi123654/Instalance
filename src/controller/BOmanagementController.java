@@ -29,7 +29,6 @@ import javafx.stage.Stage;
 import services.EventService;
 import services.HackathonService;
 import services.WorkshopService;
-
 public class BOmanagementController implements Initializable {
 
     @FXML
@@ -127,6 +126,7 @@ public class BOmanagementController implements Initializable {
         ObservableList <Workshop> WorkshopList = workshopService.getAllWorkshops();
         ObservableList <Hackathon> HackathonList = hackathonService.getAllHackathons();
         //initial Fieldteredlist
+        
         FilteredList<Workshop> filteredWorkshops = new FilteredList<>(WorkshopList, b ->true);
         workshopsTable.setItems(WorkshopList);
         hackathonsTable.setItems(HackathonList);
