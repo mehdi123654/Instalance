@@ -8,8 +8,6 @@ package services;
 import dao.WorkshopInterface;
 import entities.Event;
 import entities.Workshop;
-import entities.Workshop;
-import entities.Workshop;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

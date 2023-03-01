@@ -8,12 +8,10 @@ package controller;
 import entities.Hackathon;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import java.time.LocalDate;
 import java.sql.Date;
-import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +25,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import services.HackathonService;
-import utils.DataBaseConnection;
 
 /**
  * FXML Controller class

@@ -1,43 +1,34 @@
 package controller;
 
-import entities.Event;
 import entities.Hackathon;
 import entities.Workshop;
-import java.awt.Insets;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Comparator;
+import java.util.Observable;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Callback;
 import services.EventService;
 import services.HackathonService;
 import services.WorkshopService;
-import utils.DataBaseConnection;
 
 public class BOmanagementController implements Initializable {
 
@@ -124,12 +115,19 @@ public class BOmanagementController implements Initializable {
     @FXML
     private TableView<Workshop> workshopsTable;
 
+    @FXML
+    private TextField searchField;
+
+    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         WorkshopService workshopService = new WorkshopService();
         HackathonService hackathonService = new HackathonService();
-        ObservableList WorkshopList = workshopService.getAllWorkshops();
-        ObservableList HackathonList = hackathonService.getAllHackathons();
+        ObservableList <Workshop> WorkshopList = workshopService.getAllWorkshops();
+        ObservableList <Hackathon> HackathonList = hackathonService.getAllHackathons();
+        //initial Fieldteredlist
+        FilteredList<Workshop> filteredWorkshops = new FilteredList<>(WorkshopList, b ->true);
         workshopsTable.setItems(WorkshopList);
         hackathonsTable.setItems(HackathonList);
         workshopNameColumn.setSortable(true);
@@ -156,6 +154,28 @@ public class BOmanagementController implements Initializable {
             });
             hackathonsTable.setItems(HackathonSortedList);
         });
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredWorkshops.setPredicate(workshop -> {
+                // If the search field is empty, show all workshops
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+    
+                // Convert the search query to lowercase for case-insensitive search
+                String lowerCaseFilter = newValue.toLowerCase();
+    
+                // Check if the workshop's name or description contains the search query
+                if (workshop.getEvent_name().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (workshop.getDescription().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+    
+                // If the search query doesn't match the workshop's name or description, don't show it
+                return false;
+            });
+            workshopsTable.setItems(filteredWorkshops);
+        });
         loadData();
     }
 
@@ -167,6 +187,7 @@ public class BOmanagementController implements Initializable {
          * workshopNameColumn.setSortable(true);
          * hackathonNameColumn.setSortable(true);
          */
+        
         hackathonEvent_idColumn.setCellValueFactory(new PropertyValueFactory<>("event_id"));
         hackathonDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         hackathonEndDateColumn.setCellValueFactory(new PropertyValueFactory<>("end_date"));
@@ -188,7 +209,7 @@ public class BOmanagementController implements Initializable {
         workshopStartDateColumn.setCellValueFactory(new PropertyValueFactory<>("start_date"));
 
     }
-
+   
     /*
      * public void loadData() {
      * 
@@ -239,6 +260,7 @@ public class BOmanagementController implements Initializable {
      */
 
     public void Delete() {
+        
         EventService eventService = new EventService();
         try {
             // Get the selected row from the table

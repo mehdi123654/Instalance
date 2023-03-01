@@ -5,18 +5,11 @@
  */
 package pidev_desktop_instalance;
 
-import controller.HackathonController;
-import entities.Workshop;
-import java.io.IOException;
-import java.sql.Date;
-import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import services.WorkshopService;
-import javafx.scene.paint.Color;
 
 /**
  *

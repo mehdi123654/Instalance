@@ -5,7 +5,6 @@
  */
 package services;
 
-import dao.EventInterface;
 import dao.HackathonInterface;
 import java.sql.Connection;
 import java.sql.SQLException;
