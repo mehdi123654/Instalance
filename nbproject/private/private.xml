@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/utils/ConnexionSingleton.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Dao/Pdao.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/PiechartController.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Dao/ServiceDao.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/ShowController.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Dao/Idao.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/view/Serv.fxml</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/entities/Packag.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/ServController.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/ListPackag.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/ListData.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/view/Show.fxml</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/view/Piechart.fxml</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/entities/Service.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Dao/PackagDao.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/DisplayController.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/AddServiceController.java</file>
+            <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/test/ConnexionDB.java</file>
+        </group>
+    </open-files>
+</project-private>
