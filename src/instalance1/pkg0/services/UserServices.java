@@ -47,9 +47,9 @@ public class UserServices implements UserDAO{
 
         try {
             pst = conn.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
-            pst.setString(1, u.getUsername());
-            pst.setString(2, PasswordEncryption.cryptage(u.getPassword()));
-            pst.setString(3, u.getEmail());
+            pst.setString(1, u.getUsername());           
+            pst.setString(2, u.getEmail());
+            pst.setString(3, PasswordEncryption.cryptage(u.getPassword()));
             pst.setString(4, u.getRole());
             pst.setTimestamp(5, u.getCreatedAt());
             pst.setInt(6, 0);
@@ -58,8 +58,8 @@ public class UserServices implements UserDAO{
             
             System.out.print(pst);
             
-            int ok = pst.executeUpdate();
-            if(ok != -1){
+            int pstExecute = pst.executeUpdate();
+            if(pstExecute != -1){
                 rs = pst.getGeneratedKeys();
                 rs.next();
                 System.out.println("Successfully signed user! *****************************");
@@ -79,10 +79,10 @@ public class UserServices implements UserDAO{
     @Override
     public boolean updateUser(User u) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String req = "UPDATE `user` SET `username`=?,`email`=?,`password`=?,`role`=? WHERE idUser = ?";
+        String query = "UPDATE `user` SET `username`=?,`email`=?,`password`=?,`role`=? WHERE idUser = ?";
         
         try {
-            pst = conn.prepareStatement(req);
+            pst = conn.prepareStatement(query);
             pst.setString(1, u.getUsername());
             pst.setString(2, u.getEmail());
             pst.setString(3, u.getPassword());
@@ -104,10 +104,10 @@ public class UserServices implements UserDAO{
     public boolean deleteUser(User u) throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
-        String req = "delete from user where idUser = ?";
+        String query = "delete from user where idUser = ?";
 
         try {
-            pst = conn.prepareStatement(req);
+            pst = conn.prepareStatement(query);
             pst.setInt(1, u.getId());
             pst.executeUpdate();
             return true;
@@ -123,12 +123,12 @@ public class UserServices implements UserDAO{
     public ObservableList<User> showAllUsers() throws SQLException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
-        String req = "Select * from `user`";
+        String query = "Select * from `user`";
 
         ObservableList<User> UsersList = FXCollections.observableArrayList();
         try {
             ste = conn.createStatement();
-            rs = ste.executeQuery(req);
+            rs = ste.executeQuery(query);
             while (rs.next()) {//parcourir le resultset
                 UsersList.add(new User(rs.getInt("idUser"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("role")));
 
