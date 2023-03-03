@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="890.0" stylesheets="@../../../../com.crossify.css/StyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.crossify.controller.FreelanceManagementController">
+   <top>
+      <HBox prefHeight="60.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="61.0" prefWidth="155.0" text="Crossify" textAlignment="CENTER" textFill="#f4e006">
+               <font>
+                  <Font name="Mistral" size="29.0" />
+               </font>
+            </Label>
+            <Separator halignment="LEFT" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="46.0" prefWidth="2.0" />
+            <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="494.0" spacing="30.0">
+               <children>
+                  <TextField fx:id="searchBar" prefHeight="27.0" prefWidth="359.0" promptText="Search" styleClass="round-layout" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                  </TextField>
+                  <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/recherche.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="206.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="156.0" text="Emna Fazaa" textAlignment="CENTER">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/emna.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ImageView fx:id="exit" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+               <image>
+                  <Image url="@../../assets/quit.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="40.0" right="10.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="250.0" styleClass="white-background" stylesheets="@../../../../com.crossify.css/StyleSheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="178.0" prefWidth="250.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="156.0" text="View">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="allOffers" prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="selected" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/view.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label fx:id="allOffersLabel" prefHeight="46.0" prefWidth="156.0" text="All Offers">
+                           <font>
+                              <Font name="Microsoft Tai Le" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="myOffers" prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/myOffers.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="46.0" prefWidth="156.0" text="My Offers">
+                           <font>
+                              <Font name="Microsoft Tai Le" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator prefWidth="200.0" />
+            <VBox prefHeight="106.0" prefWidth="250.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="156.0" text="Add">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/add.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="25.0" top="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Button fx:id="addbtn" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #f4e006;" text="Add Offer">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="9.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Microsoft Tai Le Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children></HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="214.0" prefWidth="250.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="156.0" text="Filters">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/categories.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label fx:id="categoriesLabel" prefHeight="46.0" prefWidth="156.0" text="Categories">
+                           <font>
+                              <Font name="Microsoft Tai Le" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ListView fx:id="categoriesList" prefHeight="200.0" prefWidth="200.0" />
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/stats.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="46.0" prefWidth="156.0" text="High Demand">
+                           <font>
+                              <Font name="Microsoft Tai Le" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="185.0" prefWidth="250.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="156.0" text="Options">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/businessman.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="46.0" prefWidth="156.0" text="My Profile">
+                           <font>
+                              <Font name="Microsoft Tai Le" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/homePage.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="46.0" prefWidth="156.0" text="Home">
+                           <font>
+                              <Font name="Microsoft Tai Le" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="68.0" prefWidth="207.0" text="Recently Added">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="20.0" />
+               </font>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1600.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                     <children>
+                        <HBox fx:id="cardLayout" prefHeight="202.0" prefWidth="1200.0" spacing="10.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <Label prefHeight="68.0" prefWidth="207.0" text="Freelance Offers">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="20.0" />
+               </font>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css" VBox.vgrow="ALWAYS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1800.0" prefWidth="800.0">
+                     <children>
+                        <GridPane fx:id="offerContainer" prefHeight="9.0" prefWidth="0.0">
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

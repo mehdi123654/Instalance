@@ -46,7 +46,7 @@ public class CRUDFreelance implements IServicesFreelance {
     @Override
     public void addFreelance2(Freelance f) {
         try {
-            String req = "INSERT INTO freelance (`idBO`, `emailBO`,`category_F`,`description`,`budget`,`state`) VALUES (?,?,?,?,?,?)";
+            String req = "INSERT INTO freelance (`idBO`, `emailBO`,`category_F`,`description`,`budget`,`state`,`urlLogo`) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(req);
             ps.setInt(1, f.getBO_id());
             ps.setString(2, f.getBO_email());
@@ -54,6 +54,7 @@ public class CRUDFreelance implements IServicesFreelance {
             ps.setString(4, f.getDescription());
             ps.setFloat(5, f.getBudget());
             ps.setBoolean(6, f.isState_F());
+            ps.setString(7, f.getUrlLogo());
             ps.executeUpdate();
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Offer Posted");
@@ -135,6 +136,7 @@ public class CRUDFreelance implements IServicesFreelance {
                 f.setDescription(rs.getString("description"));
                 f.setBudget(rs.getFloat("budget"));
                 f.setState_F(rs.getBoolean("state"));
+                f.setUrlLogo(rs.getString("urlLogo"));
                 myList.add(f);
             }
 
@@ -160,6 +162,7 @@ public class CRUDFreelance implements IServicesFreelance {
                 f.setDescription(rs.getString("description"));
                 f.setBudget(rs.getFloat("budget"));
                 f.setState_F(rs.getBoolean("state"));
+                f.setUrlLogo(rs.getString("urlLogo"));
                 myList.add(f);
             }
 
@@ -171,24 +174,15 @@ public class CRUDFreelance implements IServicesFreelance {
 
     @Override
     public ObservableList<Freelance> displayMyFreelancee(int id) {
-        /*
-        int id = 123; // set the ID value here
-String sql = "SELECT * FROM table_name WHERE id = ?";
-PreparedStatement statement = connection.prepareStatement(sql);
-statement.setInt(1, id);
-ResultSet result = statement.executeQuery();
-while (result.next()) {
-    // process the selected row data here
-}
-         */
+
         ObservableList<Freelance> myList = FXCollections.observableArrayList();
         try {
             String request3 = "SELECT * FROM freelance where idBO = ?";
-            
+
             PreparedStatement st = conn.prepareStatement(request3);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
-            
+
             while (rs.next()) {
                 Freelance f = new Freelance();
                 f.setId_F(rs.getInt("idFreelance"));
@@ -198,6 +192,7 @@ while (result.next()) {
                 f.setDescription(rs.getString("description"));
                 f.setBudget(rs.getFloat("budget"));
                 f.setState_F(rs.getBoolean("state"));
+                f.setUrlLogo(rs.getString("urlLogo"));
                 myList.add(f);
             }
 
@@ -212,11 +207,11 @@ while (result.next()) {
         ObservableList<Freelance> myList = FXCollections.observableArrayList();
         try {
             String request3 = "SELECT * FROM freelance where idFreelance = ?";
-            
+
             PreparedStatement st = conn.prepareStatement(request3);
             st.setInt(1, f.getId_F());
             ResultSet rs = st.executeQuery();
-            
+
             while (rs.next()) {
                 Freelance fr = new Freelance();
                 fr.setId_F(rs.getInt("idFreelance"));
@@ -233,6 +228,86 @@ while (result.next()) {
             System.err.println(ex.getMessage());
         }
         return myList.get(0);
+    }
+
+    @Override
+    public ObservableList<Freelance> advancedreaserch(String search) {
+        ObservableList<Freelance> myList = FXCollections.observableArrayList();
+        try {
+            String request3 = "SELECT * FROM freelance where description LIKE ? OR category_F LIKE ? OR emailBO LIKE ?";
+
+            PreparedStatement st = conn.prepareStatement(request3);
+            st.setString(1, "%" + search + "%");
+            st.setString(2, "%" + search + "%");
+            st.setString(3, "%" + search + "%");
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Freelance f = new Freelance();
+                f.setId_F(rs.getInt("idFreelance"));
+                f.setBO_id(rs.getInt("idBO"));
+                f.setBO_email(rs.getString("emailBO"));
+                f.setCategory_F(rs.getString("category_F"));
+                f.setDescription(rs.getString("description"));
+                f.setBudget(rs.getFloat("budget"));
+                f.setState_F(rs.getBoolean("state"));
+                f.setUrlLogo(rs.getString("urlLogo"));
+                myList.add(f);
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+    }
+
+    @Override
+    public ObservableList<String> getAllCategories() {
+        ObservableList<String> categories = FXCollections.observableArrayList();
+
+        try {
+            String request3 = "SELECT DISTINCT category_F FROM freelance";
+            PreparedStatement st = conn.prepareStatement(request3);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                categories.add(rs.getString("category_F"));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return categories;
+    }
+
+    @Override
+    public ObservableList<Freelance> filterByCategory(String cat) {
+        ObservableList<Freelance> myList = FXCollections.observableArrayList();
+        try {
+            String request3 = "SELECT * FROM freelance where category_F = ?";
+
+            PreparedStatement st = conn.prepareStatement(request3);
+            st.setString(1, cat);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Freelance fr = new Freelance();
+                fr.setId_F(rs.getInt("idFreelance"));
+                fr.setBO_id(rs.getInt("idBO"));
+                fr.setBO_email(rs.getString("emailBO"));
+                fr.setCategory_F(rs.getString("category_F"));
+                fr.setDescription(rs.getString("description"));
+                fr.setBudget(rs.getFloat("budget"));
+                fr.setState_F(rs.getBoolean("state"));
+                fr.setUrlLogo(rs.getString("urlLogo"));
+                myList.add(fr);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
     }
 
 }

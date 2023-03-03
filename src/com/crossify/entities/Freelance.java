@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Freelance {
 
     private int id_F, BO_id;
-    private String BO_email, category_F, description;
+    private String BO_email, category_F, description, urlLogo;
     private float budget;
     private boolean state_F;
 
@@ -46,6 +46,35 @@ public class Freelance {
         this.category_F = category_F;
         this.description = description;
        
+    }
+
+    public Freelance(int BO_id, String BO_email, String category_F, String description, String urlLogo, float budget, boolean state_F) {
+        this.BO_id = BO_id;
+        this.BO_email = BO_email;
+        this.category_F = category_F;
+        this.description = description;
+        this.urlLogo = urlLogo;
+        this.budget = budget;
+        this.state_F = state_F;
+    }
+
+    public Freelance(int id_F, int BO_id, String BO_email, String category_F, String description, String urlLogo, float budget, boolean state_F) {
+        this.id_F = id_F;
+        this.BO_id = BO_id;
+        this.BO_email = BO_email;
+        this.category_F = category_F;
+        this.description = description;
+        this.urlLogo = urlLogo;
+        this.budget = budget;
+        this.state_F = state_F;
+    }
+
+    public String getUrlLogo() {
+        return urlLogo;
+    }
+
+    public void setUrlLogo(String urlLogo) {
+        this.urlLogo = urlLogo;
     }
     
     

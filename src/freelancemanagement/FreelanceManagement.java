@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -31,16 +32,17 @@ import javafx.stage.StageStyle;
  */
 public class FreelanceManagement extends Application {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static Stage window;
+    public static Scene allOffersScene;
     double x, y = 0;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {        
-                
-       Parent root = FXMLLoader.load(getClass().getResource("/com/crossify/view/FreelanceManagement.fxml"));
-    
+    public void start(Stage primaryStage) throws Exception {
+        /*window=primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("/com/crossify/view/BO/FreelanceManagement.fxml"));
+
+        window.initStyle(StageStyle.UNDECORATED);
+
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(event -> {
@@ -48,41 +50,56 @@ public class FreelanceManagement extends Application {
             y = event.getSceneY();
         });
         root.setOnMouseDragged(event -> {
-            primaryStage.setX(event.getScreenX() - x);
-            primaryStage.setY(event.getScreenY() - y);
+            window.setX(event.getScreenX() - x);
+            window.setY(event.getScreenY() - y);
         });
-        primaryStage.setTitle("Crossify");
-        primaryStage.setScene(new Scene(root, 890, 700));
+        allOffersScene=new Scene(root, 890, 700);
+        window.setScene(allOffersScene);
+        window.show();*/
+
+        // create buttons
+        Button freelancerButton = new Button("Freelancer");
+        Button businessOwnerButton = new Button("Business Owner");
+        Button adminButton = new Button("Admin");
+
+        // set button actions
+        freelancerButton.setOnAction(event -> openFXMLFile("/com/crossify/view/Freelancer/FreelanceManagement_1.fxml"));
+        businessOwnerButton.setOnAction(event -> openFXMLFile("/com/crossify/view/BO/FreelanceManagement.fxml"));
+        //adminButton.setOnAction(event -> openFXMLFile("admin.fxml"));
+
+        // create layout
+        VBox root = new VBox(freelancerButton, businessOwnerButton, adminButton);
+
+        // create scene
+        Scene scene = new Scene(root, 200, 150);
+
+        // set scene and show stage
+        primaryStage.setScene(scene);
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setTitle("Choose your role");
         primaryStage.show();
-        
-        
+
     }
 
     public static void main(String[] args) {
         MyConnection connexion = MyConnection.getInstance();
-        //Freelance f = new Freelance(20,"nounou@esprit.tn", "nounou", "Looking for a freelancer", 160.2f, true);
-         //CRUDFreelance crud = new CRUDFreelance();
-        //crud.addFreelance2(f);
         launch(args);
-        
-        //Freelance f1 = new Freelance(22,"e@esprit.tn", "Photography", "Looking for a photographer", 160.444f, false);
-        //Freelance f2 = new Freelance(0,"f@esprit.tn", "Digital Marketing", "Looking for a digital marketing expert", 25.7f, true);
 
-        /*Freelance f = new Freelance(1, 0, "updated", "updated", "updated", 160.2f, false);
+    }
+        private void openFXMLFile(String fxmlFileName) {
+        try {
+            // load FXML file
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlFileName));
 
-        CRUDFreelance crud = new CRUDFreelance();
-        //List<Freelance> offers = new ArrayList<Freelance>();
-        ObservableList<Freelance> myList = FXCollections.observableArrayList();
-        crud.addFreelance2(f);
-        //crud.addFreelance2(f1);
-        //crud.addFreelance2(f2);
-        crud.modifyFreelance(f);
-        crud.deleteFreelance(0);
-        //myList=crud.displayFreelancee();
-        for (int i = 0; i < myList.size(); i++) {
-            System.out.println(myList.get(i).toString());
-
-        }*/
+            // create scene and show stage
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
