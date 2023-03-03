@@ -2,7 +2,9 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "c:\\Program Files\\NetBeans 8.2\\ide\\modules\\ext\\mysql-connector-java-5.1.23-bin.jar",
-        "c:\\Users\\fatha\\Downloads\\javax.mail.jar"
+        "c:\\Users\\fatha\\Downloads\\javax.mail.jar",
+        "c:\\Users\\fatha\\Downloads\\google-maps-services-java-main\\google-maps-services-java-main\\build\\libs\\google-maps-services-java-main-2.1.2.jar",
+        "c:\\Users\\fatha\\Downloads\\java-osmapi-1.0.0-RELEASE.jar"
     ],
     "java.dependency.packagePresentation": "hierarchical"
 }

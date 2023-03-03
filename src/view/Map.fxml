@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.web.WebView?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="controller.MapController">
+   <children>
+      <HBox prefHeight="447.0" prefWidth="651.0">
+         <children>
+            <WebView fx:id="googlemaps" prefHeight="447.0" prefWidth="656.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

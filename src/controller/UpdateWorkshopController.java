@@ -255,6 +255,10 @@ public class UpdateWorkshopController implements Initializable {
             errorMessage += "Event name is required.\n";
         }
 
+        if (startDatePicker2.getValue() != null && endDatePicker2.getValue() != null && endDatePicker2.getValue().isBefore(startDatePicker2.getValue())) {
+            errorMessage += "End date must be after the start date.\n";
+        } 
+
         if (descriptionTextArea2.getText() == null || descriptionTextArea2.getText().length() == 0) {
             errorMessage += "Description is required.\n";
         }

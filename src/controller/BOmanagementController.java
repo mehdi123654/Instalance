@@ -3,10 +3,11 @@ package controller;
 import entities.Hackathon;
 import entities.Workshop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Observable;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,10 +26,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import services.EventService;
 import services.HackathonService;
 import services.WorkshopService;
+import javafx.concurrent.Worker;
+import java.awt.Desktop;
+
 public class BOmanagementController implements Initializable {
 
     @FXML
@@ -117,17 +125,30 @@ public class BOmanagementController implements Initializable {
     @FXML
     private TextField searchField;
 
-    
+    @FXML
+    private WebView map;
+
+    @FXML
+    private ImageView QRcode;
+
+    @FXML
+    private VBox vboxx;
+
+    @FXML
+    private Button showLocationBtn;
+
+    @FXML
+    private Button showMapBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         WorkshopService workshopService = new WorkshopService();
         HackathonService hackathonService = new HackathonService();
-        ObservableList <Workshop> WorkshopList = workshopService.getAllWorkshops();
-        ObservableList <Hackathon> HackathonList = hackathonService.getAllHackathons();
-        //initial Fieldteredlist
-        
-        FilteredList<Workshop> filteredWorkshops = new FilteredList<>(WorkshopList, b ->true);
+        ObservableList<Workshop> WorkshopList = workshopService.getAllWorkshops();
+        ObservableList<Hackathon> HackathonList = hackathonService.getAllHackathons();
+        // initial Fieldteredlist
+
+        FilteredList<Workshop> filteredWorkshops = new FilteredList<>(WorkshopList, b -> true);
         workshopsTable.setItems(WorkshopList);
         hackathonsTable.setItems(HackathonList);
         workshopNameColumn.setSortable(true);
@@ -160,23 +181,27 @@ public class BOmanagementController implements Initializable {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-    
+
                 // Convert the search query to lowercase for case-insensitive search
                 String lowerCaseFilter = newValue.toLowerCase();
-    
+
                 // Check if the workshop's name or description contains the search query
                 if (workshop.getEvent_name().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (workshop.getDescription().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
-    
-                // If the search query doesn't match the workshop's name or description, don't show it
+
+                // If the search query doesn't match the workshop's name or description, don't
+                // show it
                 return false;
             });
             workshopsTable.setItems(filteredWorkshops);
         });
         loadData();
+        // loadMap();
+        showLocation();
+        // showMap();
     }
 
     public void loadData() {
@@ -187,7 +212,7 @@ public class BOmanagementController implements Initializable {
          * workshopNameColumn.setSortable(true);
          * hackathonNameColumn.setSortable(true);
          */
-        
+
         hackathonEvent_idColumn.setCellValueFactory(new PropertyValueFactory<>("event_id"));
         hackathonDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         hackathonEndDateColumn.setCellValueFactory(new PropertyValueFactory<>("end_date"));
@@ -209,7 +234,64 @@ public class BOmanagementController implements Initializable {
         workshopStartDateColumn.setCellValueFactory(new PropertyValueFactory<>("start_date"));
 
     }
-   
+
+    public void loadMap() {
+        WebEngine webEngine = map.getEngine();
+        // webEngine.load("https://maps.googleapis.com/maps/api/js?key=AIzaSyD7k0t2KdMaXuRLOIiiZoIaEXBMEwtyWf0");
+        webEngine.loadContent("<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "  <head>\n" +
+                "    <style>\n" +
+                "      #map {\n" +
+                "        height: 100%;\n" +
+                "      }\n" +
+                "    </style>\n" +
+                "    <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyD7k0t2KdMaXuRLOIiiZoIaEXBMEwtyWf0\"></script>\n"
+                +
+                "    <script>\n" +
+                "      function initMap() {\n" +
+                "        var map = new google.maps.Map(document.getElementById('map'), {\n" +
+                "          center: {lat: 37.7749, lng: -122.4194},\n" +
+                "          zoom: 8\n" +
+                "        });\n" +
+                "      }\n" +
+                "    </script>\n" +
+                "  </head>\n" +
+                "  <body onload=\"initMap()\">\n" +
+                "    <div id=\"map\"></div>\n" +
+                "  </body>\n" +
+                "</html>");
+
+        // Wait for the API to finish loading before creating the map
+        webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == Worker.State.SUCCEEDED) {
+                // Initialize the map
+                webEngine.executeScript("function initMap() {\n" +
+                        "  var map = new google.maps.Map(document.getElementById('map'), {\n" +
+                        "    center: {lat: 37.7749, lng: -122.4194},\n" +
+                        "    zoom: 8\n" +
+                        "  });\n" +
+                        "}");
+                // Call the initMap function to create the map
+                webEngine.executeScript("initMap();");
+            }
+        });
+        // map.setPrefSize(800, 600);
+        if (!vboxx.getChildren().contains(map)) {
+            vboxx.getChildren().add(map);
+        }
+
+        // Display the map
+        /*
+         * JSObject window = (JSObject) webEngine.executeScript("window");
+         * window.setMember("app", this);
+         * webEngine.
+         * executeScript("var map = new google.maps.Map(document.getElementById('map'), {center: {lat: 37.7749, lng: -122.4194}, zoom: 8});"
+         * );
+         */
+
+    }
+
     /*
      * public void loadData() {
      * 
@@ -258,9 +340,58 @@ public class BOmanagementController implements Initializable {
      * workshopsTable.setItems(WorkshopList);
      * }
      */
+    public void showLocation() {
+        showLocationBtn.setOnAction(event -> {
+            Workshop selectedIndex = workshopsTable.getSelectionModel().getSelectedItem();
+            if (selectedIndex != null) {
+                String url = "https://www.google.com/maps/place/" + selectedIndex.getLocation();
+                try {
+                    Desktop.getDesktop().browse(new URI(url));
+                } catch (IOException | URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    @FXML
+    public void showMap(ActionEvent event) throws IOException {
+        Workshop selectedIndex = workshopsTable.getSelectionModel().getSelectedItem();
+        Hackathon selectedIndexHackathon = hackathonsTable.getSelectionModel().getSelectedItem();
+        if (selectedIndex != null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Map.fxml"));
+            Parent root = loader.load();
+            MapController mapcontroller = loader.getController();
+            mapcontroller.setBOManagementController(this);
+            mapcontroller.setLocation(selectedIndex.getLocation());
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }          
+        else if (selectedIndexHackathon != null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Map.fxml"));
+            Parent root = loader.load();
+            MapController mapcontroller = loader.getController();
+            mapcontroller.setBOManagementController(this);
+            mapcontroller.setLocation(selectedIndexHackathon.getLocation());
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            // Display an error message if no workshop is selected
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("No Hackathon or Workshop Selected");
+            alert.setContentText("Please select a workshop or a hackathon to show location.");
+            alert.showAndWait();
+
+        }
+
+    }
 
     public void Delete() {
-        
+
         EventService eventService = new EventService();
         try {
             // Get the selected row from the table
@@ -374,11 +505,43 @@ public class BOmanagementController implements Initializable {
             alert.showAndWait();
         }
     }
+    @FXML
+    void UpdateHackathon(ActionEvent event) throws IOException {
+        // Get the selected workshop from the workshops table
+        Hackathon selectedHackathon = hackathonsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedHackathon != null) {
+            // Create a new FXMLLoader to load the update workshop UI
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/UpdateHackathon.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller for the update workshop UI
+            UpdateHackathonController updateHackathonController = loader.getController();
+
+            // Pass the selected workshop data to the update workshop controller
+            updateHackathonController.setHackathon(selectedHackathon);
+            updateHackathonController.setBOManagementController(this);
+            // Create a new scene and display it
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            // Display an error message if no workshop is selected
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("No Workshop Selected");
+            alert.setContentText("Please select a workshop to update.");
+            alert.showAndWait();
+        }
+    }
 
     public void refresh() {
         WorkshopService workshopService = new WorkshopService();
         ObservableList<Workshop> workshopList = workshopService.getAllWorkshops();
         workshopsTable.setItems(workshopList);
+        HackathonService hackathonService = new HackathonService();
+        ObservableList<Hackathon> hackathonList = hackathonService.getAllHackathons();
+        hackathonsTable.setItems(hackathonList);
     }
 
 }

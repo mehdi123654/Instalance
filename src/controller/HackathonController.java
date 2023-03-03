@@ -24,7 +24,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import mail.Mailing;
 import services.HackathonService;
+import javax.mail.MessagingException;
 
 /**
  * FXML Controller class
@@ -124,7 +126,7 @@ public class HackathonController implements Initializable {
             dialogStage.close();
         }
     }*/
-    public void saveHackathon() {
+    public void saveHackathon() throws MessagingException {
         // Check if input is valid
         if (!isInputValid()) {
             return;
@@ -149,6 +151,22 @@ public class HackathonController implements Initializable {
         // Add the hackathon to the database
             HackathonService hackathonService = new HackathonService();
             hackathonService.addHackathon(hackathon);
+
+            String subject = "Don't miss Our New Workshop!!!!!";
+        String body = "A new workshop has been added:\n\n"
+            + "Event Name: " + hackathon.getEvent_name() + "\n"
+            + "Description: " + hackathon.getDescription() + "\n"
+            + "Start Date: " + hackathon.getStart_date() + "\n"
+            + "End Date: " + hackathon.getEnd_date() + "\n"
+            + "Location: " + hackathon.getLocation() + "\n"
+            + "Max Attendees: " + hackathon.getMax_attendees() + "\n"
+            + "Registration Deadline: " + hackathon.getRegistrationDeadline() + "\n"
+            + "Submission Deadline: " + hackathon.getSubmissionDeadline()
+            + "Prizes: " + hackathon.getPrizes() ;
+        Mailing.sendEmail("mehdi.fathallah69@gmail.com",subject,body);
+
+
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Hackathon added");
             alert.setContentText("The hackathon has been added to the database.");
@@ -199,6 +217,18 @@ public class HackathonController implements Initializable {
         if (descriptionTextArea.getText() == null || descriptionTextArea.getText().length() == 0) {
             errorMessage += "Description is required.\n";
         }
+
+        if (startDatePicker.getValue() != null && endDatePicker.getValue() != null && endDatePicker.getValue().isBefore(startDatePicker.getValue())) {
+            errorMessage += "End date must be after the start date.\n";
+        } 
+
+        if (startDatePicker.getValue() != null && registrationDeadlinePicker.getValue() != null && startDatePicker.getValue().isBefore(registrationDeadlinePicker.getValue())) {
+            errorMessage += "start date must be after the registration deadline.\n";
+        }
+        
+        if (startDatePicker.getValue() != null && submissionDeadlinePicker.getValue() != null && submissionDeadlinePicker.getValue().isBefore(startDatePicker.getValue())) {
+            errorMessage += "submission deadline must be after the start date.\n";
+        } 
 
         if (startDatePicker.getValue() == null) {
             errorMessage += "Start date is required.\n";

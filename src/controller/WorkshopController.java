@@ -240,7 +240,9 @@ public class WorkshopController implements Initializable {
         if (workshopNameTextField1.getText() == null || workshopNameTextField1.getText().length() == 0) {
             errorMessage += "Event name is required.\n";
         }
-
+        if (startDatePicker1.getValue() != null && endDatePicker1.getValue() != null && endDatePicker1.getValue().isBefore(startDatePicker1.getValue())) {
+            errorMessage += "End date must be after the start date.\n";
+        }
         if (descriptionTextArea1.getText() == null || descriptionTextArea1.getText().length() == 0) {
             errorMessage += "Description is required.\n";
         }
