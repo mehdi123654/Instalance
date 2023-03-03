@@ -11,6 +11,7 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -25,9 +26,11 @@ public class ConnexionBDJavafx extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Course Management ");
-
-        parentPage = FXMLLoader.load(getClass().getResource("/coursebase/view/ShowCourse.fxml"));
+        this.primaryStage.setTitle("Course Management");
+      Image image = new Image("/assets/l.png");
+ this.primaryStage.getIcons().add(image);
+        parentPage = FXMLLoader.load(getClass().getResource("/coursebase/view/Welcome.fxml"));
+       
         Scene scene = new Scene(parentPage);
         this.primaryStage.setScene(scene);
         this.primaryStage.show();

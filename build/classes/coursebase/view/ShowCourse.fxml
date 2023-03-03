@@ -5,8 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -15,25 +15,15 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="665.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.ShowCourseController">
+<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="1115.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.ShowCourseController">
    <children>
-      <TableView fx:id="courseTable" layoutX="342.0" layoutY="429.0" prefHeight="222.0" prefWidth="622.0">
-        <columns>
-          <TableColumn fx:id="cidcolumn" prefWidth="75.0" text="Cid" />
-          <TableColumn fx:id="titlecolumn" prefWidth="165.0" text="Title" />
-            <TableColumn fx:id="desccolumn" prefWidth="201.0" text="Description" />
-            <TableColumn fx:id="categorycolumn" prefWidth="179.0" text="Category" />
-            <TableColumn fx:id="photocolumn" prefWidth="121.0" text="Photo" />
-            <TableColumn fx:id="pricecolumn" minWidth="0.0" prefWidth="0.0" text="Price" />
-        </columns>
-      </TableView>
-      <Button fx:id="add_button" layoutX="873.0" layoutY="43.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="123.0" text="New Course" textFill="#9ea426">
+      <Button fx:id="add_button" layoutX="873.0" layoutY="43.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="123.0" text="New Course" textFill="#a3276d">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
-      <Label layoutX="166.0" layoutY="39.0" text="Courses:" textFill="#9a1b6c">
+      <Label layoutX="176.0" layoutY="32.0" text="My courses" textFill="#9a1b6c">
          <font>
-            <Font size="31.0" />
+            <Font name="System Bold" size="31.0" />
          </font>
       </Label>
       <Separator layoutX="-3.0" layoutY="108.0" prefHeight="0.0" prefWidth="1118.0" />
@@ -47,20 +37,100 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Button fx:id="stat" layoutX="594.0" layoutY="39.0" mnemonicParsing="false" text="Statistics" />
-      <ScrollPane fx:id="scr" layoutX="83.0" layoutY="169.0" prefHeight="239.0" prefWidth="985.0">
-         <content>
-          <AnchorPane fx:id="fr" minHeight="0.0" minWidth="0.0" prefHeight="247.0" prefWidth="1012.0">
-               <children>
-                  <StackPane fx:id="ss" alignment="BOTTOM_RIGHT" focusTraversable="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="222.0" prefWidth="968.0" />
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-      <ChoiceBox fx:id="chb" layoutX="166.0" layoutY="126.0" prefWidth="150.0" />
-      <Label layoutX="83.0" layoutY="131.0" text="Categories:" />
-      <TextField fx:id="search" layoutX="540.0" layoutY="126.0" />
-      <Button fx:id="searchbutt" layoutX="757.0" layoutY="126.0" mnemonicParsing="false" text="search" />
-      <Button fx:id="srt" layoutX="376.0" layoutY="126.0" mnemonicParsing="false" text="Sort by title" />
+      <TextField fx:id="search" layoutX="714.0" layoutY="137.0" />
+      <Button fx:id="searchbutt" layoutX="935.0" layoutY="137.0" mnemonicParsing="false" text="search" />
+      <ChoiceBox fx:id="srtb" layoutX="160.0" layoutY="137.0" prefWidth="150.0" />
+      <Label layoutX="83.0" layoutY="142.0" text="Sort by:" />
+      <TabPane fx:id="tp" layoutX="75.0" layoutY="207.0" prefHeight="262.0" prefWidth="923.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="ac" text="All courses">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="scr" layoutX="-4.0" layoutY="-9.0" prefHeight="233.0" prefWidth="932.0">
+                           <content>
+                            <AnchorPane fx:id="fr" minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="964.0">
+                                 <children>
+                                    <StackPane fx:id="ss" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutY="-2.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="232.0" prefWidth="968.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Development">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="scr1" prefHeight="222.0" prefWidth="932.0">
+                           <content>
+                              <AnchorPane fx:id="fr1" minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="964.0">
+                                 <children>
+                                    <StackPane fx:id="ss1" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutX="-2.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="222.0" prefWidth="968.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Bussiness">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="scr2" layoutX="-4.0" layoutY="-1.0" prefHeight="222.0" prefWidth="932.0">
+                           <content>
+                              <AnchorPane fx:id="fr2" minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="964.0">
+                                 <children>
+                                    <StackPane fx:id="ss2" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutX="-2.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="209.0" prefWidth="968.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Marketing">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="scr3" layoutX="-4.0" layoutY="-4.0" prefHeight="229.0" prefWidth="932.0">
+                           <content>
+                              <AnchorPane fx:id="fr3" minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="964.0">
+                                 <children>
+                                    <StackPane fx:id="ss3" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutY="13.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="222.0" prefWidth="968.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Mathematics">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="scr4" layoutX="-4.0" layoutY="-3.0" prefHeight="229.0" prefWidth="932.0">
+                           <content>
+                              <AnchorPane fx:id="fr4" minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="964.0">
+                                 <children>
+                                    <StackPane fx:id="ss4" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutX="-2.0" layoutY="-5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="227.0" prefWidth="968.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="mail" layoutX="405.0" layoutY="45.0" mnemonicParsing="false" text="Send mail" />
+      <Button fx:id="li" layoutX="537.0" layoutY="46.0" mnemonicParsing="false" text="LinkedIn" />
    </children>
 </AnchorPane>

@@ -8,8 +8,16 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="CourseManagement.jar" size="43109" download="eager" />
+    <jar href="CourseManagement.jar" size="136868" download="eager" />
+    <jar href="lib\fontbox-2.0.27.jar" size="1567313" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\pdfbox-2.0.27.jar" size="2776232" download="eager" />
+    <jar href="lib\pdfbox-debugger-2.0.27.jar" size="266634" download="eager" />
+    <jar href="lib\pdfbox-tools-2.0.27.jar" size="82871" download="eager" />
+    <jar href="lib\preflight-2.0.27.jar" size="249891" download="eager" />
+    <jar href="lib\twilio-9.1.1-jar-with-dependencies.jar" size="10681333" download="eager" />
+    <jar href="lib\xmpbox-2.0.27.jar" size="132378" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="CourseManagement" >
     <param name="requiredFXVersion" value="8.0+"/>

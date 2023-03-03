@@ -72,7 +72,7 @@ public class PieChartController implements Initializable {
         back.setOnAction(event -> {
 
             try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/ShowCourse.fxml"));
+                Parent page1 = FXMLLoader.load(getClass().getResource("/coursebase/view/Welcome.fxml"));
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);

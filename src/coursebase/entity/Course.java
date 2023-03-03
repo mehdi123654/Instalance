@@ -13,7 +13,7 @@ import javafx.beans.property.SimpleStringProperty;
  *
  * @author user
  */
-public class Course implements Comparable<Course>{
+public class Course {
 
     private SimpleIntegerProperty cid, price,nbLessons;
     private SimpleStringProperty title, decription, photo, category;
@@ -40,6 +40,10 @@ public class Course implements Comparable<Course>{
         this.photo = new SimpleStringProperty(photo);
         this.category = new SimpleStringProperty(category);
         
+    }
+
+    public Course(String title) {
+       this.title = new SimpleStringProperty(title); //To change body of generated methods, choose Tools | Templates.
     }
   
 
@@ -117,9 +121,6 @@ public class Course implements Comparable<Course>{
 //        return nbLessons;
 //    }
 
-    @Override
-    public int compareTo(Course o) {
-        return this.getTitle().compareTo(o.getTitle());
-    }
+   
 
 }

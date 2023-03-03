@@ -37,6 +37,10 @@ public class Lesson {
       
         
     }
+
+    public Lesson(String name) {
+         this.name = new SimpleStringProperty(name); //To change body of generated methods, choose Tools | Templates.
+    }
   
 
     public int getCid() {

@@ -3,10 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ExploreController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ListData.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/dao/LessonDao.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/entity/Course.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/WelcomeController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/view/FXML.fxml</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/PieChartController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/entity/Lesson.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/UpdateCourseController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/view/Welcome.fxml</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/dao/CourseDao.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/utils/ConnexionSingleton.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/FXMLController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/LessonController.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ShowCourseController.java</file>
-            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/AddLessonController.java</file>
-            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/UpdateLessonController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/test/ConnexionBDJavafx.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/view/explore.fxml</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/view/lesson.fxml</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/AddCourseController.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ListLesson.java</file>
         </group>
     </open-files>
 </project-private>

@@ -71,6 +71,22 @@ public class LessonDao implements Ldao<Lesson>{
         }
     }
 
+    public String displayCourse (int id ) {
+       String req = "SELECT title FROM lesson INNER JOIN course ON lesson.cid = course.cid where lesson.lid ="+id;
+      
+String k = null;
+        try {
+            rs = st.executeQuery(req);
+            while (rs.next()) {
+              k=rs.getString(1);
+               
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LessonDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return k;
+    }
  
   @Override
     public List<Lesson> displayAll2() {

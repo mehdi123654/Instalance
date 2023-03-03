@@ -5,6 +5,10 @@
  */
 package coursebase.controller;
 
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
+import com.twilio.Twilio;
 import coursebase.dao.CourseDao;
 import coursebase.dao.LessonDao;
 import coursebase.entity.Course;
@@ -34,7 +38,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 /**
@@ -44,6 +47,8 @@ import javafx.stage.Stage;
  */
 public class UpdateCourseController implements Initializable {
 
+    @FXML
+    private Button svl;
     @FXML
     private TextField id_field;
 
@@ -56,13 +61,15 @@ public class UpdateCourseController implements Initializable {
     @FXML
     private TextField price_field;
 
-  
+    ListLesson listdata;
     @FXML
     private Label photo_field;
 
     @FXML
     private Button update_butt;
 
+    @FXML
+    private Button kk;
     @FXML
     private Button back;
     @FXML
@@ -82,8 +89,28 @@ public class UpdateCourseController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-  @FXML
+    @FXML
     private Button search;
+    @FXML
+    private TextField tl;
+
+    @FXML
+    private Button sf;
+
+    @FXML
+    private Label sl;
+
+    @FXML
+    private Label t;
+
+    @FXML
+    private Button cn;
+    @FXML
+    private Label f;
+    @FXML
+    private Button lsup;
+    private static final String ACCOUNT_SID = "AC1af823561ae9d4ad22591524de127ce6";
+    private static final String AUTH_TOKEN = "be176fe5aec60b39d9f8fde9b73a6132";
     /**
      * Initializes the controller class.
      *
@@ -94,8 +121,8 @@ public class UpdateCourseController implements Initializable {
      * @param photo
      * @param catg
      */
-     FileChooser fileChooser = new FileChooser();
-     
+    FileChooser fileChooser = new FileChooser();
+
     public void displayName(String id, String desc, String title, String price, String photo, String catg) {
 
         id_field.setText(id);
@@ -104,8 +131,8 @@ public class UpdateCourseController implements Initializable {
         price_field.setText(price);
         photo_field.setText(photo);
         categ_choice.setValue(catg);
-    
-         search.setOnAction(
+
+        search.setOnAction(
                 event -> {
 
                     fileChooser.setTitle("Open File");
@@ -118,7 +145,7 @@ public class UpdateCourseController implements Initializable {
                     }
                 }
         );
-   UnaryOperator<TextFormatter.Change> numericFilter = change -> {
+        UnaryOperator<TextFormatter.Change> numericFilter = change -> {
             String newText = change.getControlNewText();
             if (newText.matches("\\d*")) {
                 return change;
@@ -158,31 +185,31 @@ public class UpdateCourseController implements Initializable {
         lesstable.setItems(listdata.getJoins());
 
         lessonTitlefield.setCellValueFactory(cell -> cell.getValue().getNameProperty());
-        lesstable.setOnMouseClicked(event -> {
+//        lesstable.setOnMouseClicked(event -> {
+//
+//            try {
+//                String h = String.valueOf(listdata.getJoins().get(lesstable.getSelectionModel().getSelectedIndex()).getLid());
+//
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/UpdateLesson.fxml"));
+//                root = loader.load();
+//
+//                UpdateLessonController scene2Controller = loader.getController();
+//                scene2Controller.displayName(h);
+//                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                scene = new Scene(root);
+//                stage.setScene(scene);
+//                stage.show();
+//            } catch (IOException ex) {
+//                Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//        });
 
-            try {
-                String h = String.valueOf(listdata.getJoins().get(lesstable.getSelectionModel().getSelectedIndex()).getLid());
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/UpdateLesson.fxml"));
-                root = loader.load();
-
-                UpdateLessonController scene2Controller = loader.getController();
-                scene2Controller.displayName(h);
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        });
-            id_field.setVisible(false);
+        id_field.setVisible(false);
         delall.setOnAction(event -> {
 
             ObservableList<Lesson> items = lesstable.getItems();
 
-// Iterate over each item and delete them from the database
             items.stream().map((item) -> item.getLid()).forEachOrdered((valueOf) -> {
                 LessonDao pdao = LessonDao.getInstance();
                 pdao.delete(valueOf);
@@ -209,29 +236,117 @@ public class UpdateCourseController implements Initializable {
             }
 
         });
+        kk.setOnAction(event -> {
+
+            LessonDao dao = LessonDao.getInstance();
+            dao.delete(lesstable.getSelectionModel().getSelectedItem().getLid());
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("lesson deleted !");
+            alert.show();
+            Lesson selectedItem = lesstable.getSelectionModel().getSelectedItem();
+            lesstable.getItems().remove(selectedItem);
+
+        });
+        categ_choice.setItems(FXCollections.observableArrayList("Development", "Bussiness", "Marketing", "Mathematics"));
+        sf.setOnAction(
+                event -> {
+
+                    fileChooser.setTitle("Open File");
+                    File file = fileChooser.showOpenDialog(null); // you could pass a stage reference here if you wanted.
+                    String p = file.getAbsolutePath().replace("\\", "@");
+                    sl.setText(p);
+
+                }
+        );
+        tl.setVisible(false);
+        sf.setVisible(false);
+        sl.setVisible(false);
+        t.setVisible(false);
+        f.setVisible(false);
+        cn.setVisible(false);
+        svl.setVisible(false);
+
+        lsnad.setOnAction(event -> {
+            tl.setVisible(true);
+            tl.setText("");
+            sl.setText("");
+            sf.setVisible(true);
+            sl.setVisible(true);
+            t.setVisible(true);
+            f.setVisible(true);
+            cn.setVisible(true);
+            svl.setVisible(false);
+            cn.setOnAction(eve -> {
+
+                Lesson p = new Lesson(Integer.parseInt(id_field.getText()), tl.getText(), sl.getText());
+                LessonDao pdao = LessonDao.getInstance();
+                pdao.insert(p);
+                lesstable.getItems().clear();
+                ListLesson listdatak = new ListLesson(Integer.parseInt(id_field.getText()));
+
+                lesstable.setItems(listdatak.getJoins());
+                lessonTitlefield.setCellValueFactory(cell -> cell.getValue().getNameProperty());
+                tl.setVisible(false);
+                sf.setVisible(false);
+                sl.setVisible(false);
+                t.setVisible(false);
+                f.setVisible(false);
+                cn.setVisible(false);
+            });
+
+        });
+        lsup.setOnAction(event -> {
+            if (lesstable.getSelectionModel().getSelectedItem() == null) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("You must select a lesson to modify!");
+                alert.show();
+            } else {
+                tl.setVisible(true);
+                sf.setVisible(true);
+                sl.setVisible(true);
+                t.setVisible(true);
+                f.setVisible(true);
+                svl.setVisible(true);
+                cn.setVisible(false);
+                tl.setText(lesstable.getSelectionModel().getSelectedItem().getName());
+                sl.setText(lesstable.getSelectionModel().getSelectedItem().getFile());
+                svl.setOnAction(eve -> {
+                    Lesson p = new Lesson(lesstable.getSelectionModel().getSelectedItem().getLid(), lesstable.getSelectionModel().getSelectedItem().getCid(), tl.getText(), sl.getText());
+                    LessonDao s = LessonDao.getInstance();
+                    s.update(p);
+
+                    lesstable.getItems().clear();
+                    ListLesson listdatak = new ListLesson(Integer.parseInt(id_field.getText()));
+
+                    lesstable.setItems(listdatak.getJoins());
+                    lessonTitlefield.setCellValueFactory(cell -> cell.getValue().getNameProperty());
+                    tl.setVisible(false);
+                    sf.setVisible(false);
+                    sl.setVisible(false);
+                    t.setVisible(false);
+                    f.setVisible(false);
+                    svl.setVisible(false);
+                    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+                    Message message = Message.creator(
+                            new PhoneNumber("+21656152776"), // recipient's phone number
+                            new PhoneNumber("+12766638814"), // your Twilio phone number
+                            "Lesson : " + p.getName() +  " updated !"
+                    ).create();
+                    System.out.println("Sent message SID: " + message.getSid());
+
+                });
+            }
+        });
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        categ_choice.setItems(FXCollections.observableArrayList("Development", "Bussiness", "Marketing", "Mathematics"));
-
-        lsnad.setOnAction(event -> {
-            try {
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/AddLesson.fxml"));
-                root = loader.load();
-
-                AddLessonController scene2Controller = loader.getController();
-                scene2Controller.displayName(id_field.getText());
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(AddLessonController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
 
     }
 }
