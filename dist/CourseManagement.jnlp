@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="CourseManagement.jar" size="136868" download="eager" />
+    <jar href="CourseManagement.jar" size="1732238" download="eager" />
     <jar href="lib\fontbox-2.0.27.jar" size="1567313" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />

@@ -52,12 +52,12 @@ public class UpdateCourseController implements Initializable {
     @FXML
     private TextField id_field;
 
-    @FXML
-    private TextArea desc_field;
 
     @FXML
     private TextField title_field;
 
+    @FXML
+    private TextField video;
     @FXML
     private TextField price_field;
 
@@ -126,7 +126,7 @@ public class UpdateCourseController implements Initializable {
     public void displayName(String id, String desc, String title, String price, String photo, String catg) {
 
         id_field.setText(id);
-        desc_field.setText(desc);
+        video.setText(desc);
         title_field.setText(title);
         price_field.setText(price);
         photo_field.setText(photo);
@@ -157,7 +157,7 @@ public class UpdateCourseController implements Initializable {
         update_butt.setOnAction(
                 event -> {
                     String selectedChoice = categ_choice.getSelectionModel().getSelectedItem();
-                    Course p = new Course(Integer.parseInt(id_field.getText()), title_field.getText(), desc_field.getText(), Integer.parseInt(price_field.getText()), selectedChoice, photo_field.getText());
+                    Course p = new Course(Integer.parseInt(id_field.getText()), title_field.getText(), video.getText(), Integer.parseInt(price_field.getText()), selectedChoice, photo_field.getText());
                     CourseDao pdao = CourseDao.getInstance();
                     pdao.update(p);
 
@@ -185,25 +185,6 @@ public class UpdateCourseController implements Initializable {
         lesstable.setItems(listdata.getJoins());
 
         lessonTitlefield.setCellValueFactory(cell -> cell.getValue().getNameProperty());
-//        lesstable.setOnMouseClicked(event -> {
-//
-//            try {
-//                String h = String.valueOf(listdata.getJoins().get(lesstable.getSelectionModel().getSelectedIndex()).getLid());
-//
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/UpdateLesson.fxml"));
-//                root = loader.load();
-//
-//                UpdateLessonController scene2Controller = loader.getController();
-//                scene2Controller.displayName(h);
-//                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                stage.setScene(scene);
-//                stage.show();
-//            } catch (IOException ex) {
-//                Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//        });
 
         id_field.setVisible(false);
         delall.setOnAction(event -> {

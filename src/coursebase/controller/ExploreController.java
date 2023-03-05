@@ -10,7 +10,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,9 +23,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -143,7 +139,7 @@ public class ExploreController implements Initializable {
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
                                 FXMLController sceneController = loader.getController();
-                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
@@ -196,7 +192,7 @@ public class ExploreController implements Initializable {
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
                                 FXMLController sceneController = loader.getController();
-                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
@@ -249,7 +245,7 @@ public class ExploreController implements Initializable {
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
                                 FXMLController sceneController = loader.getController();
-                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
@@ -303,7 +299,7 @@ public class ExploreController implements Initializable {
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
                                 FXMLController sceneController = loader.getController();
-                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
@@ -370,7 +366,7 @@ public class ExploreController implements Initializable {
                                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                         root = loader.load();
                                         FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                         stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                         scene = new Scene(root);
                                         stage.setScene(scene);
@@ -425,7 +421,7 @@ public class ExploreController implements Initializable {
                                         root = loader.load();
 
                                         FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                         stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                         scene = new Scene(root);
                                         stage.setScene(scene);
@@ -484,7 +480,7 @@ public class ExploreController implements Initializable {
                                 root = loader.load();
 
                                 FXMLController sceneController = loader.getController();
-                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                 //    UpdateCourseController scene2Controller = loader.getController();
                                 // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
@@ -546,7 +542,7 @@ public class ExploreController implements Initializable {
                                         root = loader.load();
 
                                         FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                         stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                         scene = new Scene(root);
                                         stage.setScene(scene);
@@ -601,7 +597,7 @@ public class ExploreController implements Initializable {
                                         root = loader.load();
 
                                         FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle());
+                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
                                         stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                         scene = new Scene(root);
                                         stage.setScene(scene);

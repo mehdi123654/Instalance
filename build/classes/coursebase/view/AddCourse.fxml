@@ -16,14 +16,14 @@
 <AnchorPane id="AnchorPane" prefHeight="613.0" prefWidth="1107.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.AddCourseController">
    <children>
       <Label layoutX="55.0" layoutY="104.0" text="Title:" />
-      <Label layoutX="39.0" layoutY="160.0" text="Description:" />
-      <Label layoutX="645.0" layoutY="104.0" text="Price:" />
-      <Label layoutX="626.0" layoutY="170.0" prefHeight="21.0" prefWidth="74.0" text="Category:" />
-      <Label layoutX="626.0" layoutY="242.0" prefHeight="21.0" prefWidth="95.0" text="Photo:" />
-      <TextArea fx:id="description" layoutX="134.0" layoutY="151.0" prefHeight="436.0" prefWidth="423.0" />
-      <ChoiceBox fx:id="category" layoutX="725.0" layoutY="165.0" prefHeight="31.0" prefWidth="142.0" />
-      <TextField fx:id="price" layoutX="725.0" layoutY="105.0" prefHeight="31.0" prefWidth="142.0" />
-      <Button fx:id="search_button" layoutX="721.0" layoutY="248.0" mnemonicParsing="false" text="Search..." />
+      <Label layoutX="39.0" layoutY="160.0" text="Video link" />
+      <Label layoutX="69.0" layoutY="242.0" text="Price:" />
+      <Label layoutX="50.0" layoutY="321.0" prefHeight="21.0" prefWidth="74.0" text="Category:" />
+      <Label layoutX="40.0" layoutY="425.0" prefHeight="21.0" prefWidth="95.0" text="Photo:" />
+      <TextArea fx:id="description" layoutX="134.0" layoutY="497.0" prefHeight="90.0" prefWidth="423.0" />
+      <ChoiceBox fx:id="category" layoutX="174.0" layoutY="327.0" prefHeight="31.0" prefWidth="142.0" />
+      <TextField fx:id="price" layoutX="148.0" layoutY="237.0" prefHeight="31.0" prefWidth="142.0" />
+      <Button fx:id="search_button" layoutX="162.0" layoutY="440.0" mnemonicParsing="false" text="Search..." />
       <TextField fx:id="title" layoutX="130.0" layoutY="99.0" prefHeight="31.0" prefWidth="430.0" />
       <Button fx:id="btn" layoutX="760.0" layoutY="416.0" mnemonicParsing="false" text="Add" textFill="#b7bf13">
          <font>
@@ -49,7 +49,8 @@
          </fill>
       </Circle>
       <Separator layoutX="586.0" layoutY="-6.0" orientation="VERTICAL" prefHeight="668.0" prefWidth="22.0" />
-      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="852.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="429.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="photo" layoutX="663.0" layoutY="313.0" prefHeight="31.0" prefWidth="151.0" />
+      <TextField fx:id="desc" layoutX="134.0" layoutY="155.0" prefHeight="46.0" prefWidth="423.0" />
    </children>
 </AnchorPane>

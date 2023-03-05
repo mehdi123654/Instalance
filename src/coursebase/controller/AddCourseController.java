@@ -50,8 +50,7 @@ public class AddCourseController implements Initializable {
     @FXML
     private Label photo;
 
-    @FXML
-    private TextArea description;
+  
 
     @FXML
     private ChoiceBox<String> category;
@@ -68,7 +67,8 @@ public class AddCourseController implements Initializable {
     private Button btn;
     @FXML
     private ImageView img;
-
+    @FXML
+    private TextField desc;
     @FXML
     private Button showall_btn;
 
@@ -120,7 +120,7 @@ fileChooser.getExtensionFilters().addAll(
         btn.setOnAction(
                 event -> {
                     String selectedChoice = category.getSelectionModel().getSelectedItem();
-                    Course p = new Course(title.getText(), description.getText(), Integer.parseInt(price.getText()), selectedChoice,photo.getText());
+                    Course p = new Course(title.getText(), desc.getText(), Integer.parseInt(price.getText()), selectedChoice,photo.getText());
                     CourseDao pdao = CourseDao.getInstance();
                     pdao.insert(p);
 

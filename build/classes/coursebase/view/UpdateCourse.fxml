@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -34,6 +33,8 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Course Title">
@@ -41,33 +42,34 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="Description" GridPane.rowIndex="2">
+            <Label text="Video link" GridPane.rowIndex="2">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="Price" GridPane.rowIndex="4">
+            <Label text="Price" GridPane.rowIndex="5">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="Category" GridPane.rowIndex="6">
+            <Label text="Category" GridPane.rowIndex="7">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="Photo" GridPane.rowIndex="8">
+            <Label text="Photo" GridPane.rowIndex="9">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextArea fx:id="desc_field" prefHeight="129.0" prefWidth="393.0" GridPane.rowIndex="3" />
-            <TextField fx:id="title_field" prefHeight="31.0" prefWidth="200.0" GridPane.rowIndex="1" />
-            <TextField fx:id="price_field" prefHeight="31.0" prefWidth="200.0" GridPane.rowIndex="5" />
-            <ChoiceBox fx:id="categ_choice" prefHeight="31.0" prefWidth="200.0" GridPane.rowIndex="7" />
+            <TextField fx:id="title_field" prefHeight="31.0" prefWidth="415.0" GridPane.rowIndex="1" />
+            <TextField fx:id="price_field" prefHeight="31.0" prefWidth="200.0" GridPane.rowIndex="6" />
+            <ChoiceBox fx:id="categ_choice" prefHeight="31.0" prefWidth="200.0" GridPane.rowIndex="8" />
+            <TextField fx:id="video" prefHeight="31.0" prefWidth="217.0" GridPane.rowIndex="3" />
+            <Button fx:id="search" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Search..." GridPane.rowIndex="10" />
          </children>
       </GridPane>
-      <TextField fx:id="id_field" layoutX="106.0" layoutY="551.0" prefHeight="31.0" prefWidth="135.0" />
+      <TextField fx:id="id_field" layoutX="82.0" layoutY="438.0" prefHeight="31.0" prefWidth="135.0" />
       <Button fx:id="update_butt" layoutX="456.0" layoutY="546.0" mnemonicParsing="false" text="Save" textFill="#a89717">
          <font>
             <Font name="System Bold" size="19.0" />
@@ -91,7 +93,7 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="delall" layoutX="629.0" layoutY="407.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Delete all lessons" />
+      <Button fx:id="delall" layoutX="629.0" layoutY="412.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Delete all lessons" />
       <Separator layoutX="577.0" layoutY="1.0" orientation="VERTICAL" prefHeight="662.0" prefWidth="0.0" />
       <Circle layoutX="-6.0" layoutY="-13.0" radius="100.0" stroke="WHITE" strokeType="INSIDE">
          <fill>
@@ -103,7 +105,6 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Button fx:id="search" layoutX="268.0" layoutY="474.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Search..." />
       <Label fx:id="photo_field" layoutX="96.0" layoutY="475.0" prefHeight="28.0" prefWidth="135.0" />
       <TextField fx:id="tl" layoutX="878.0" layoutY="112.0" prefHeight="31.0" prefWidth="148.0" />
       <Button fx:id="sf" layoutX="887.0" layoutY="159.0" mnemonicParsing="false" text="Search file" />
@@ -111,7 +112,7 @@
       <Label fx:id="t" layoutX="818.0" layoutY="117.0" text="Title:" />
       <Label fx:id="f" layoutX="823.0" layoutY="164.0" text="File" />
       <Button fx:id="cn" layoutX="961.0" layoutY="213.0" mnemonicParsing="false" text="Confirm add" />
-      <Button fx:id="kk" layoutX="878.0" layoutY="438.0" mnemonicParsing="false" text="Delete lesson" />
+      <Button fx:id="kk" layoutX="629.0" layoutY="374.0" mnemonicParsing="false" text="Delete lesson" />
       <Button fx:id="lsup" layoutX="800.0" layoutY="54.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" text="Update lesson" />
       <Button fx:id="svl" layoutX="826.0" layoutY="213.0" mnemonicParsing="false" text="Save lesson" />
    </children>

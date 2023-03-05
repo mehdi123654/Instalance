@@ -16,14 +16,13 @@
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/dao/CourseDao.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/utils/ConnexionSingleton.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/FXMLController.java</file>
-            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/LessonController.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ShowCourseController.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/test/ConnexionBDJavafx.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/view/explore.fxml</file>
-            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/view/lesson.fxml</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/AddCourseController.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ListLesson.java</file>
+            <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/entity/EmailSender.java</file>
         </group>
     </open-files>
 </project-private>
