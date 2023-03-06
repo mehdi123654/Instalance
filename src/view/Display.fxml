@@ -45,7 +45,7 @@
             <TableColumn fx:id="catcol" prefWidth="141.0" text="Category" />
         </columns>
       </TableView>
-      <Button fx:id="delt" layoutX="408.0" layoutY="31.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="Delete" />
+      <Button fx:id="delt" layoutX="732.0" layoutY="31.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="Delete" />
       <Label layoutX="905.0" layoutY="70.0" prefHeight="39.0" prefWidth="117.0" text="Name :" />
       <Label layoutX="894.0" layoutY="141.0" prefHeight="28.0" prefWidth="87.0" text="decription:" />
       <TextField fx:id="nmf" layoutX="1026.0" layoutY="70.0" prefHeight="31.0" prefWidth="282.0" />
@@ -54,7 +54,7 @@
       <Label layoutX="920.0" layoutY="36.0" prefHeight="21.0" prefWidth="35.0" text="Id:" />
       <TextField fx:id="idfild" layoutX="1026.0" layoutY="31.0" prefHeight="31.0" prefWidth="282.0" />
       <TextField fx:id="searchf" layoutX="38.0" layoutY="31.0" prefHeight="31.0" prefWidth="282.0" />
-      <Button fx:id="ajout" layoutX="518.0" layoutY="31.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="117.0" text="Add service" />
+      <Button fx:id="ajout" layoutX="54.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="117.0" text="Add service" />
       <Label layoutX="792.0" layoutY="311.0" text="Packages:">
          <font>
             <Font size="24.0" />
@@ -96,9 +96,9 @@
       <TextField fx:id="iurl" layoutX="1026.0" layoutY="274.0" prefHeight="31.0" prefWidth="269.0" />
       <Button fx:id="upimg" layoutX="877.0" layoutY="274.0" mnemonicParsing="false" text="Change image :" />
       <ImageView fx:id="ifild" fitHeight="200.0" fitWidth="364.0" layoutX="862.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="st" layoutX="210.0" layoutY="665.0" mnemonicParsing="false" text="satatisitcs" />
-      <ChoiceBox fx:id="chbx" layoutX="725.0" layoutY="31.0" prefWidth="150.0" />
-      <Button fx:id="re" layoutX="55.0" layoutY="665.0" mnemonicParsing="false" text="Main Page" />
-      <Button fx:id="sort" layoutX="653.0" layoutY="31.0" mnemonicParsing="false" text="Sort" />
+      <Button fx:id="st" layoutX="630.0" layoutY="31.0" mnemonicParsing="false" text="satatisitcs" />
+      <ChoiceBox fx:id="chbx" layoutX="467.0" layoutY="31.0" prefWidth="150.0" />
+      <Button fx:id="re" layoutX="229.0" layoutY="665.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" text="Main Page" />
+      <Button fx:id="sort" layoutX="409.0" layoutY="31.0" mnemonicParsing="false" text="Sort" />
    </children>
 </AnchorPane>

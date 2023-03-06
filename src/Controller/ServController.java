@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import entities.EmailSender;
+import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,20 +28,33 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import java.awt.Desktop;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-
+import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
+import javax.mail.MessagingException;
+ 
 /**
  * FXML Controller class
  *
  * @author belhassan
  */
 public class ServController implements Initializable {
+      @FXML
+    private Button pyflc;
 
-    
+        @FXML
+    private Button eml;
      @FXML
     private Button mainp;
     @FXML
@@ -60,7 +75,11 @@ public class ServController implements Initializable {
 
       @FXML
     private Button mps;
-
+   @FXML
+    private Button scr;
+   
+    @FXML
+    private Button wtsp;
     /**
      * Initializes the controller class.
      * @param url
@@ -68,6 +87,34 @@ public class ServController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+  
+        
+ wtsp.setOnAction(e -> {
+    String phoneNumber = "+21656152776"; // Replace with the recipient's phone number (including the country code)
+    String message = "Hello, world!"; // Replace with the message you want to send
+
+    try {
+        String encodedPhoneNumber = URLEncoder.encode(phoneNumber, StandardCharsets.UTF_8.toString());
+        String encodedMessage = URLEncoder.encode(message, StandardCharsets.UTF_8.toString());
+        String ul = "https://wa.me/" + encodedPhoneNumber + "?text=" + encodedMessage;
+        Desktop.getDesktop().browse(new URI(ul));
+    } catch (IOException | URISyntaxException ex) {
+        ex.printStackTrace();
+    }
+});
+        
+  
+
+           EmailSender emailSender = new EmailSender("InstalancePI@hotmail.com","belhassan@123");
+         eml.setOnAction(event -> {
+            try {
+                emailSender.sendEmail("belha9457@gmail.com", "Test email", "This is a test email sent from JavaFX.");
+                System.out.println("Email sent.");
+            } catch (MessagingException e) {
+                System.err.println("Error sending email: " + e.getMessage());
+            }
+        });
 webi.getEngine().loadContent("<div id=\"smart-button-container\">\n" +
 "      <div style=\"text-align: center;\">\n" +
 "        <div id=\"paypal-button-container\"></div>\n" +
@@ -119,7 +166,7 @@ webi.getEngine().loadContent("<div id=\"smart-button-container\">\n" +
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/your_profile_page"));
+                    Desktop.getDesktop().browse(new URI("https://www.linkedin.com/feed/"));
                 } catch (IOException | URISyntaxException e) {
                     e.printStackTrace();
                 }
