@@ -29,10 +29,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 /**
@@ -97,7 +99,7 @@ public class ExploreController implements Initializable {
 
     @FXML
     private StackPane s;
-    int i = -600, y = -150;
+    int i = -700, y = -150;
     int a = 1000, index = 0;
 
     @Override
@@ -105,7 +107,8 @@ public class ExploreController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         for (Course c : listdata.getCourses().filtered(product -> product.getCategory().equals("Mathematics"))) {
-            if (i > 0) {
+           
+  if (i > 0) {
                 fr4.setPrefWidth(a += 300);
             }
             try {
@@ -114,23 +117,38 @@ public class ExploreController implements Initializable {
                 Image image = new Image(input);
                 ImageView imageView = new ImageView(image);
                 Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
                 b.setTranslateX(i);
+                b.setPrefWidth(200);
                 b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
                 imageView.setFitWidth(200); // set the desired width
                 imageView.setFitHeight(150); // set the desired height
                 imageView.setImage(image);
-                Label b1 = new Label("" + c.getPrice() + "$");
-                Color lightBlue = Color.web("#d473d4");
-                b.setBackground(new Background(new BackgroundFill(lightBlue, null, null)));
-                b1.setTranslateX(i);
-                b1.setTranslateY(-30);
-
                 imageView.setTranslateX(i);
-                imageView.setTranslateY(-50);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
                 i += 300;
-
-                ss4.getChildren().addAll(b1, imageView, b);
+                ss4.getChildren().addAll(b1, imageView, b,cir2,b2);
 
                 b.setOnAction(
                         even -> {
@@ -138,27 +156,29 @@ public class ExploreController implements Initializable {
 
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
+
                                 FXMLController sceneController = loader.getController();
                                 sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
                                 stage.show();
                             } catch (IOException ex) {
-                                Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
                         });
-
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
-        i = -600;
+        i = -700;
         a = 1000;
         for (Course c : listdata.getCourses().filtered(product -> product.getCategory().equals("Marketing"))) {
-            if (i > 0) {
+              if (i > 0) {
                 fr3.setPrefWidth(a += 300);
             }
             try {
@@ -167,23 +187,38 @@ public class ExploreController implements Initializable {
                 Image image = new Image(input);
                 ImageView imageView = new ImageView(image);
                 Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
                 b.setTranslateX(i);
+                b.setPrefWidth(200);
                 b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
                 imageView.setFitWidth(200); // set the desired width
                 imageView.setFitHeight(150); // set the desired height
                 imageView.setImage(image);
-                Label b1 = new Label("" + c.getPrice() + "$");
-                Color lightBlue = Color.web("#d473d4");
-                b.setBackground(new Background(new BackgroundFill(lightBlue, null, null)));
-                b1.setTranslateX(i);
-                b1.setTranslateY(-30);
-
                 imageView.setTranslateX(i);
-                imageView.setTranslateY(-50);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
                 i += 300;
-
-                ss3.getChildren().addAll(b1, imageView, b);
+                ss3.getChildren().addAll(b1, imageView, b,cir2,b2);
 
                 b.setOnAction(
                         even -> {
@@ -191,27 +226,30 @@ public class ExploreController implements Initializable {
 
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
+
                                 FXMLController sceneController = loader.getController();
                                 sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
                                 stage.show();
                             } catch (IOException ex) {
-                                Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
                         });
-
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+
         }
-        i = -600;
+        i = -700;
         a = 1000;
         for (Course c : listdata.getCourses().filtered(product -> product.getCategory().equals("Bussiness"))) {
-            if (i > 0) {
+             if (i > 0) {
                 fr2.setPrefWidth(a += 300);
             }
             try {
@@ -220,23 +258,38 @@ public class ExploreController implements Initializable {
                 Image image = new Image(input);
                 ImageView imageView = new ImageView(image);
                 Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
                 b.setTranslateX(i);
-                b.setTranslateY(-50);
+                b.setPrefWidth(200);
+                b.setTranslateY(-70);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
                 imageView.setFitWidth(200); // set the desired width
                 imageView.setFitHeight(150); // set the desired height
                 imageView.setImage(image);
-                Label b1 = new Label("" + c.getPrice() + "$");
-                Color lightBlue = Color.web("#d473d4");
-                b.setBackground(new Background(new BackgroundFill(lightBlue, null, null)));
-                b1.setTranslateX(i);
-                b1.setTranslateY(-30);
-
                 imageView.setTranslateX(i);
-                imageView.setTranslateY(-50);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(-30);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-60);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-60);
+                 
+                imageView.setTranslateY(-120);
 
                 i += 300;
-
-                ss2.getChildren().addAll(b1, imageView, b);
+                ss2.getChildren().addAll(b1, imageView, b,cir2,b2);
 
                 b.setOnAction(
                         even -> {
@@ -244,25 +297,28 @@ public class ExploreController implements Initializable {
 
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
+
                                 FXMLController sceneController = loader.getController();
                                 sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
                                 stage.show();
                             } catch (IOException ex) {
-                                Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
                         });
-
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+
         }
 
-        i = -600;
+        i = -700;
         a = 1000;
         for (Course c : listdata.getCourses().filtered(product -> product.getCategory().equals("Development"))) {
             if (i > 0) {
@@ -274,23 +330,38 @@ public class ExploreController implements Initializable {
                 Image image = new Image(input);
                 ImageView imageView = new ImageView(image);
                 Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
                 b.setTranslateX(i);
+                b.setPrefWidth(200);
                 b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
                 imageView.setFitWidth(200); // set the desired width
                 imageView.setFitHeight(150); // set the desired height
                 imageView.setImage(image);
-                Label b1 = new Label("" + c.getPrice() + "$");
-                Color lightBlue = Color.web("#d473d4");
-                b.setBackground(new Background(new BackgroundFill(lightBlue, null, null)));
-                b1.setTranslateX(i);
-                b1.setTranslateY(-30);
-
                 imageView.setTranslateX(i);
-                imageView.setTranslateY(-50);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
                 i += 300;
-
-                ss1.getChildren().addAll(b1, imageView, b);
+                ss1.getChildren().addAll(b1, imageView, b,cir2,b2);
 
                 b.setOnAction(
                         even -> {
@@ -298,21 +369,24 @@ public class ExploreController implements Initializable {
 
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
                                 root = loader.load();
+
                                 FXMLController sceneController = loader.getController();
                                 sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
                                 stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
                                 stage.show();
                             } catch (IOException ex) {
-                                Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
                         });
-
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
             }
+
 
         }
 
@@ -327,113 +401,150 @@ public class ExploreController implements Initializable {
             if ("Name".equals(searchValue)) {
                 ss.getChildren().clear();
 
-                int o = -600;
+                i = -700;
 
-                int g = 1000;
+                a = 1000;
                 for (Course c : listdata.getCourses().sorted((o1, o2) -> o1.getTitle().compareTo(o2.getTitle()))) {
-                    if (o > 0) {
-                        fr.setPrefWidth(g += 300);
+                     if (i > 0) {
+                fr.setPrefWidth(a += 300);
+            }
+            try {
+                String p = c.getPhoto().replace("@", "\\");
+                FileInputStream input = new FileInputStream(p);
+                Image image = new Image(input);
+                ImageView imageView = new ImageView(image);
+                Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
+                b.setTranslateX(i);
+                b.setPrefWidth(200);
+                b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
+                imageView.setFitWidth(200); // set the desired width
+                imageView.setFitHeight(150); // set the desired height
+                imageView.setImage(image);
+                imageView.setTranslateX(i);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
-                    }
-                    try {
-                        String p = c.getPhoto().replace("@", "\\");
-                        FileInputStream input = new FileInputStream(p);
-                        Image image = new Image(input);
-                        ImageView imageView = new ImageView(image);
-                        Button b = new Button(c.getTitle());
-                        Label b1 = new Label("" + c.getPrice() + "$");
-                        b1.setTranslateX(o);
-                        b1.setTranslateY(-30);
+                i += 300;
+                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
 
-                        b.setTranslateX(o);
-                        Color lightBlue = Color.web("#d473d4");
-                        b.setBackground(new Background(new BackgroundFill(lightBlue, null, null)));
-                        b.setTranslateY(-50);
-                        imageView.setFitWidth(200); // set the desired width
-                        imageView.setFitHeight(150); // set the desired height
-                        imageView.setImage(image);
-                        imageView.setTranslateX(o);
-                        imageView.setTranslateY(-50);
+                b.setOnAction(
+                        even -> {
+                            try {
 
-                        o += 300;
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
+                                root = loader.load();
 
-                        ss.getChildren().addAll(b1, imageView, b);
+                                FXMLController sceneController = loader.getController();
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
+                                stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                                scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.show();
+                            } catch (IOException ex) {
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
 
-                        b.setOnAction(
-                                even -> {
-                                    try {
-
-                                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
-                                        root = loader.load();
-                                        FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
-                                        stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
-                                        scene = new Scene(root);
-                                        stage.setScene(scene);
-                                        stage.show();
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-
-                                });
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                        });
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
                 }
 
             } else {
                 ss.getChildren().clear();
-                int o = -600, g = 1000;
+                i = -700;
+                a = 1000;
 
                 for (Course c : listdata.getCourses().sorted((p1, p2) -> Integer.compare(p1.getPrice(), p2.getPrice()))) {
-                    if (o > 0) {
-                        fr.setPrefWidth(g += 300);
-                    }
-                    try {
-                        String p = c.getPhoto().replace("@", "\\");
-                        FileInputStream input = new FileInputStream(p);
-                        Image image = new Image(input);
-                        ImageView imageView = new ImageView(image);
-                        Button b = new Button(c.getTitle());
-                        Label b1 = new Label("" + c.getPrice() + "$");
-                        b.setTranslateX(o);
-                        b.setTranslateY(-50);
-                        imageView.setFitWidth(200); // set the desired width
-                        imageView.setFitHeight(150); // set the desired height
-                        imageView.setImage(image);
-                        imageView.setTranslateX(o);
-                        imageView.setTranslateY(-50);
-                        Color lightBlue = Color.web("#d473d4");
-                        b.setBackground(new Background(new BackgroundFill(lightBlue, null, null)));
-                        b1.setTranslateX(o);
-                        b1.setTranslateY(-30);
+                     if (i > 0) {
+                fr.setPrefWidth(a += 300);
+            }
+            try {
+                String p = c.getPhoto().replace("@", "\\");
+                FileInputStream input = new FileInputStream(p);
+                Image image = new Image(input);
+                ImageView imageView = new ImageView(image);
+                Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
+                b.setTranslateX(i);
+                b.setPrefWidth(200);
+                b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
+                imageView.setFitWidth(200); // set the desired width
+                imageView.setFitHeight(150); // set the desired height
+                imageView.setImage(image);
+                imageView.setTranslateX(i);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
-                        o += 300;
-                        ss.getChildren().add(imageView);
-                        ss.getChildren().add(b);
-                        ss.getChildren().add(b1);
-                        b.setOnAction(
-                                even -> {
-                                    try {
+                i += 300;
+                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
 
-                                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
-                                        root = loader.load();
+                b.setOnAction(
+                        even -> {
+                            try {
 
-                                        FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
-                                        stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
-                                        scene = new Scene(root);
-                                        stage.setScene(scene);
-                                        stage.show();
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
+                                root = loader.load();
 
-                                });
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                                FXMLController sceneController = loader.getController();
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
+                                stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                                scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.show();
+                            } catch (IOException ex) {
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                        });
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
 
                 }
 
@@ -441,7 +552,7 @@ public class ExploreController implements Initializable {
         });
 
 //**************************************************display courses****************************************************
-        i = -600;
+        i = -700;
         a = 1000;
         for (Course c : listdata.getCourses()) {
             if (i > 0) {
@@ -453,24 +564,38 @@ public class ExploreController implements Initializable {
                 Image image = new Image(input);
                 ImageView imageView = new ImageView(image);
                 Button b = new Button(c.getTitle());
-                Color lightBlue = Color.web("#d473d4");
-                b.setBackground(new Background(new BackgroundFill(lightBlue, null, null)));
+               
+             b.setBackground(null);
                 b.setTranslateX(i);
+                b.setPrefWidth(200);
                 b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
                 imageView.setFitWidth(200); // set the desired width
                 imageView.setFitHeight(150); // set the desired height
                 imageView.setImage(image);
                 imageView.setTranslateX(i);
-                Label b1 = new Label("" + c.getPrice() + "$");
-                b1.setTranslateX(i);
-                b1.setTranslateY(-30);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
-                imageView.setTranslateY(-50);
-                Label label = new Label(c.getTitle());
-                label.setTranslateX(i);
-                label.setTranslateY(y);
                 i += 300;
-                ss.getChildren().addAll(b1, imageView, b);
+                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
 
                 b.setOnAction(
                         even -> {
@@ -504,113 +629,149 @@ public class ExploreController implements Initializable {
             String searchValue = search.getText().trim();
             if (searchValue.isEmpty()) {
                 ss.getChildren().clear();
-                int o = -600;
+                i = -700;
 
-                int g = 1000;
+                a = 1000;
                 for (Course c : listdata.getCourses()) {
-                    if (o > 0) {
-                        fr.setPrefWidth(g += 300);
-                    }
-                    try {
-                        String p = c.getPhoto().replace("@", "\\");
-                        FileInputStream input = new FileInputStream(p);
-                        Image image = new Image(input);
-                        ImageView imageView = new ImageView(image);
-                        Button b = new Button(c.getTitle());
-                        b.setTranslateX(o);
-                        b.setTranslateY(-50);
-                        imageView.setFitWidth(200); // set the desired width
-                        imageView.setFitHeight(150); // set the desired height
-                        imageView.setImage(image);
-                        imageView.setTranslateX(o);
-                        imageView.setTranslateY(-50);
-                        Label label = new Label(c.getTitle());
-                        Label b1 = new Label("" + c.getPrice() + "$");
-                        b1.setTranslateX(o);
-                        b1.setTranslateY(-30);
-                        ss.getChildren().add(b1);
-                        label.setTranslateX(o);
-                        label.setTranslateY(y);
-                        o += 300;
-                        ss.getChildren().add(imageView);
-                        ss.getChildren().add(b);
-                        b.setOnAction(
-                                even -> {
-                                    try {
+                     if (i > 0) {
+                fr.setPrefWidth(a += 300);
+            }
+            try {
+                String p = c.getPhoto().replace("@", "\\");
+                FileInputStream input = new FileInputStream(p);
+                Image image = new Image(input);
+                ImageView imageView = new ImageView(image);
+                Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
+                b.setTranslateX(i);
+                b.setPrefWidth(200);
+                b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
+                imageView.setFitWidth(200); // set the desired width
+                imageView.setFitHeight(150); // set the desired height
+                imageView.setImage(image);
+                imageView.setTranslateX(i);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
-                                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
-                                        root = loader.load();
+                i += 300;
+                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
 
-                                        FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
-                                        stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
-                                        scene = new Scene(root);
-                                        stage.setScene(scene);
-                                        stage.show();
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
+                b.setOnAction(
+                        even -> {
+                            try {
 
-                                });
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
+                                root = loader.load();
+
+                                FXMLController sceneController = loader.getController();
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
+                                stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                                scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.show();
+                            } catch (IOException ex) {
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                        });
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
                 }
             } else {
-                int l = -600;
+                i = -700;
+                 a = 1000;
                 ss.getChildren().clear();
 
                 for (Course c : listdata.getCourses().filtered(product -> product.getTitle().equals(searchValue))) {
-                    if (l > 0) {
-                        fr.setPrefWidth(a += 300);
-                    }
-                    try {
-                        String p = c.getPhoto().replace("@", "\\");
-                        FileInputStream input = new FileInputStream(p);
-                        Image image = new Image(input);
-                        ImageView imageView = new ImageView(image);
-                        Button b = new Button(c.getTitle());
-                        b.setTranslateX(l);
-                        b.setTranslateY(-50);
-                        imageView.setFitWidth(200); // set the desired width
-                        imageView.setFitHeight(150); // set the desired height
-                        imageView.setImage(image);
-                        Label b1 = new Label("" + c.getPrice() + "$");
-                        b1.setTranslateX(l);
-                        b1.setTranslateY(-30);
-                        ss.getChildren().add(b1);
-                        imageView.setTranslateX(l);
-                        imageView.setTranslateY(-50);
-                        Label label = new Label(c.getTitle());
-                        label.setTranslateX(l);
-                        label.setTranslateY(y);
-                        l += 300;
-                        //ss.getChildren().add(label);
-                        ss.getChildren().add(imageView);
-                        ss.getChildren().add(b);
-                        b.setOnAction(
-                                even -> {
-                                    try {
+                     if (i > 0) {
+                fr.setPrefWidth(a += 300);
+            }
+            try {
+                String p = c.getPhoto().replace("@", "\\");
+                FileInputStream input = new FileInputStream(p);
+                Image image = new Image(input);
+                ImageView imageView = new ImageView(image);
+                Button b = new Button(c.getTitle());
+               
+             b.setBackground(null);
+                b.setTranslateX(i);
+                b.setPrefWidth(200);
+                b.setTranslateY(-50);
+                  Font font = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 20);
+                b.setFont(font);
+                imageView.setFitWidth(200); // set the desired width
+                imageView.setFitHeight(150); // set the desired height
+                imageView.setImage(image);
+                imageView.setTranslateX(i);
+                Label b1 = new Label( c.getPrice() + "$");
+                b1.setFont(font);
+                b1.setTranslateX(i-150);
+                b1.setTranslateY(0);
+                 
+                 FileInputStream input2 = new FileInputStream("C:/Users/user/Desktop/git/Instalance/src/assets/user.jpeg");
+                Image image2 = new Image(input2);
+                Circle cir2 = new Circle(100,100,12); 
+                cir2.setFill(new ImagePattern(image2));
+                  cir2.setTranslateX(i-160);
+                cir2.setTranslateY(-30);
+                 Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
+               Label b2 = new Label("Andrw");
+                b2.setFont(font2);
+                b2.setTranslateX(i-110);
+                b2.setTranslateY(-30);
+                 
+                imageView.setTranslateY(-95);
 
-                                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
-                                        root = loader.load();
+                i += 300;
+                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
 
-                                        FXMLController sceneController = loader.getController();
-                                        sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
-                                        stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
-                                        scene = new Scene(root);
-                                        stage.setScene(scene);
-                                        stage.show();
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(UpdateCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
+                b.setOnAction(
+                        even -> {
+                            try {
 
-                                });
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/coursebase/view/FXML.fxml"));
+                                root = loader.load();
 
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                                FXMLController sceneController = loader.getController();
+                                sceneController.displayName(String.valueOf(c.getCid()), c.getTitle(),c.getDecription());
+                                //    UpdateCourseController scene2Controller = loader.getController();
+                                // scene2Controller.displayName(String.valueOf(c.getCid()), c.getDecription(), c.getTitle(), String.valueOf(c.getPrice()), c.getPhoto(), c.getCategory());
+                                stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                                scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.show();
+                            } catch (IOException ex) {
+                                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                        });
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
 
                 }
 
