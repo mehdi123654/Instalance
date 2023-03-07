@@ -152,7 +152,7 @@ paneMain.getChildren().add(button);
             
        
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Affiche_blogController.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
@@ -181,7 +181,7 @@ paneMain.getChildren().add(button);
             
        
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Affiche_blogController.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
@@ -241,7 +241,7 @@ paneMain.getChildren().add(button);
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Affiche_blogController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     

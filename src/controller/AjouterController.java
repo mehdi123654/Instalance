@@ -111,7 +111,7 @@ public class AjouterController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AjouterController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     

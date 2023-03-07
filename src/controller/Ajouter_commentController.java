@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import work.enteties.Blog;
@@ -36,7 +37,7 @@ public class Ajouter_commentController implements Initializable {
     @FXML
     private TextField fx_id_blog;
     @FXML
-    private TextField fx_body;
+    private TextArea fx_body;
     @FXML
     private Button ajouter;
 
@@ -46,6 +47,9 @@ public class Ajouter_commentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+          fx_id_blog.setEditable(false);
+       fx_id_blog.setText(Integer.toString(Affiche_blogController.id_blog));
+       fx_id_blog.setVisible(false);
     }    
 
     @FXML
@@ -85,13 +89,13 @@ public class Ajouter_commentController implements Initializable {
         try {
 
             Parent page1
-                    = FXMLLoader.load(getClass().getResource("/view/Affiche_blog.fxml"));
+                    = FXMLLoader.load(getClass().getResource("/view/Afficher.fxml"));
             Scene scene = new Scene(page1);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Ajouter_commentController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     }

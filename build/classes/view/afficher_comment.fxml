@@ -10,5 +10,6 @@
       <Button fx:id="supprimer" layoutX="129.0" layoutY="469.0" mnemonicParsing="false" onAction="#supprimer_comment" style="-fx-background-color: #ffab40;" text="supprimer" />
       <Button fx:id="mod" layoutX="235.0" layoutY="469.0" mnemonicParsing="false" onAction="#mod" style="-fx-background-color: #ffab40;" text="modifier" />
       <Button layoutX="342.0" layoutY="469.0" mnemonicParsing="false" onAction="#ajouter" style="-fx-background-color: #ffab40;" text="ajouter" />
+      <Button fx:id="return1" layoutX="46.0" layoutY="469.0" mnemonicParsing="false" onAction="#return1" style="-fx-background-color: #ffab40;" text="return" />
    </children>
 </AnchorPane>

@@ -46,6 +46,8 @@ public class Afficher_commentController implements Initializable {
     private Button supprimer;
     @FXML
     private Button mod;
+    @FXML
+    private Button return1;
 
     /**
      * Initializes the controller class.
@@ -57,6 +59,7 @@ public class Afficher_commentController implements Initializable {
         List<Comment> list2 = inter.DisplayComment();
         for (int i = 0; i < list2.size(); i++) {
             Comment A = list2.get(i);
+            if(A.getId_blog()==Affiche_blogController.id_blog)
             list1.getItems().add(A);
 
         } 
@@ -114,7 +117,7 @@ public class Afficher_commentController implements Initializable {
             
        
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Afficher_commentController.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
@@ -131,7 +134,22 @@ public class Afficher_commentController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Afficher_commentController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+
+    @FXML
+    private void return1(ActionEvent event) {
+         try {
+
+            Parent page1
+                    = FXMLLoader.load(getClass().getResource("/view/afficher.fxml"));
+            Scene scene = new Scene(page1);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(Afficher_commentController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     

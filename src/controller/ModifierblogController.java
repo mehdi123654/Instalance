@@ -91,7 +91,7 @@ public class ModifierblogController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModifierblogController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     }

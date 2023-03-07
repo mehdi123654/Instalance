@@ -93,7 +93,7 @@ paneMain.getChildren().add(button);
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AfficherController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
 
@@ -124,6 +124,21 @@ al.setHeaderText ("NON ENREGISTRED!!");
 al.show();
        }
       
+    }
+
+    @FXML
+    private void vcomments(ActionEvent event) {
+        try {
+
+            Parent page1
+                    = FXMLLoader.load(getClass().getResource("/view/Afficher_comment.fxml"));
+            Scene scene = new Scene(page1);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherController.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }
     
 }
