@@ -39,7 +39,7 @@ public class ModifiercommentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //fx_id_blog.setText(Integer.toString(Afficher_blogController.id_blog));
-        fx_body.setText(Afficher_blogController.body); 
+        fx_body.setText(Affiche_blogController.body); 
     
     }    
 

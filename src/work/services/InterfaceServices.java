@@ -17,6 +17,6 @@ public interface InterfaceServices {
     public void DeleteBlog(int id_blog);
     public List<Blog> DisplayBlog();
     public void update(Blog b,int id) ;
-       
+       public List<Blog> Sort();
        
 }

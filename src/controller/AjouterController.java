@@ -10,6 +10,21 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -19,19 +34,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
 /**
  * FXML Controller class
  *
  * @author zeinab
  */
-public class Ajouter_blogController implements Initializable {
+public class AjouterController implements Initializable {
 
+    @FXML
+    private TextArea fx_body;
     @FXML
     private TextField fx_title;
     @FXML
-    private TextField fx_body;
-    @FXML
     private Button ajouter;
+    @FXML
+    private Button return1;
 
     /**
      * Initializes the controller class.
@@ -43,8 +62,7 @@ public class Ajouter_blogController implements Initializable {
 
     @FXML
     private void ajouter(ActionEvent event) {
-        
-        String title = fx_title.getText();
+          String title = fx_title.getText();
         String body = fx_body.getText();
        if(title.length()==0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -82,5 +100,19 @@ public class Ajouter_blogController implements Initializable {
     }
     }
 
+    @FXML
+    private void return1(ActionEvent event) {
+        try {
+
+            Parent page1
+                    = FXMLLoader.load(getClass().getResource("/view/Affiche_blog.fxml"));
+            Scene scene = new Scene(page1);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    
 }
- 

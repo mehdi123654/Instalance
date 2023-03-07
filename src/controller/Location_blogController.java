@@ -45,7 +45,7 @@ public class Location_blogController implements Initializable {
                  try {
 
             Parent page1
-                    = FXMLLoader.load(getClass().getResource("/view/crud_blog.fxml"));
+                    = FXMLLoader.load(getClass().getResource("/view/affiche_blog.fxml"));
             Scene scene = new Scene(page1);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -62,7 +62,7 @@ public class Location_blogController implements Initializable {
            try {
 
             Parent page1
-                    = FXMLLoader.load(getClass().getResource("/view/crud_comment.fxml"));
+                    = FXMLLoader.load(getClass().getResource("/view/afficher_comment.fxml"));
             Scene scene = new Scene(page1);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

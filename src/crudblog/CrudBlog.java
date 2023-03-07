@@ -16,6 +16,7 @@ public class CrudBlog {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
     }
     
 }

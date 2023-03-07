@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/enteties/Blog.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/location_blog.fxml</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/css/styles.css</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/Affiche_blogController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/ajouter_comment.fxml</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/AjouterController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/modifiercomment.fxml</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/ajouter.fxml</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/main.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/services/CRUDComment.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/services/CRUDBlog.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/Afficher_commentController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/crudblog/CrudBlog.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/affiche_blog.fxml</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/Location_blogController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/services/InterfaceServices.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/tests/Work.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/modifierblog.fxml</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/afficher_comment.fxml</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/services/InterfaceServices2.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/utils/MyConnection.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/AfficherController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/enteties/ToggleSwitch.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/ModifierblogController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/Ajouter_commentController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/work/enteties/Comment.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/controller/ModifiercommentController.java</file>
+            <file>file:/C:/Users/zeinab/Documents/NetBeansProjects/crudBlog/src/view/afficher.fxml</file>
+        </group>
+    </open-files>
+</project-private>

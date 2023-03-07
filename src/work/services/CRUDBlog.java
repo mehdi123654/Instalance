@@ -126,6 +126,26 @@ public class CRUDBlog implements InterfaceServices {
         }
         
     }
+
+    @Override
+    public List<Blog> Sort() {
+List<Blog> bl = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM `Blog` order by title";
+            Statement st = conn.createStatement();
+            ResultSet result = st.executeQuery(req);
+
+            while (result.next()) {
+                Blog resultB = new Blog(result.getInt(1), result.getString(2), result.getString(3));
+                bl.add(resultB);
+            }
+            System.out.println(bl);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return bl;
+    }
   
         
     }

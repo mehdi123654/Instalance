@@ -37,7 +37,7 @@ public class Blog {
 
      @Override
     public String toString() {
-        return "Blog{" + "id=" + id_blog  + ", title=" + title +  ", body=" + body +'}';
+        return title ;
     }
 
 

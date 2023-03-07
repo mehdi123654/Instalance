@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AfficherController">
+   <children>
+      <Text layoutX="107.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+      <Text layoutX="107.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Body" />
+      <TextField fx:id="titleA" layoutX="195.0" layoutY="75.0" />
+      <TextArea fx:id="bodyA" layoutX="195.0" layoutY="156.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="return1" layoutX="447.0" layoutY="343.0" mnemonicParsing="false" onAction="#return1" text="Return" />
+      <AnchorPane fx:id="paneMain" layoutX="503.0" layoutY="18.0" prefHeight="26.0" prefWidth="78.0" />
+      <Text layoutX="439.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode " />
+      <Button fx:id="pdf" layoutX="466.0" layoutY="88.0" mnemonicParsing="false" onAction="#pdf" text="PDF" />
+   </children>
+</AnchorPane>

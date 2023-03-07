@@ -29,7 +29,7 @@ public class main extends Application {
     public void start(Stage primaryStage) {
     Parent root;
         try {
-            root=FXMLLoader.load(getClass().getResource("location_blog.fxml"));
+            root=FXMLLoader.load(getClass().getResource("affiche_blog.fxml"));
              Scene scene = new Scene(root);
         
         primaryStage.setTitle("Blog");
@@ -38,6 +38,7 @@ public class main extends Application {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        
     }
  
 

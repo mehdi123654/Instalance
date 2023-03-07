@@ -5,7 +5,7 @@
  */
 package controller;
 
-import static controller.Afficher_blogController.id_blog;
+import static controller.Affiche_blogController.id_blog;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -88,7 +88,7 @@ public class Afficher_commentController implements Initializable {
         }
     }
     
-
+    
     @FXML
     private void mod(ActionEvent event) {
     
@@ -118,5 +118,23 @@ public class Afficher_commentController implements Initializable {
 
         }
     }
+
+    @FXML
+    private void ajouter(ActionEvent event) {
+        
+         try {
+
+            Parent page1
+                    = FXMLLoader.load(getClass().getResource("/view/Ajouter_comment.fxml"));
+            Scene scene = new Scene(page1);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(Location_blogController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    
+    
     
 }
