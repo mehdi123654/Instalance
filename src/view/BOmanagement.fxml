@@ -48,8 +48,10 @@
       <TextField fx:id="searchField" layoutX="684.0" layoutY="44.0" prefHeight="26.0" prefWidth="127.0" promptText="Search..." AnchorPane.bottomAnchor="529.6" AnchorPane.leftAnchor="684.0" AnchorPane.rightAnchor="89.0" />
       <ImageView fx:id="QRcode" fitHeight="80.0" fitWidth="84.0" layoutX="572.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="showLocationBtn" layoutX="560.0" layoutY="129.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="MapBrowser" />
-      <Button fx:id="showMapBtn" layoutX="560.0" layoutY="209.0" mnemonicParsing="false" onAction="#showMap" text="MapWebEngine" />
+      <Button fx:id="showMapBtn" layoutX="548.0" layoutY="199.0" mnemonicParsing="false" onAction="#showMap" text="MapWebEngine" />
       <Button layoutX="675.0" layoutY="387.0" mnemonicParsing="false" onAction="#UpdateHackathon" prefHeight="30.0" prefWidth="127.0" text="Update Hackathon" />
+      <TextField fx:id="searchField1" layoutX="675.0" layoutY="340.0" prefHeight="26.0" prefWidth="127.0" promptText="Search..." />
+      <Button fx:id="pdfButton" layoutX="556.0" layoutY="266.0" mnemonicParsing="false" onAction="#pdf" prefHeight="30.0" prefWidth="114.0" text="Generate PDF" />
       
     </children>
    <effect>

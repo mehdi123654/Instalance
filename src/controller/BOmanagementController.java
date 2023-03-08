@@ -2,6 +2,8 @@ package controller;
 
 import entities.Hackathon;
 import entities.Workshop;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -11,6 +13,11 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -30,6 +37,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.EventService;
 import services.HackathonService;
@@ -47,11 +55,6 @@ public class BOmanagementController implements Initializable {
 
     @FXML
     private Button deleteButton;
-    @FXML
-    private Button addWorkshop;
-
-    @FXML
-    private Button addHackathon;
 
     @FXML
     private Button updateButton;
@@ -111,9 +114,6 @@ public class BOmanagementController implements Initializable {
     private TableColumn<Workshop, String> workshopNameColumn;
 
     @FXML
-    private TableColumn<Workshop, String> workshopEditColumn;
-
-    @FXML
     private TableColumn<Workshop, Date> workshopRegistrationDeadlineColumn;
 
     @FXML
@@ -126,12 +126,13 @@ public class BOmanagementController implements Initializable {
     private TextField searchField;
 
     @FXML
+    private TextField searchField1;
+
     private WebView map;
 
     @FXML
     private ImageView QRcode;
 
-    @FXML
     private VBox vboxx;
 
     @FXML
@@ -139,6 +140,11 @@ public class BOmanagementController implements Initializable {
 
     @FXML
     private Button showMapBtn;
+
+    @FXML
+    private Button pdfButton;
+    @FXML
+    private Button deleteButton2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -149,6 +155,7 @@ public class BOmanagementController implements Initializable {
         // initial Fieldteredlist
 
         FilteredList<Workshop> filteredWorkshops = new FilteredList<>(WorkshopList, b -> true);
+        FilteredList<Hackathon> filteredHackathons = new FilteredList<>(HackathonList, b -> true);
         workshopsTable.setItems(WorkshopList);
         hackathonsTable.setItems(HackathonList);
         workshopNameColumn.setSortable(true);
@@ -168,9 +175,9 @@ public class BOmanagementController implements Initializable {
                 (hackathon1, hackathon2) -> hackathon1.compareTo(hackathon2));
 
         hackathonsTable.setOnSort(event -> {
-            ObservableList<Hackathon> HackathonSortedList = hackathonsTable.getItems().sorted((w1, w2) -> {
-                String hackathonName1 = w1.getEvent_name();
-                String hackathonName2 = w2.getEvent_name();
+            ObservableList<Hackathon> HackathonSortedList = hackathonsTable.getItems().sorted((h1, h2) -> {
+                String hackathonName1 = h1.getEvent_name();
+                String hackathonName2 = h2.getEvent_name();
                 return hackathonName1.compareToIgnoreCase(hackathonName2);
             });
             hackathonsTable.setItems(HackathonSortedList);
@@ -198,10 +205,33 @@ public class BOmanagementController implements Initializable {
             });
             workshopsTable.setItems(filteredWorkshops);
         });
+        searchField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredHackathons.setPredicate(hackathon -> {
+                // If the search field is empty, show all workshops
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Convert the search query to lowercase for case-insensitive search
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                // Check if the workshop's name or description contains the search query
+                if (hackathon.getEvent_name().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (hackathon.getDescription().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+
+                // If the search query doesn't match the workshop's name or description, don't
+                // show it
+                return false;
+            });
+            hackathonsTable.setItems(filteredHackathons);
+        });
         loadData();
         // loadMap();
         showLocation();
-        // showMap();
+         //showMap();
     }
 
     public void loadData() {
@@ -368,8 +398,7 @@ public class BOmanagementController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-        }          
-        else if (selectedIndexHackathon != null) {
+        } else if (selectedIndexHackathon != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Map.fxml"));
             Parent root = loader.load();
             MapController mapcontroller = loader.getController();
@@ -390,6 +419,7 @@ public class BOmanagementController implements Initializable {
 
     }
 
+    @FXML
     public void Delete() {
 
         EventService eventService = new EventService();
@@ -409,6 +439,7 @@ public class BOmanagementController implements Initializable {
         }
     }
 
+    @FXML
     public void Deletee() {
         EventService eventService = new EventService();
         try {
@@ -505,6 +536,7 @@ public class BOmanagementController implements Initializable {
             alert.showAndWait();
         }
     }
+
     @FXML
     void UpdateHackathon(ActionEvent event) throws IOException {
         // Get the selected workshop from the workshops table
@@ -542,6 +574,71 @@ public class BOmanagementController implements Initializable {
         HackathonService hackathonService = new HackathonService();
         ObservableList<Hackathon> hackathonList = hackathonService.getAllHackathons();
         hackathonsTable.setItems(hackathonList);
+    }
+
+    @FXML
+    private void pdf(ActionEvent event) {
+        WorkshopService workshopService = new WorkshopService();
+        HackathonService hackathonService = new HackathonService();
+        ObservableList<Workshop> WorkshopList = workshopService.getAllWorkshops();
+        ObservableList<Hackathon> HackathonList = hackathonService.getAllHackathons();
+        Document document = new Document();
+        FileChooser f = new FileChooser();
+        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+        File file = f.showSaveDialog(new Stage());
+
+        if (file != null) {
+            try {
+                PdfWriter.getInstance(document, new FileOutputStream(file.getAbsoluteFile()));
+                document.open();
+
+                document.add(new Paragraph("------------Workshops and Hackathons------------"));
+                // Loop through each workshop and add its information to the document
+                for (Workshop workshop : WorkshopList) {
+                    document.add(new Paragraph("Workshop Name: " + workshop.getEvent_name()));
+                    document.add(new Paragraph("Description: " + workshop.getDescription()));
+                    document.add(new Paragraph("Start Date: " + workshop.getStart_date().toString()));
+                    document.add(new Paragraph("End Date: " + workshop.getEnd_date().toString()));
+                    document.add(new Paragraph("Location: " + workshop.getLocation()));
+                    document.add(new Paragraph("Max Attendees: " + workshop.getMax_attendees()));
+                    document.add(
+                            new Paragraph("Registration Deadline: " + workshop.getRegistrationDeadline().toString()));
+                            document.add(new Paragraph("Agenda: " + workshop.getAgenda()));
+                    document.add(new Paragraph("\n"));
+                }
+
+                // Loop through each hackathon and add its information to the document
+                for (Hackathon hackathon : HackathonList) {
+                    document.add(new Paragraph("Hackathon Name: " + hackathon.getEvent_name()));
+                    document.add(new Paragraph("Description: " + hackathon.getDescription()));
+                    document.add(new Paragraph("Start Date: " + hackathon.getStart_date().toString()));
+                    document.add(new Paragraph("End Date: " + hackathon.getEnd_date().toString()));
+                    document.add(new Paragraph("Location: " + hackathon.getLocation()));
+                    document.add(new Paragraph("Max Attendees: " + hackathon.getMax_attendees()));
+                    document.add(
+                            new Paragraph("Registration Deadline: " + hackathon.getRegistrationDeadline().toString()));
+                            document.add(
+                            new Paragraph("Submission Deadline: " + hackathon.getSubmissionDeadline().toString()));
+                    document.add(new Paragraph("Prizes: " + hackathon.getPrizes()));
+                    document.add(new Paragraph("\n"));
+                }
+
+                document.close();
+
+                Alert al = new Alert(AlertType.CONFIRMATION);
+                al.setHeaderText("PDF saved successfully!");
+                al.show();
+            } catch (Exception e) {
+                Alert al = new Alert(AlertType.WARNING);
+                al.setHeaderText("Error while generating PDF: " + e.getMessage());
+                al.show();
+            }
+        } else {
+            Alert al = new Alert(AlertType.WARNING);
+            al.setHeaderText("PDF not saved!");
+            al.show();
+        }
+
     }
 
 }

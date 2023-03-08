@@ -1,11 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane  prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="controller.FreelancermanagementController">
-    
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FreelancermanagementController">
+    <children>
+        <TableView fx:id="workshopsTable" layoutX="20.0" layoutY="10.0" prefHeight="257.0" prefWidth="520.0" AnchorPane.bottomAnchor="333.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="10.0">
+            <columns>
+                <TableColumn fx:id="workshopEvent_idColumn" text="Workshop id" />
+                <TableColumn fx:id="workshopNameColumn" text="Workshop Name" />
+                <TableColumn fx:id="workshopDescriptionColumn" text="Description" />
+                <TableColumn fx:id="workshopStartDateColumn" text="Start Date" />
+                <TableColumn fx:id="workshopEndDateColumn" prefWidth="87.20001220703125" text="End Date" />
+                <TableColumn fx:id="workshopLocationColumn" prefWidth="84.79998779296875" text="Location" />
+                <TableColumn fx:id="workshopMaxAttendeesColumn" prefWidth="108.79998779296875" text="Max Attendees" />
+                <TableColumn fx:id="workshopRegistrationDeadlineColumn" prefWidth="116.800048828125" text="Registration Deadline" />
+                <TableColumn fx:id="workshopAgendaColumn" prefWidth="84.800048828125" text="Agenda" />
+                
+            </columns>
+        </TableView>
+        <TableView fx:id="hackathonsTable" layoutY="332.0" prefHeight="327.0" prefWidth="722.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="360" AnchorPane.topAnchor="332.0">
+            <columns>
+                <TableColumn fx:id="hackathonEvent_idColumn" text="Hackathon id" />
+                <TableColumn fx:id="hackathonNameColumn" text="Hackathon Name" />
+                <TableColumn fx:id="hackathonDescriptionColumn" text="Description" />
+                <TableColumn fx:id="hackathonStartDateColumn" text="Start Date" />
+                <TableColumn fx:id="hackathonEndDateColumn" text="End Date" />
+                <TableColumn fx:id="hackathonLocationColumn" text="Location" />
+                <TableColumn fx:id="hackathonMaxAttendeesColumn" text="Max Attendees" />
+                <TableColumn fx:id="hackathonRegistrationDeadlineColumn" text="Registration Deadline" />
+                <TableColumn fx:id="hackathonSubmissionDeadlineColumn" text="Submission Deadline" />
+                <TableColumn fx:id="hackathonPrizesColumn" text="Prizes" />
+            </columns>
+        </TableView>
+        
+      <AmbientLight color="CHARTREUSE" lightOn="true" />
+      
+      <TextField fx:id="searchField" layoutX="684.0" layoutY="44.0" prefHeight="26.0" prefWidth="127.0" promptText="Search..." AnchorPane.bottomAnchor="529.6" AnchorPane.leftAnchor="684.0" AnchorPane.rightAnchor="89.0" />
+      <TextField fx:id="searchField1" layoutX="675.0" layoutY="340.0" prefHeight="26.0" prefWidth="127.0" promptText="Search..." />
+      
+    </children>
+   <effect>
+      <ColorAdjust />
+   </effect>
 </AnchorPane>
