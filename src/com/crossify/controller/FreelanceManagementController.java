@@ -84,6 +84,9 @@ public class FreelanceManagementController implements Initializable {
     @FXML
     private Label allOffersLabel;
 
+    @FXML
+    private Label highDemandeLabel;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //affichage
@@ -126,7 +129,6 @@ public class FreelanceManagementController implements Initializable {
             }
 
         });
-        
 
         myOffers.setOnMouseClicked(event -> {
             try {
@@ -170,6 +172,13 @@ public class FreelanceManagementController implements Initializable {
                 displayOffers(displayedOffers, 0, 1);
                 categoriesList.setVisible(false);
             }
+        });
+        //Filter BY DEMAND
+        highDemandeLabel.setOnMouseClicked(event -> {
+            searchedOffers.clear();
+            displayedOffers.clear();
+            displayedOffers.setAll(crud.sortByDemand());
+            displayOffers(displayedOffers, 0, 1);
         });
 
         //afficher kol chy ml all offers label

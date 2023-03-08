@@ -6,6 +6,7 @@
 package com.crossify.controller;
 
 import com.crossify.entities.Freelance;
+import com.crossify.services.CRUDApplication;
 import com.crossify.services.CRUDFreelance;
 import java.io.IOException;
 import java.net.URL;
@@ -50,12 +51,18 @@ public class FreelanceManagement_1Controller implements Initializable {
     private HBox cardLayout;
     @FXML
     private GridPane offerContainer;
+    @FXML
+    private Label highDemandeLabel;
+    @FXML
+    private ImageView searchIcon;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //CRUDApplication crudA = new CRUDApplication();
+        //crudA.sendToPython(20);
         //affichage
         CRUDFreelance crud = new CRUDFreelance();
 
@@ -69,20 +76,20 @@ public class FreelanceManagement_1Controller implements Initializable {
         // Create the searchedOffers and displayedOffers lists and initialize them with allOffers
         ObservableList<Freelance> searchedOffers = FXCollections.observableArrayList(allOffersList);
         ObservableList<Freelance> displayedOffers = FXCollections.observableArrayList(allOffersList);
-        
+
         //getting the categories : CALL
         ObservableList<String> categories = FXCollections.observableArrayList(crud.getAllCategories());
 
         //adding categories to the list view
         categoriesList.getItems().addAll(categories);
         categoriesList.setVisible(false);
-        
+
         //--------------------------------
         exit.setOnMouseClicked(event -> {
             javafx.application.Platform.exit();
         });
-        
-        //search bar
+
+        // advanced search bar
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.isEmpty()) {
                 displayedOffers.setAll(allOffersList);
@@ -94,7 +101,13 @@ public class FreelanceManagement_1Controller implements Initializable {
                 displayOffers(displayedOffers, 0, 1);
             }
         });
-        
+        //normal search 
+        // Assuming that searchIcon is the name of the search icon control and searchField is the name of the search field control
+        searchIcon.setOnMouseClicked(event -> {
+            String searchQuery = searchBar.getText();
+            ObservableList<Freelance> searched = FXCollections.observableArrayList(crud.simpleSearch(searchQuery, 20));
+        });
+
         //afficher kol chy ml all offers label
         allOffersLabel.setOnMouseClicked(event -> {
             searchedOffers.clear();
@@ -102,7 +115,7 @@ public class FreelanceManagement_1Controller implements Initializable {
             displayedOffers.setAll(allOffersList);
             displayOffers(displayedOffers, 0, 1);
         });
-        
+
         //filters
         //Filter By CATEGORY
         categoriesLabel.setOnMouseClicked(event -> {
@@ -120,7 +133,13 @@ public class FreelanceManagement_1Controller implements Initializable {
                 categoriesList.setVisible(false);
             }
         });
-
+        //Filter BY DEMAND
+        highDemandeLabel.setOnMouseClicked(event -> {
+            searchedOffers.clear();
+            displayedOffers.clear();
+            displayedOffers.setAll(crud.sortByDemand());
+            displayOffers(displayedOffers, 0, 1);
+        });
 
         //show newest always
         for (int i = 0;

@@ -5,6 +5,8 @@
  */
 package com.crossify.controller;
 
+import static com.crossify.controller.FreelanceManagementController.addOfferScene;
+import static com.crossify.controller.FreelanceManagementController.addStage;
 import freelancemanagement.FreelanceManagement;
 import com.crossify.entities.Freelance;
 import com.crossify.services.CRUDFreelance;
@@ -22,12 +24,14 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -35,6 +39,7 @@ import javafx.stage.Stage;
  * @author emnaa
  */
 public class MyOffersController implements Initializable {
+
     ObservableList<Freelance> allOffersList;
 
     @FXML
@@ -46,14 +51,17 @@ public class MyOffersController implements Initializable {
     @FXML
     private Button addbtn;
     @FXML
-    private GridPane offerContainer; 
+    private GridPane offerContainer;
     @FXML
     private ImageView exit;
 
     @FXML
+    private TextField searchBar;
+
+    @FXML
     void refreshDisplay(MouseDragEvent event) {
         System.out.println("Refreshing...");
-        
+
         /*clear(allOffersList);
         CRUDFreelance crud = new CRUDFreelance();
         ObservableList<Freelance> refreshedList = FXCollections.observableArrayList();
@@ -91,13 +99,28 @@ public class MyOffersController implements Initializable {
         allOffersList = crud.displayMyFreelancee(20);
         int column = 0;
         int row = 1;
-        
+
         exit.setOnMouseClicked(event -> {
             javafx.application.Platform.exit();
         });
 
         allOffers.setOnMouseClicked(event -> {
             FreelanceManagement.window.setScene(allOffersScene);
+        });
+        addbtn.setOnAction(event -> {
+
+            try {
+                addStage = new Stage();
+                addStage.initStyle(StageStyle.UNDECORATED);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/crossify/view/BO/addOffer.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                addOfferScene = new Scene(root1);
+                addStage.setScene(addOfferScene);
+                addStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
 
         //AFFICHAGE all the time
@@ -109,6 +132,7 @@ public class MyOffersController implements Initializable {
                 CardController cardController = fxmlLoader.getController();
                 cardController.modify.setVisible(true);
                 cardController.delete.setVisible(true);
+                cardController.consultList.setVisible(true);
                 cardController.setData(freelance);
                 if (column == 2) {
                     column = 0;
@@ -120,6 +144,7 @@ public class MyOffersController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public void clear(ObservableList<Freelance> list) {

@@ -8,6 +8,7 @@ package com.crossify.services;
 import com.crossify.DAO.IServicesFreelance;
 import com.crossify.entities.Freelance;
 import com.crossify.utils.MyConnection;
+import com.mysql.jdbc.StringUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -241,7 +242,7 @@ public class CRUDFreelance implements IServicesFreelance {
             st.setString(2, "%" + search + "%");
             st.setString(3, "%" + search + "%");
             ResultSet rs = st.executeQuery();
-
+            List<Integer> offerIds = new ArrayList<>();
             while (rs.next()) {
                 Freelance f = new Freelance();
                 f.setId_F(rs.getInt("idFreelance"));
@@ -253,6 +254,8 @@ public class CRUDFreelance implements IServicesFreelance {
                 f.setState_F(rs.getBoolean("state"));
                 f.setUrlLogo(rs.getString("urlLogo"));
                 myList.add(f);
+
+                offerIds.add(rs.getInt("idFreelance"));
             }
             rs.close();
             st.close();
@@ -303,6 +306,114 @@ public class CRUDFreelance implements IServicesFreelance {
                 fr.setUrlLogo(rs.getString("urlLogo"));
                 myList.add(fr);
             }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+    }
+
+    @Override
+    public Freelance reaserchById(int id) {
+        ObservableList<Freelance> myList = FXCollections.observableArrayList();
+        try {
+            String request3 = "SELECT * FROM freelance where idFreelance = ?";
+
+            PreparedStatement st = conn.prepareStatement(request3);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Freelance fr = new Freelance();
+                fr.setId_F(rs.getInt("idFreelance"));
+                fr.setBO_id(rs.getInt("idBO"));
+                fr.setBO_email(rs.getString("emailBO"));
+                fr.setCategory_F(rs.getString("category_F"));
+                fr.setDescription(rs.getString("description"));
+                fr.setBudget(rs.getFloat("budget"));
+                fr.setState_F(rs.getBoolean("state"));
+                myList.add(fr);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList.get(0);
+    }
+
+    @Override
+    public ObservableList<Freelance> sortByDemand() {
+        ObservableList<Freelance> myList = FXCollections.observableArrayList();
+        try {
+            String request3 = "SELECT * FROM freelance ORDER BY nbApplicants DESC";
+
+            PreparedStatement st = conn.prepareStatement(request3);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Freelance f = new Freelance();
+                f.setId_F(rs.getInt("idFreelance"));
+                f.setBO_id(rs.getInt("idBO"));
+                f.setBO_email(rs.getString("emailBO"));
+                f.setCategory_F(rs.getString("category_F"));
+                f.setDescription(rs.getString("description"));
+                f.setBudget(rs.getFloat("budget"));
+                f.setState_F(rs.getBoolean("state"));
+                f.setUrlLogo(rs.getString("urlLogo"));
+                myList.add(f);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+    }
+
+    public ObservableList<Freelance> simpleSearch(String search, int idFreelancer) {
+        ObservableList<Freelance> myList = FXCollections.observableArrayList();
+        try {
+            String request3 = "SELECT * FROM freelance where category_F LIKE ? OR description LIKE ?";
+
+            PreparedStatement st = conn.prepareStatement(request3);
+            st.setString(1, "%" + search + "%");
+            st.setString(2, "%" + search + "%");
+            ResultSet rs = st.executeQuery();
+
+            List<Integer> offerIds = new ArrayList<>();
+            while (rs.next()) {
+                Freelance f = new Freelance();
+                f.setId_F(rs.getInt("idFreelance"));
+                f.setBO_id(rs.getInt("idBO"));
+                f.setBO_email(rs.getString("emailBO"));
+                f.setCategory_F(rs.getString("category_F"));
+                f.setDescription(rs.getString("description"));
+                f.setBudget(rs.getFloat("budget"));
+                f.setState_F(rs.getBoolean("state"));
+                f.setUrlLogo(rs.getString("urlLogo"));
+                myList.add(f);
+
+                offerIds.add(rs.getInt("idFreelance"));
+            }
+            rs.close();
+            st.close();
+
+            // Insert a new row into the search history table
+            String insertQuery = "INSERT INTO historysearch (ID_user, search, resultCount, resultIDs) VALUES (?, ?, ?, ?)";
+            PreparedStatement insertStatement = conn.prepareStatement(insertQuery);
+            insertStatement.setInt(1, idFreelancer);
+            insertStatement.setString(2, search);
+            insertStatement.setInt(3, offerIds.size());
+            StringBuilder idsBuilder = new StringBuilder();
+            for (int i = 0; i < offerIds.size(); i++) {
+                idsBuilder.append(offerIds.get(i));
+                if (i != offerIds.size() - 1) {
+                    idsBuilder.append(", ");
+                }
+            }
+            String offerIdsStr = idsBuilder.toString();
+            insertStatement.setString(4, offerIdsStr);
+            insertStatement.executeUpdate();
+            insertStatement.close();
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());

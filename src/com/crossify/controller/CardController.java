@@ -6,6 +6,7 @@
 package com.crossify.controller;
 
 import com.crossify.entities.Freelance;
+import com.crossify.services.CRUDApplication;
 import com.crossify.services.CRUDFreelance;
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +29,7 @@ import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.C;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -52,15 +55,16 @@ public class CardController implements Initializable {
 
     @FXML
     private Label nbCondidats;
-
+    @FXML
     public ImageView modify;
-
+    @FXML
     public ImageView delete;
 
     @FXML
     private Label id;
 
-
+    @FXML
+    public ImageView consultList;
     @FXML
     private ImageView logo;
     @FXML
@@ -71,6 +75,7 @@ public class CardController implements Initializable {
         CRUDFreelance crud = new CRUDFreelance();
         delete.setVisible(false);
         modify.setVisible(false);
+        consultList.setVisible(false);
         id.setVisible(false);
         delete.setOnMouseClicked(event -> {
             Freelance f = new Freelance();
@@ -104,11 +109,41 @@ public class CardController implements Initializable {
                 e.printStackTrace();
             }
         });
+        consultList.setOnMouseClicked(event -> {
+            Freelance f = new Freelance();
+            Freelance found = new Freelance();
+            f = getData();
+            found = crud.reaserchById(f);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/crossify/view/BO/ListApplicants.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                ListApplicantsController listApplicantsController = fxmlLoader.getController();
+                listApplicantsController.setId(found.getId_F());
+                System.out.println("id sent: "+found.getId_F());
+
+                // Use Platform.runLater to delay the initialization of the second controller
+                /*Platform.runLater(() -> {
+                    try {
+                        listApplicantsController.initialize(null, null);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                });*/
+                Stage stage = new Stage();
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
     }
     private String[] colors = {"915F6D", "E4ADBB", "FFFFFF", "FFE5F4"};
 
     public void setData(Freelance f) {
+        CRUDApplication crudA = new CRUDApplication();
         String stateString;
         if (f.isState_F() == true) {
             stateString = "Available";
@@ -119,9 +154,10 @@ public class CardController implements Initializable {
         description.setText(f.getDescription());
         emailBO.setText(f.getBO_email());
         id.setText(Integer.toString(f.getId_F()));
-        nbCondidats.setText("20 Condidats");
+        int nb = crudA.nbApplicants(f.getId_F());
+        nbCondidats.setText(Integer.toString(nb) + " Applicants");
         State.setText(stateString);
-        
+
         File file = new File(f.getUrlLogo());
         String url;
         try {
@@ -131,17 +167,7 @@ public class CardController implements Initializable {
         } catch (MalformedURLException ex) {
             Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        //String urlString = f.getUrlLogo();
-        //Image image = new Image(urlString);
-        //ImageView imageView = new ImageView();
-        //imageView.setImage(image);
-        //Image image = new Image(getClass().getResourceAsStream(urlString));
 
-        // logo.setFitHeight(90); //726
-        //logo.setFitWidth(88); //500
-        
         box.setStyle("-fx-background-color: #" + colors[(int) (Math.random() * colors.length)] + ";"
                 + "-fx-background-radius: 15;"
                 + "-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0,10);");

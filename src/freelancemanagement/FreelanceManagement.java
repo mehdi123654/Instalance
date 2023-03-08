@@ -38,25 +38,23 @@ public class FreelanceManagement extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        /*window=primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/com/crossify/view/BO/FreelanceManagement.fxml"));
+        //window=primaryStage;
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/crossify/view/BO/FreelanceManagement.fxml"));
 
-        window.initStyle(StageStyle.UNDECORATED);
+        //window.initStyle(StageStyle.UNDECORATED);
+        
 
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-
-        root.setOnMousePressed(event -> {
+        /*root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y = event.getSceneY();
         });
         root.setOnMouseDragged(event -> {
             window.setX(event.getScreenX() - x);
             window.setY(event.getScreenY() - y);
-        });
-        allOffersScene=new Scene(root, 890, 700);
-        window.setScene(allOffersScene);
-        window.show();*/
-
+        });*/
+        //allOffersScene=new Scene(root, 890, 700);
+        //window.setScene(allOffersScene);
+        //window.show();*/
         // create buttons
         Button freelancerButton = new Button("Freelancer");
         Button businessOwnerButton = new Button("Business Owner");
@@ -68,7 +66,7 @@ public class FreelanceManagement extends Application {
         //adminButton.setOnAction(event -> openFXMLFile("admin.fxml"));
 
         // create layout
-        VBox root = new VBox(freelancerButton, businessOwnerButton, adminButton);
+        VBox root = new VBox(freelancerButton, businessOwnerButton/*, adminButton*/);
 
         // create scene
         Scene scene = new Scene(root, 200, 150);
@@ -86,17 +84,33 @@ public class FreelanceManagement extends Application {
         launch(args);
 
     }
-        private void openFXMLFile(String fxmlFileName) {
+
+    private void openFXMLFile(String fxmlFileName) {
         try {
+            //window = prim;
             // load FXML file
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFileName));
-
+            //window.initStyle(StageStyle.UNDECORATED);
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            root.setOnMouseDragged(event -> {
+                window.setX(event.getScreenX() - x);
+                window.setY(event.getScreenY() - y);
+            });
+            
+            window =new Stage();
             // create scene and show stage
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
+            allOffersScene = new Scene(root, 890, 700);
+            window.setScene(allOffersScene);
+            window.show();
+            //Stage stage = new Stage();
+            //window = stage;
+            //window.initStyle(StageStyle.UNDECORATED);
+            //stage.initStyle(StageStyle.UNDECORATED);
+            //stage.setScene(scene);
+            //stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }

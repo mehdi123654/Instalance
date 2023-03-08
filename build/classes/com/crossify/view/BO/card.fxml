@@ -61,21 +61,24 @@
             </HBox>
          </children>
       </VBox>
-      <ImageView fx:id="modify" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/modify.png" />
-         </image>
-         <HBox.margin>
-            <Insets right="20.0" />
-         </HBox.margin>
-      </ImageView>
-      <ImageView fx:id="delete" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/delete.png" />
-         </image>
-         <HBox.margin>
-            <Insets top="5.0" />
-         </HBox.margin>
-      </ImageView>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="modify" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/modify.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="delete" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/delete.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="consultList" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/PI.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
    </children>
 </HBox>

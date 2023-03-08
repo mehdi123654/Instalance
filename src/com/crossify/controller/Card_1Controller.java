@@ -6,6 +6,7 @@
 package com.crossify.controller;
 
 import com.crossify.entities.Freelance;
+import com.crossify.services.CRUDApplication;
 import com.crossify.services.CRUDFreelance;
 import com.crossify.services.EmailSender;
 import java.io.File;
@@ -61,6 +62,7 @@ public class Card_1Controller implements Initializable {
         CRUDFreelance crud = new CRUDFreelance();
 
         id.setVisible(false);
+        
 
         apply.setOnMouseClicked(event -> {
             Freelance f = new Freelance();
@@ -73,13 +75,7 @@ public class Card_1Controller implements Initializable {
                 Parent root1 = (Parent) fxmlLoader.load();
                 ApplicationFormController appFormController = fxmlLoader.getController();
                 Stage stage = new Stage();
-
-                //SEND EMAIL
-                try {
-                    EmailSender.sendEmail(found.getBO_email(), "Someone Consulted Your Freelance Offer", "Offer's Description:"+found.getDescription()+"/n Do you want to consult applicants list?");
-                } catch (MessagingException e) {
-                    e.printStackTrace();
-                }
+                appFormController.idInvisible.setText(Integer.toString(found.getId_F()));
 
                 stage.setScene(new Scene(root1));
                 stage.show();
@@ -93,6 +89,7 @@ public class Card_1Controller implements Initializable {
     private String[] colors = {"915F6D", "E4ADBB", "FFFFFF", "FFE5F4"};
 
     public void setData(Freelance f) {
+        CRUDApplication crudA = new CRUDApplication();
         String stateString;
         if (f.isState_F() == true) {
             stateString = "Available";
@@ -103,7 +100,8 @@ public class Card_1Controller implements Initializable {
         description.setText(f.getDescription());
         emailBO.setText(f.getBO_email());
         id.setText(Integer.toString(f.getId_F()));
-        nbCondidats.setText("20 Condidats");
+        int nb=crudA.nbApplicants(f.getId_F());
+        nbCondidats.setText(Integer.toString(nb)+" Applicants");
         State.setText(stateString);
 
         File file = new File(f.getUrlLogo());

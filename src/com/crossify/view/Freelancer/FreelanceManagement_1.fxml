@@ -34,7 +34,7 @@
                         <Insets top="10.0" />
                      </opaqueInsets>
                   </TextField>
-                  <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="searchIcon" fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../assets/recherche.png" />
                      </image>
@@ -110,7 +110,7 @@
                               <Insets left="25.0" top="6.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="156.0" text="Track my applications">
+                        <Label prefHeight="46.0" prefWidth="156.0" text="Application Tracker">
                            <font>
                               <Font name="Microsoft Tai Le" size="15.0" />
                            </font>
@@ -164,7 +164,7 @@
                               <Insets left="25.0" top="6.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="46.0" prefWidth="156.0" text="High Demand">
+                        <Label fx:id="highDemandeLabel" prefHeight="46.0" prefWidth="156.0" text="High Demand">
                            <font>
                               <Font name="Microsoft Tai Le" size="15.0" />
                            </font>

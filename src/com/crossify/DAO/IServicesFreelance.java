@@ -23,7 +23,10 @@ public interface IServicesFreelance {
     public ObservableList<Freelance> displayNewFreelancee();
     public ObservableList<Freelance> displayMyFreelancee(int id);
     public Freelance reaserchById(Freelance f);
+    public Freelance reaserchById(int id);
     public ObservableList<Freelance> advancedreaserch(String search);
     public ObservableList<String> getAllCategories() ;
     public ObservableList<Freelance> filterByCategory(String cat);
+    public ObservableList<Freelance> sortByDemand();
+    public ObservableList<Freelance> simpleSearch(String search, int idFreelancer);
 }

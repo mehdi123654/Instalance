@@ -29,7 +29,7 @@
             <Separator halignment="LEFT" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="46.0" prefWidth="2.0" />
             <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="494.0" spacing="30.0">
                <children>
-                  <TextField prefHeight="27.0" prefWidth="359.0" promptText="Search" styleClass="round-layout" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <TextField fx:id="searchBar" prefHeight="27.0" prefWidth="359.0" promptText="Search" styleClass="round-layout" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
                      <opaqueInsets>
                         <Insets top="10.0" />
                      </opaqueInsets>
@@ -154,58 +154,6 @@
                                  </font>
                               </Button>
                            </children></HBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox prefHeight="214.0" prefWidth="250.0" spacing="5.0">
-               <children>
-                  <Label prefHeight="46.0" prefWidth="156.0" text="Filters">
-                     <font>
-                        <Font name="Microsoft Tai Le Bold" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="25.0" />
-                     </VBox.margin>
-                  </Label>
-                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
-                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/categories.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="25.0" top="6.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="46.0" prefWidth="156.0" text="Categories">
-                           <font>
-                              <Font name="Microsoft Tai Le" size="15.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
-                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/stats.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="25.0" top="6.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="46.0" prefWidth="156.0" text="High Demand">
-                           <font>
-                              <Font name="Microsoft Tai Le" size="15.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
                      </children>
                   </HBox>
                </children>
