@@ -7,9 +7,12 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +42,34 @@ import javafx.stage.Stage;
  */
 public class ModifierblogController implements Initializable {
      private ListView<Blog> afficherblog;
+     private static final List<String> PROHIBITED_WORDS = Arrays.asList("arse",
+"arsehole",
+"ass",
+"asshole",
+"bastard",
+"bitch",
+"bloody",
+"bullshit",
+"cock",
+"cocksucker",
+"crap",
+"cunt",
+"damn",
+"damn it",
+"dick",
+"dickhead",
+"goddamn",
+"holy shit",
+"fuck",
+"nigga",
+"nigra ",
+"piss",
+"prick",
+"pussy",
+"shit",
+"slut",
+"whore",
+"wanker", "naughty", "ugly","hitler");
 
     @FXML
     private TextField fx_title;
@@ -70,7 +101,10 @@ public class ModifierblogController implements Initializable {
         CRUDBlog inter = new CRUDBlog();
         String title = fx_title.getText();        
         String body = fx_body.getText();
-        Blog B = new Blog(Affiche_blogController.id_blog,title, body);
+        String filteredbody = filterProfanity(body);
+                String filteredtitle = filterProfanity(title);
+
+        Blog B = new Blog(Affiche_blogController.id_blog,filteredtitle, filteredbody);
         inter.ModifyBlog(B);
         
           Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -93,6 +127,14 @@ public class ModifierblogController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ModifierblogController.class.getName()).log(Level.SEVERE, null, ex);
     }
+    }
+    
+    private String filterProfanity(String inputText) {
+        List<String> words = Arrays.asList(inputText.split(" "));
+        List<String> filteredWords = words.stream()
+                .map(word -> PROHIBITED_WORDS.contains(word.toLowerCase()) ? "&@$!*" : word)
+                .collect(Collectors.toList());
+        return String.join(" ", filteredWords);
     }
     }
     

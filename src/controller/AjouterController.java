@@ -15,9 +15,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +45,35 @@ import javafx.stage.Stage;
  * @author zeinab
  */
 public class AjouterController implements Initializable {
-
+  private static final List<String> PROHIBITED_WORDS = Arrays.asList("arse",
+"arsehole",
+"ass",
+"asshole",
+"bastard",
+"bitch",
+"bloody",
+"bullshit",
+"cock",
+"cocksucker",
+"crap",
+"cunt",
+"damn",
+"damn it",
+"dick",
+"dickhead",
+"goddamn",
+"holy shit",
+"fuck",
+"nigga",
+"nigra ",
+"piss",
+"prick",
+"pussy",
+"shit",
+"slut",
+"whore",
+"wanker", "naughty", "ugly","hitler");
+     
     @FXML
     private TextArea fx_body;
     @FXML
@@ -88,7 +119,10 @@ public class AjouterController implements Initializable {
         alert.show();
         
         }else {
-        Blog B = new Blog(title, body);
+             String filteredtitle = filterProfanity(title);
+                          String filteredbody = filterProfanity(body);
+
+        Blog B = new Blog(filteredtitle,filteredbody);
         CRUDBlog crud = new CRUDBlog();
         crud.AddBlog(B);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -113,6 +147,14 @@ public class AjouterController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AjouterController.class.getName()).log(Level.SEVERE, null, ex);
     }
+    }
+    
+    private String filterProfanity(String inputText) {
+        List<String> words = Arrays.asList(inputText.split(" "));
+        List<String> filteredWords = words.stream()
+                .map(word -> PROHIBITED_WORDS.contains(word.toLowerCase()) ? "&@$!*" : word)
+                .collect(Collectors.toList());
+        return String.join(" ", filteredWords);
     }
     
 }

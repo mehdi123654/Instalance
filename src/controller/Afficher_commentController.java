@@ -8,6 +8,7 @@ package controller;
 import static controller.Affiche_blogController.id_blog;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -35,7 +36,6 @@ import work.services.CRUDComment;
  */
 public class Afficher_commentController implements Initializable {
 
-  
   
      static String body;
         //static int id_blog,

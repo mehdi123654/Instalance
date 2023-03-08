@@ -7,9 +7,12 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +38,34 @@ import work.services.CRUDComment;
  */
 public class ModifiercommentController implements Initializable {
      private ListView<Comment> afficherblog;
+private static final List<String> PROHIBITED_WORDS = Arrays.asList("arse",
+"arsehole",
+"ass",
+"asshole",
+"bastard",
+"bitch",
+"bloody",
+"bullshit",
+"cock",
+"cocksucker",
+"crap",
+"cunt",
+"damn",
+"damn it",
+"dick",
+"dickhead",
+"goddamn",
+"holy shit",
+"fuck",
+"nigga",
+"nigra ",
+"piss",
+"prick",
+"pussy",
+"shit",
+"slut",
+"whore",
+"wanker", "naughty", "ugly","hitler");
 
     @FXML
     private TextArea fx_body;
@@ -58,7 +89,8 @@ public class ModifiercommentController implements Initializable {
             CRUDComment inter = new CRUDComment();
         //int id_blog = Integer.parseInt(fx_id_blog.getText());        
         String body = fx_body.getText();
-        Comment B = new Comment(Afficher_commentController.id_comment,body);
+         String filteredbody = filterProfanity(body);
+        Comment B = new Comment(Afficher_commentController.id_comment,filteredbody);
         inter.ModifyComment(B);
         
           Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -81,6 +113,14 @@ public class ModifiercommentController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(Afficher_commentController.class.getName()).log(Level.SEVERE, null, ex);
     }
+    }
+    
+     private String filterProfanity(String inputText) {
+        List<String> words = Arrays.asList(inputText.split(" "));
+        List<String> filteredWords = words.stream()
+                .map(word -> PROHIBITED_WORDS.contains(word.toLowerCase()) ? "&@$!*" : word)
+                .collect(Collectors.toList());
+        return String.join(" ", filteredWords);
     }
     }
     

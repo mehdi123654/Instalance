@@ -7,9 +7,12 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +37,35 @@ import work.services.CRUDComment;
  */
 public class Ajouter_commentController implements Initializable {
 
+     private static final List<String> PROHIBITED_WORDS = Arrays.asList("arse",
+"arsehole",
+"ass",
+"asshole",
+"bastard",
+"bitch",
+"bloody",
+"bullshit",
+"cock",
+"cocksucker",
+"crap",
+"cunt",
+"damn",
+"damn it",
+"dick",
+"dickhead",
+"goddamn",
+"holy shit",
+"fuck",
+"nigga",
+"nigra ",
+"piss",
+"prick",
+"pussy",
+"shit",
+"slut",
+"whore",
+"wanker", "naughty", "ugly","hitler");
+     
     @FXML
     private TextField fx_id_blog;
     @FXML
@@ -62,17 +94,10 @@ public class Ajouter_commentController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("erreur donner body");
         alert.show();
-        }else if(id_blog<0){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-           alert.setTitle("Information Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText("erreur donner id blog");
-        alert.show();
-        
-        
-        }  
-    else {
-        Comment B = new Comment(body,id_blog);
+       
+       } else {
+            String filteredText = filterProfanity(body);
+        Comment B = new Comment(filteredText,id_blog);
         CRUDComment crud = new CRUDComment();
         crud.AddComment(B);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -97,6 +122,14 @@ public class Ajouter_commentController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(Ajouter_commentController.class.getName()).log(Level.SEVERE, null, ex);
     }
+    }
+    
+      private String filterProfanity(String inputText) {
+        List<String> words = Arrays.asList(inputText.split(" "));
+        List<String> filteredWords = words.stream()
+                .map(word -> PROHIBITED_WORDS.contains(word.toLowerCase()) ? "&@$!*" : word)
+                .collect(Collectors.toList());
+        return String.join(" ", filteredWords);
     }
     }
     
