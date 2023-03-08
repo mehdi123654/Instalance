@@ -12,7 +12,7 @@ import entities.Workshop;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-
+import controller.FreelancermanagementController;
 /**
  * FXML Controller class
  *

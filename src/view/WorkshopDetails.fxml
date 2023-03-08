@@ -7,5 +7,24 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WorkshopDetailsController">
-    
+     <children>
+        <Label layoutX="38.0" layoutY="32.0" text="Workshop Name:" />
+        <Label layoutX="38.0" layoutY="75.0" text="Workshop ID:" />
+        <Label layoutX="38.0" layoutY="118.0" text="Start Date:" />
+        <Label layoutX="38.0" layoutY="161.0" text="End Date:" />
+        <Label layoutX="38.0" layoutY="204.0" text="Registration Deadline:" />
+        <Label layoutX="38.0" layoutY="247.0" text="Location:" />
+        <Label layoutX="38.0" layoutY="290.0" text="Max Attendees:" />
+        <Label layoutX="38.0" layoutY="333.0" text="Agenda:" />
+        <Label layoutX="38.0" layoutY="376.0" text="Description:" />
+        <Label fx:id="workshopNameLabel" layoutX="200.0" layoutY="32.0" />
+        <Label fx:id="workshopIDLabel" layoutX="200.0" layoutY="75.0" />
+        <Label fx:id="workshopStartDateLabel" layoutX="200.0" layoutY="118.0" />
+        <Label fx:id="workshopEndDateLabel" layoutX="200.0" layoutY="161.0" />
+        <Label fx:id="workshopRegistrationDeadlineLabel" layoutX="200.0" layoutY="204.0" />
+        <Label fx:id="workshopLocationLabel" layoutX="200.0" layoutY="247.0" />
+        <Label fx:id="workshopMaxAttendeesLabel" layoutX="200.0" layoutY="290.0" />
+        <Label fx:id="workshopAgendaLabel" layoutX="200.0" layoutY="333.0" />
+        <Label fx:id="workshopDescriptionLabel" layoutX="200.0" layoutY="376.0" />
+    </children>
 </AnchorPane>
