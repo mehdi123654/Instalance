@@ -119,7 +119,9 @@ fileChooser.getExtensionFilters().addAll(
         );
         btn.setOnAction(
                 event -> {
-                    String selectedChoice = category.getSelectionModel().getSelectedItem();
+                     String selectedChoice = category.getSelectionModel().getSelectedItem();
+                    if(title.getText()!=null&& desc.getText()!=null  && price.getText()!=null && selectedChoice!=null && photo.getText()!=null){
+                   
                     Course p = new Course(title.getText(), desc.getText(), Integer.parseInt(price.getText()), selectedChoice,photo.getText());
                     CourseDao pdao = CourseDao.getInstance();
                     pdao.insert(p);
@@ -128,7 +130,14 @@ fileChooser.getExtensionFilters().addAll(
                     alert.setTitle("Information Dialog");
                     alert.setHeaderText(null);
                     alert.setContentText("Course added successfully!");
+                    alert.show();}
+                    else {
+                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Please fill all fields!");
                     alert.show();
+                    }
 
                 });
 

@@ -17,7 +17,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.controlsfx.control.Rating;
 
 /**
  * FXML Controller class
@@ -29,6 +31,8 @@ public class WelcomeController implements Initializable {
     private Button ad_b;
 
     @FXML
+    private AnchorPane z;
+    @FXML
     private Button Cc_b;
         @FXML
     private Button fr;
@@ -38,6 +42,8 @@ public class WelcomeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Rating a=new Rating(3);
+        z.getChildren().add(a);
        ad_b.setOnAction(
                 event -> {
                    

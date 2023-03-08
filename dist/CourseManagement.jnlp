@@ -8,8 +8,10 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="CourseManagement.jar" size="1824349" download="eager" />
+    <jar href="CourseManagement.jar" size="1824771" download="eager" />
+    <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
     <jar href="lib\fontbox-2.0.27.jar" size="1567313" download="eager" />
+    <jar href="lib\gradle-wrapper.jar" size="53638" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
     <jar href="lib\pdfbox-2.0.27.jar" size="2776232" download="eager" />

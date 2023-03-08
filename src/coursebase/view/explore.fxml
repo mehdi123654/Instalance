@@ -17,7 +17,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="993.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.ExploreController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="1125.0">
+      <AnchorPane id="AnchorPane" fx:id="a" prefHeight="598.0" prefWidth="1125.0">
          <children>
             <Label layoutX="176.0" layoutY="32.0" text="Explore courses" textFill="#9a1b6c">
                <font>

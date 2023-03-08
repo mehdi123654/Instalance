@@ -17,7 +17,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="993.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursebase.controller.ExploreController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="1125.0">
+      <AnchorPane id="AnchorPane" fx:id="a" prefHeight="598.0" prefWidth="1125.0">
          <children>
             <Label layoutX="176.0" layoutY="32.0" text="Explore courses" textFill="#9a1b6c">
                <font>
@@ -48,7 +48,7 @@
                            <children>
                               <ScrollPane fx:id="scr" layoutX="-4.0" layoutY="-9.0" prefHeight="309.0" prefWidth="932.0">
                                  <content>
-                                    <AnchorPane fx:id="fr" minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="964.0">
+                                    <AnchorPane fx:id="fr" minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="925.0">
                                        <children>
                                           <StackPane fx:id="ss" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutY="-2.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="291.0" prefWidth="968.0" />
                                        </children>
@@ -65,9 +65,9 @@
                            <children>
                               <ScrollPane fx:id="scr1" prefHeight="302.0" prefWidth="932.0">
                                  <content>
-                                    <AnchorPane fx:id="fr1" minHeight="0.0" minWidth="0.0" prefHeight="286.0" prefWidth="964.0">
+                                    <AnchorPane fx:id="fr1" minHeight="0.0" minWidth="0.0" prefHeight="282.0" prefWidth="946.0">
                                        <children>
-                                          <StackPane fx:id="ss1" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutY="-2.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="291.0" prefWidth="968.0" />
+                                          <StackPane fx:id="ss1" alignment="BOTTOM_RIGHT" focusTraversable="true" layoutY="-2.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="291.0" prefWidth="916.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>

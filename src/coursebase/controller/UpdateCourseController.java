@@ -8,6 +8,7 @@ package coursebase.controller;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 
+
 import com.twilio.Twilio;
 import coursebase.dao.CourseDao;
 import coursebase.dao.LessonDao;
@@ -37,8 +38,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.controlsfx.control.Rating;
 
 /**
  * FXML Controller class
@@ -51,7 +54,6 @@ public class UpdateCourseController implements Initializable {
     private Button svl;
     @FXML
     private TextField id_field;
-
 
     @FXML
     private TextField title_field;
@@ -109,6 +111,8 @@ public class UpdateCourseController implements Initializable {
     private Label f;
     @FXML
     private Button lsup;
+      @FXML
+    private AnchorPane a;
     private static final String ACCOUNT_SID = "AC1af823561ae9d4ad22591524de127ce6";
     private static final String AUTH_TOKEN = "be176fe5aec60b39d9f8fde9b73a6132";
     /**
@@ -157,6 +161,7 @@ public class UpdateCourseController implements Initializable {
         update_butt.setOnAction(
                 event -> {
                     String selectedChoice = categ_choice.getSelectionModel().getSelectedItem();
+
                     Course p = new Course(Integer.parseInt(id_field.getText()), title_field.getText(), video.getText(), Integer.parseInt(price_field.getText()), selectedChoice, photo_field.getText());
                     CourseDao pdao = CourseDao.getInstance();
                     pdao.update(p);
@@ -217,15 +222,15 @@ public class UpdateCourseController implements Initializable {
             }
 
         });
+        
         kk.setOnAction(event -> {
 
             LessonDao dao = LessonDao.getInstance();
             dao.delete(lesstable.getSelectionModel().getSelectedItem().getLid());
-
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("lesson deleted !");
+            alert.setContentText("Lesson deleted !");
             alert.show();
             Lesson selectedItem = lesstable.getSelectionModel().getSelectedItem();
             lesstable.getItems().remove(selectedItem);
@@ -242,6 +247,7 @@ public class UpdateCourseController implements Initializable {
 
                 }
         );
+        
         tl.setVisible(false);
         sf.setVisible(false);
         sl.setVisible(false);
@@ -261,21 +267,28 @@ public class UpdateCourseController implements Initializable {
             cn.setVisible(true);
             svl.setVisible(false);
             cn.setOnAction(eve -> {
+                if (id_field.getText() != null && tl.getText() != null && tl.getText() != null && sl.getText() != null) {
+                    Lesson p = new Lesson(Integer.parseInt(id_field.getText()), tl.getText(), sl.getText());
+                    LessonDao pdao = LessonDao.getInstance();
+                    pdao.insert(p);
+                    lesstable.getItems().clear();
+                    ListLesson listdatak = new ListLesson(Integer.parseInt(id_field.getText()));
 
-                Lesson p = new Lesson(Integer.parseInt(id_field.getText()), tl.getText(), sl.getText());
-                LessonDao pdao = LessonDao.getInstance();
-                pdao.insert(p);
-                lesstable.getItems().clear();
-                ListLesson listdatak = new ListLesson(Integer.parseInt(id_field.getText()));
-
-                lesstable.setItems(listdatak.getJoins());
-                lessonTitlefield.setCellValueFactory(cell -> cell.getValue().getNameProperty());
-                tl.setVisible(false);
-                sf.setVisible(false);
-                sl.setVisible(false);
-                t.setVisible(false);
-                f.setVisible(false);
-                cn.setVisible(false);
+                    lesstable.setItems(listdatak.getJoins());
+                    lessonTitlefield.setCellValueFactory(cell -> cell.getValue().getNameProperty());
+                    tl.setVisible(false);
+                    sf.setVisible(false);
+                    sl.setVisible(false);
+                    t.setVisible(false);
+                    f.setVisible(false);
+                    cn.setVisible(false);
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Please fill all fields!");
+                    alert.show();
+                }
             });
 
         });
@@ -316,7 +329,7 @@ public class UpdateCourseController implements Initializable {
                     Message message = Message.creator(
                             new PhoneNumber("+21656152776"), // recipient's phone number
                             new PhoneNumber("+12766638814"), // your Twilio phone number
-                            "Lesson : " + p.getName() +  " updated !"
+                            "Lesson : " + p.getName() + " updated !"
                     ).create();
                     System.out.println("Sent message SID: " + message.getSid());
 
