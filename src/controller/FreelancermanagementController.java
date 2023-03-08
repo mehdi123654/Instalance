@@ -5,51 +5,26 @@
  */
 package controller;
 
-import entities.Hackathon;
-import entities.Workshop;
-
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-
+import entities.Hackathon;
+import entities.Workshop;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import javafx.stage.FileChooser;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import services.EventService;
 import services.HackathonService;
 import services.WorkshopService;
-import javafx.concurrent.Worker;
-import java.awt.Desktop;
 
 
 /**
@@ -152,6 +127,8 @@ public class FreelancermanagementController implements Initializable {
                 return hackathonName1.compareToIgnoreCase(hackathonName2);
             });
             hackathonsTable.setItems(HackathonSortedList);
+
+            
         });
         loadData();
     }
@@ -185,5 +162,23 @@ public class FreelancermanagementController implements Initializable {
         workshopStartDateColumn.setCellValueFactory(new PropertyValueFactory<>("start_date"));
 
     }
+    @FXML
+void handleWorkshopDoubleClicked(MouseEvent event) {
+    if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+        Workshop selectedWorkshop = workshopsTable.getSelectionModel().getSelectedItem();
+        if (selectedWorkshop != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/WorkshopDetails.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(loader.load()));
+                WorkshopDetailsController controller = loader.getController();
+                controller.setWorkshopDetails(selectedWorkshop);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
     
 }

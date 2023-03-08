@@ -34,6 +34,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -370,6 +372,8 @@ public class BOmanagementController implements Initializable {
      * workshopsTable.setItems(WorkshopList);
      * }
      */
+    
+
     public void showLocation() {
         showLocationBtn.setOnAction(event -> {
             Workshop selectedIndex = workshopsTable.getSelectionModel().getSelectedItem();
