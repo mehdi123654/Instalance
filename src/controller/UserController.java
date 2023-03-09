@@ -51,7 +51,7 @@ public class UserController implements Initializable {
     }
     @FXML 
     private void BOscreen(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BOmanagement.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/WelcomeBO.fxml"));
         Parent loginParent;
         try {
             loginParent = loader.load();
@@ -60,7 +60,7 @@ public class UserController implements Initializable {
             window.setScene(loginScene);
             window.show();
         } catch (IOException ex) {
-            Logger.getLogger(FreelancermanagementController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WelcomeBOController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

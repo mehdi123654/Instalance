@@ -1,7 +1,6 @@
 package controller;
 
-import entity.Hackathon;
-import entity.Workshop;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,6 +21,7 @@ import entity.Hackathon;
 import entity.Workshop;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,8 +36,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -46,8 +44,6 @@ import javafx.stage.Stage;
 import service.EventService;
 import service.HackathonService;
 import service.WorkshopService;
-import javafx.concurrent.Worker;
-import java.awt.Desktop;
 
 public class BOmanagementController implements Initializable {
 
@@ -232,9 +228,9 @@ public class BOmanagementController implements Initializable {
             });
             hackathonsTable.setItems(filteredHackathons);
         });
-        loadData();
+        //loadData();
         // loadMap();
-        showLocation();
+        //showLocation();
          //showMap();
     }
 
@@ -465,7 +461,7 @@ public class BOmanagementController implements Initializable {
     }
 
     @FXML
-    void addWorkshop(ActionEvent event) throws IOException {
+    public void addWorkshop(ActionEvent event) throws IOException {
         // Load the FXML file of the UI you want to display
         Parent root = FXMLLoader.load(getClass().getResource("/view/Workshop.fxml"));
 
@@ -496,7 +492,7 @@ public class BOmanagementController implements Initializable {
     }
 
     @FXML
-    void addHackathon(ActionEvent event) throws IOException {
+    public void addHackathon(ActionEvent event) throws IOException {
         // Load the FXML file of the UI you want to display
         Parent root = FXMLLoader.load(getClass().getResource("/view/Hackathon.fxml"));
 
@@ -514,7 +510,7 @@ public class BOmanagementController implements Initializable {
     }
 
     @FXML
-    void Update(ActionEvent event) throws IOException {
+    public void Update(ActionEvent event) throws IOException {
         // Get the selected workshop from the workshops table
         Workshop selectedWorkshop = workshopsTable.getSelectionModel().getSelectedItem();
 
@@ -544,7 +540,7 @@ public class BOmanagementController implements Initializable {
     }
 
     @FXML
-    void UpdateHackathon(ActionEvent event) throws IOException {
+    public void UpdateHackathon(ActionEvent event) throws IOException {
         // Get the selected workshop from the workshops table
         Hackathon selectedHackathon = hackathonsTable.getSelectionModel().getSelectedItem();
 
@@ -581,9 +577,9 @@ public class BOmanagementController implements Initializable {
         ObservableList<Hackathon> hackathonList = hackathonService.getAllHackathons();
         hackathonsTable.setItems(hackathonList);
     }
-/*
+
     @FXML
-    private void pdf(ActionEvent event) {
+    public  void pdf(ActionEvent event) {
         WorkshopService workshopService = new WorkshopService();
         HackathonService hackathonService = new HackathonService();
         ObservableList<Workshop> WorkshopList = workshopService.getAllWorkshops();
@@ -646,5 +642,5 @@ public class BOmanagementController implements Initializable {
         }
 
     }
- */
+ 
 }
