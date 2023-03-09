@@ -8,7 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
->>>>>>> origin/Service
+>>>>>>> origin/
         <buildExtensions xmlns="http://www.netbeans.org/ns/ant-build-extender/1">
             <extension file="jfx-impl.xml" id="jfx3">
                 <dependency dependsOn="-jfx-copylibs" target="-post-jar"/>
@@ -21,16 +21,19 @@
         </buildExtensions>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
 <<<<<<< HEAD
+        <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>CourseManagement</name>
+>>>>>>> origin/CourseManagement
 =======
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>PIDEV_DESKTOP_INSTALANCE</name>
->>>>>>> Event
+>>>>>>> origin/Event
 =======
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>Instalance</name>
 >>>>>>> origin/UserMgMt
 =======
+        <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>ServiceManage</name>
 >>>>>>> origin/Service
 =======
