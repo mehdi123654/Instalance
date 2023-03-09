@@ -228,6 +228,28 @@ public class BOmanagementController implements Initializable {
             });
             hackathonsTable.setItems(filteredHackathons);
         });
+        workshopsTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // Check if double-clicked
+                Workshop workshop = workshopsTable.getSelectionModel().getSelectedItem(); // Get selected workshop
+                if (workshop != null) {
+                    // Create and show new window with selected workshop information
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/workshopDetails.fxml"));
+                    Parent root;
+                    try {
+                        root = loader.load();
+                    
+                    WorkshopDetailsController controller = loader.getController();
+                    controller.setWorkshopDetails(workshop);
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                }
+            }
+        });
         loadData();
          //loadMap();
         showLocation();

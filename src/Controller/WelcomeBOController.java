@@ -40,10 +40,25 @@ public class WelcomeBOController implements Initializable {
 
     @FXML
     private Button evnt;
+    @FXML
+    private Button ofr;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+        ofr.setOnAction(
+            event -> {
+
+                try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/FreelanceManagement.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(ShowCourseController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+    );
         mycrs.setOnAction(
             event -> {
 
@@ -58,6 +73,7 @@ public class WelcomeBOController implements Initializable {
                 }
             }
     );
+
        
     myserv.setOnAction(
                 event -> {

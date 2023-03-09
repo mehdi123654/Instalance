@@ -18,9 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="890.0" stylesheets="@/StyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FreelanceManagementController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="890.0" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FreelanceManagementController">
    <top>
-      <HBox prefHeight="60.0" prefWidth="200.0" styleClass="transparent" stylesheets="@/StyleSheet.css" BorderPane.alignment="CENTER">
+      <HBox prefHeight="60.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../css/StyleSheet.css" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" prefHeight="61.0" prefWidth="155.0" text="Crossify" textAlignment="CENTER" textFill="#f4e006">
                <font>
@@ -30,14 +30,14 @@
             <Separator halignment="LEFT" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="46.0" prefWidth="2.0" />
             <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="494.0" spacing="30.0">
                <children>
-                  <TextField fx:id="searchBar" prefHeight="27.0" prefWidth="359.0" promptText="Search" styleClass="round-layout" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <TextField fx:id="searchBar" prefHeight="27.0" prefWidth="359.0" promptText="Search" styleClass="round-layout" stylesheets="@../css/StyleSheet.css">
                      <opaqueInsets>
                         <Insets top="10.0" />
                      </opaqueInsets>
                   </TextField>
                   <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../assets/recherche.png" />
+                        <Image url="@../assets/recherche.png" />
                      </image>
                   </ImageView>
                </children>
@@ -52,14 +52,14 @@
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../assets/emna.jpg" />
+                        <Image url="@../assets/emna.jpg" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <ImageView fx:id="exit" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                <image>
-                  <Image url="@../../assets/quit.png" />
+                  <Image url="@../assets/quit.png" />
                </image>
                <HBox.margin>
                   <Insets left="40.0" right="10.0" top="5.0" />
@@ -69,7 +69,7 @@
       </HBox>
    </top>
    <left>
-      <VBox prefHeight="200.0" prefWidth="250.0" styleClass="white-background" stylesheets="@../../../../com.crossify.css/StyleSheet.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="250.0" styleClass="white-background" stylesheets="@../css/StyleSheet.css" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="178.0" prefWidth="250.0" spacing="5.0">
                <children>
@@ -81,11 +81,11 @@
                         <Insets left="25.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox fx:id="allOffers" prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="selected" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <HBox fx:id="allOffers" prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="selected" stylesheets="@../css/StyleSheet.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/view.png" />
+                              <Image url="@../assets/view.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="25.0" top="6.0" />
@@ -101,11 +101,11 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="myOffers" prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <HBox fx:id="myOffers" prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/StyleSheet.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/myOffers.png" />
+                              <Image url="@../assets/myOffers.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="25.0" top="6.0" />
@@ -134,13 +134,13 @@
                         <Insets left="25.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/StyleSheet.css">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../assets/add.png" />
+                                    <Image url="@../assets/add.png" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="25.0" top="6.0" />
@@ -169,11 +169,11 @@
                         <Insets left="25.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/StyleSheet.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/categories.png" />
+                              <Image url="@../assets/options.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="25.0" top="6.0" />
@@ -190,11 +190,11 @@
                      </children>
                   </HBox>
                   <ListView fx:id="categoriesList" prefHeight="200.0" prefWidth="200.0" />
-                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/StyleSheet.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/stats.png" />
+                              <Image url="@../assets/stats.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="25.0" top="6.0" />
@@ -222,11 +222,11 @@
                         <Insets left="25.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/StyleSheet.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/businessman.png" />
+                              <Image url="@../assets/businessman.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="25.0" top="6.0" />
@@ -242,11 +242,11 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                  <HBox prefHeight="50.0" prefWidth="50.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/StyleSheet.css">
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/homePage.png" />
+                              <Image url="@../assets/homePage.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="25.0" top="6.0" />
@@ -278,11 +278,11 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </Label>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../css/StyleSheet.css">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1600.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1600.0" styleClass="transparent" stylesheets="@../css/StyleSheet.css">
                      <children>
-                        <HBox fx:id="cardLayout" prefHeight="202.0" prefWidth="1200.0" spacing="10.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css" />
+                        <HBox fx:id="cardLayout" prefHeight="202.0" prefWidth="1200.0" spacing="10.0" styleClass="transparent" stylesheets="@../css/StyleSheet.css" />
                      </children>
                   </AnchorPane>
               </content>
@@ -295,7 +295,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </Label>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../../../../com.crossify.css/StyleSheet.css" VBox.vgrow="ALWAYS">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../css/StyleSheet.css" VBox.vgrow="ALWAYS">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1800.0" prefWidth="800.0">
                      <children>

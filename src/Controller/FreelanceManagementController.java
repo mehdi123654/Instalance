@@ -29,7 +29,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.FreelanceManagement;
+import main.main;
 import service.CRUDFreelance;
 
 /**
@@ -122,11 +122,14 @@ public class FreelanceManagementController implements Initializable {
 
         myOffers.setOnMouseClicked(event -> {
             try {
+              
+                addStage = new Stage();
+                addStage.initStyle(StageStyle.UNDECORATED);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MyOffers.fxml"));
-                Parent root2 = (Parent) fxmlLoader.load();
-                myOffersScene = new Scene(root2);
-                FreelanceManagement.window.setScene(myOffersScene);
-                FreelanceManagement.window.show();
+                Parent root1 = (Parent) fxmlLoader.load();
+                addOfferScene = new Scene(root1);
+                addStage.setScene(addOfferScene);
+                addStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -164,12 +167,12 @@ public class FreelanceManagementController implements Initializable {
             }
         });
         //Filter BY DEMAND
-        highDemandeLabel.setOnMouseClicked(event -> {
+        /*highDemandeLabel.setOnMouseClicked(event -> {
             searchedOffers.clear();
             displayedOffers.clear();
             displayedOffers.setAll(crud.sortByDemand());
             displayOffers(displayedOffers, 0, 1);
-        });
+        });*/
 
         //afficher kol chy ml all offers label
         allOffersLabel.setOnMouseClicked(event -> {

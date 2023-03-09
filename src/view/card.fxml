@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="350.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@/com.crossify.css/StyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CardController">
+<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="350.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CardController">
    <children>
       <ImageView fx:id="logo" fitHeight="90.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets left="8.0" top="45.0" />
          </HBox.margin>
          <image>
-            <Image url="@/assets/ieee.png" />
+            <Image url="@../assets/ieee.png" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" prefHeight="186.0" prefWidth="262.0" spacing="15.0">
@@ -63,7 +63,7 @@
       </VBox>
       <ImageView fx:id="modify" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/assets/modify.png" />
+            <Image url="@../assets/modify.png" />
          </image>
          <HBox.margin>
             <Insets right="20.0" />
@@ -71,11 +71,16 @@
       </ImageView>
       <ImageView fx:id="delete" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/assets/delete.png" />
+            <Image url="@../assets/delete.png" />
          </image>
          <HBox.margin>
             <Insets top="5.0" />
          </HBox.margin>
+      </ImageView>
+      <ImageView fx:id="consultList" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/PI.png" />
+         </image>
       </ImageView>
    </children>
 </HBox>

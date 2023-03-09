@@ -10,7 +10,7 @@ import entity.Freelance;
 import static controller.FreelanceManagementController.addOfferScene;
 import static controller.FreelanceManagementController.addStage;
 import static controller.FreelanceManagementController.myOffersScene;
-import static main.FreelanceManagement.allOffersScene;
+//import static main.FreelanceManagement.allOffersScene;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,7 +32,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.FreelanceManagement;
+//import main.FreelanceManagement;
 import service.CRUDFreelance;
 
 /**
@@ -106,9 +106,9 @@ public class MyOffersController implements Initializable {
             javafx.application.Platform.exit();
         });
 
-        allOffers.setOnMouseClicked(event -> {
+       /* allOffers.setOnMouseClicked(event -> {
             FreelanceManagement.window.setScene(allOffersScene);
-        });
+        });*/
         addbtn.setOnAction(event -> {
 
             try {

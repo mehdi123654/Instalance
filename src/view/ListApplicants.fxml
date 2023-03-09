@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="593.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListApplicantsController">
+   <children>
+      <ListView fx:id="applicantsListView" layoutX="14.0" layoutY="95.0" prefHeight="456.0" prefWidth="414.0" style="-fx-background-color: transparent;" stylesheets="@../css/StyleSheet.css">
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="round-layout" />
+         </styleClass>
+      </ListView>
+      <VBox alignment="CENTER_LEFT" layoutX="456.0" layoutY="95.0" prefHeight="318.0" prefWidth="302.0" spacing="5.0" styleClass="white-background" stylesheets="@../css/StyleSheet.css">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="44.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/PI.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="20.0" prefWidth="154.0" text="Personal Information">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Label prefHeight="18.0" prefWidth="118.0" text="ID Freelancer:">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idFreelancerLabel" styleClass="round-layout" />
+            <Label prefHeight="18.0" prefWidth="118.0" text="First Name:">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="FNLabel" styleClass="round-layout" />
+            <Label prefHeight="18.0" prefWidth="118.0" text="Last Name:">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="LNLabel" styleClass="round-layout" />
+            <Label prefHeight="18.0" prefWidth="118.0" text="Email Contact:">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmailLabel" styleClass="round-layout" />
+            <Label prefHeight="18.0" prefWidth="118.0" text="Link to CV:">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="cvLinkLabel" prefHeight="50.0" prefWidth="302.0" styleClass="round-layout" text="   Download File" />
+            <Label prefHeight="18.0" prefWidth="118.0" text="Application Date:">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="dateLabel" styleClass="round-layout" />
+         </children>
+      </VBox>
+      <Label fx:id="sumLabel" layoutX="24.0" layoutY="559.0" prefHeight="19.0" prefWidth="190.0" text="Total: " textFill="#f40808">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="exit" fitHeight="40.0" fitWidth="38.0" layoutX="766.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/quit.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="20.0" layoutY="16.0" prefHeight="38.0" prefWidth="210.0">
+         <children>
+            <ImageView fitHeight="38.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/list.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="14.0" prefWidth="152.0" text="Applicants' List">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

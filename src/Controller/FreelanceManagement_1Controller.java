@@ -104,10 +104,10 @@ public class FreelanceManagement_1Controller implements Initializable {
         });
         //normal search 
         // Assuming that searchIcon is the name of the search icon control and searchField is the name of the search field control
-        searchIcon.setOnMouseClicked(event -> {
+       /*  searchIcon.setOnMouseClicked(event -> {
             String searchQuery = searchBar.getText();
             ObservableList<Freelance> searched = FXCollections.observableArrayList(crud.simpleSearch(searchQuery, 20));
-        });
+        });*/
 
         //afficher kol chy ml all offers label
         allOffersLabel.setOnMouseClicked(event -> {
@@ -135,12 +135,12 @@ public class FreelanceManagement_1Controller implements Initializable {
             }
         });
         //Filter BY DEMAND
-        highDemandeLabel.setOnMouseClicked(event -> {
+       /*  highDemandeLabel.setOnMouseClicked(event -> {
             searchedOffers.clear();
             displayedOffers.clear();
             displayedOffers.setAll(crud.sortByDemand());
             displayOffers(displayedOffers, 0, 1);
-        });
+        });*/
 
         //show newest always
         for (int i = 0;
