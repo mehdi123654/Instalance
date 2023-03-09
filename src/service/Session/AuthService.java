@@ -5,7 +5,7 @@
  */
 package service.Session;
 
-import utils.DataBaseConnection;
+import utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,7 +22,7 @@ public class AuthService extends Wrapper{
     Connection conn;
 
     public AuthService() throws SQLException {
-        this.conn = DataBaseConnection.getInstance().getConnection();
+        this.conn = MyConnection.getInstance().getCnx();
     }
     
     

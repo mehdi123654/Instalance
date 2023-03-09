@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="z" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeBOController">
+<AnchorPane id="AnchorPane" fx:id="z" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeBOController">
    <children>
       <Circle layoutX="-12.0" layoutY="-2.0" radius="121.0" stroke="WHITE" strokeType="INSIDE">
          <fill>
@@ -20,7 +20,7 @@
             </LinearGradient>
          </fill>
       </Circle>
-      <Label layoutX="132.0" layoutY="49.0" text="Welcome To instalance" textFill="#3f1957">
+      <Label layoutX="117.0" layoutY="45.0" text="Welcome To instalance Bussiness Owner" textFill="#3f1957">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
@@ -35,11 +35,14 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="evnt" layoutX="284.0" layoutY="132.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="206.0" text="manage event">
+      <Button fx:id="evnt" layoutX="284.0" layoutY="132.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="242.0" text="Manage events">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="ofr" layoutX="312.0" layoutY="256.0" mnemonicParsing="false" text="add offer" />
+      <Button fx:id="ofr" layoutX="327.0" layoutY="217.0" mnemonicParsing="false" text="Add offers">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
    </children>
 </AnchorPane>

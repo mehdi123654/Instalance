@@ -107,8 +107,7 @@ fileChooser.getExtensionFilters().addAll(
                         try {
                             stream = new FileInputStream(file.getAbsolutePath());
                             Image image = new Image(stream);
-                         String p= file.getAbsolutePath().replace("\\","@");
-                           
+                         String p= file.getAbsolutePath().replace("\\","@");                     
                        
                               photo.setText(p);
                             img.setImage(image);

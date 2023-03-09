@@ -17,14 +17,14 @@ import java.util.logging.Logger;
 
 import entity.Blog;
 import entity.Comment;
-import utils.MyConnection;
+import utils.MyConnectionDB;
 /**
  *
  * @author zeinab
  */
 public class CRUDComment implements InterfaceServices2{
     Statement ste;
-Connection conn = MyConnection.getInstance().getConnection();
+Connection conn = MyConnectionDB.getInstance().getConnection();
 
     @Override
     public void AddComment(Comment C) {

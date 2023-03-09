@@ -133,13 +133,7 @@ public class ExploreController implements Initializable {
                 b1.setFont(font);
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
-                 
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+              
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -149,7 +143,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss4.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss4.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -203,13 +197,7 @@ public class ExploreController implements Initializable {
                 b1.setFont(font);
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
-                 
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+            
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -219,7 +207,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss3.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss3.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -274,13 +262,7 @@ public class ExploreController implements Initializable {
                 b1.setFont(font);
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(-30);
-                 
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-60);
+                
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -290,7 +272,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-120);
 
                 i += 300;
-                ss2.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss2.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -346,13 +328,7 @@ public class ExploreController implements Initializable {
                 b1.setFont(font);
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
-                 
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+               
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -362,7 +338,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss1.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss1.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -431,12 +407,7 @@ public class ExploreController implements Initializable {
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
                  
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+                
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -446,7 +417,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -504,13 +475,7 @@ public class ExploreController implements Initializable {
                 b1.setFont(font);
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
-                 
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+               
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -520,7 +485,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -580,13 +545,7 @@ public class ExploreController implements Initializable {
                 b1.setFont(font);
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
-                 
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+             
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -596,7 +555,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -658,13 +617,7 @@ public class ExploreController implements Initializable {
                 b1.setFont(font);
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
-                 
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+           
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -674,7 +627,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {
@@ -732,12 +685,7 @@ public class ExploreController implements Initializable {
                 b1.setTranslateX(i-150);
                 b1.setTranslateY(0);
                  
-                 FileInputStream input2 = new FileInputStream("/assets/user.jpeg");
-                Image image2 = new Image(input2);
-                Circle cir2 = new Circle(100,100,12); 
-                cir2.setFill(new ImagePattern(image2));
-                  cir2.setTranslateX(i-160);
-                cir2.setTranslateY(-30);
+             
                  Font font2 = Font.font("System", FontWeight.BOLD, FontPosture.REGULAR , 13);
                Label b2 = new Label("Andrw");
                 b2.setFont(font2);
@@ -747,7 +695,7 @@ public class ExploreController implements Initializable {
                 imageView.setTranslateY(-95);
 
                 i += 300;
-                ss.getChildren().addAll(b1, imageView, b,cir2,b2);
+                ss.getChildren().addAll(b1, imageView, b,b2);
 
                 b.setOnAction(
                         even -> {

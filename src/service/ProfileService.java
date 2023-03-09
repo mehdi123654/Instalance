@@ -7,7 +7,7 @@ package service;
 
 import entity.Profile;
 import entity.User;
-import utils.DataBaseConnection;
+import utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +35,7 @@ public class ProfileService implements ProfileDAO{
      *
      */
     public ProfileService() throws SQLException {
-        conn = DataBaseConnection.getInstance().getConnection();
+        conn = MyConnection.getInstance().getCnx();
     }
     
     @Override

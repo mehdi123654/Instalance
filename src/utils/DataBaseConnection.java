@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class DataBaseConnection {
     private static DataBaseConnection instance;
     private Connection connection;
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/instalance";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/instalancedb";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
     private DataBaseConnection() throws SQLException 

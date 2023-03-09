@@ -7,7 +7,7 @@ package service;
 
 import entity.PasswordEncryption;
 import entity.User;
-import utils.DataBaseConnection;
+import utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,8 +33,8 @@ public class UserService implements UserDAO{
 
     private Connection conn;
 
-    public UserService() throws SQLException {
-        conn = DataBaseConnection.getInstance().getConnection();
+    public UserService() {
+        conn = MyConnection.getInstance().getCnx();
     }
 
     @Override
@@ -175,7 +175,6 @@ public class UserService implements UserDAO{
             rs = ste.executeQuery(req);
             while (rs.next()) {
                 list.add(new User(rs.getInt("idUser"), rs.getString("username"), rs.getString("email"),  rs.getString("password"),rs.getString("role")));
-
             }
 
         } catch (SQLException ex) {
@@ -186,10 +185,10 @@ public class UserService implements UserDAO{
     }
     
     @Override
-    public boolean BanUser(int id, boolean ban) {
+    public boolean BanUser(int id, int ban) {
         try {
-            ps = conn.prepareStatement( "update FROM user SET ban ='" + ban + "'");
-            ps.setBoolean(1, ban);
+            ps = conn.prepareStatement( "update user SET isBanned = ? where idUser = ?");
+            ps.setInt(1, 1);
             ps.executeUpdate();
         } catch (SQLException SQLEx) {
             System.out.print(SQLEx.getMessage());

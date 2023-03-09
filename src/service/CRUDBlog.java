@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import entity.Blog;
-import utils.MyConnection;
+import utils.MyConnectionDB;
 
 /**
  *
@@ -25,7 +25,7 @@ import utils.MyConnection;
 public class CRUDBlog implements InterfaceServices {
 
     Statement ste;
-    Connection conn = MyConnection.getInstance().getConnection();
+    Connection conn = MyConnectionDB.getInstance().getConnection();
 
     @Override
     public void AddBlog(Blog B) {

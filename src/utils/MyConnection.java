@@ -8,36 +8,42 @@ package utils;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-/**
- *
- * @author emnaa
- */
 public class MyConnection {
-
-    private Connection conn;
-    String url = "jdbc:mysql://localhost:3306/instalance";
-    String user = "root";
-    String pwd = "";
-    private static MyConnection instance;
-
-    private MyConnection() {
+  private static Connection  cnx;
+   String url = "jdbc:mysql://localhost:3306/instalancedb";
+   String user = "root";
+   String pwd = "";
+   private static MyConnection instance;
+   private MyConnection() {
+        
         try {
-            conn = DriverManager.getConnection(url, user, pwd);
-            System.out.println("Connexion etabished!!!");
+            cnx = DriverManager.getConnection(url, user, pwd);
+            System.out.println("Success Connecting $$$$$$$$$$");
         } catch (SQLException ex) {
-            System.out.println("Error! Connexion problem");
-        }
-    }
+            System.out.println("Error while connecting to database $$$$$$$$$$$$");    
+        }}
 
-    public static MyConnection getInstance() {
+  public static MyConnection getInstance(){
         if (MyConnection.instance == null) {
             MyConnection.instance = new MyConnection();
         }
         return MyConnection.instance;
+        
+    }
+    
+  public static Connection getCnx() {
+        return cnx;
     }
 
-    public Connection getConnection() {
-        return MyConnection.getInstance().conn;
-    }
+    
+
+
+    
 }
+    
+    
+    
+    
+    
+    
+

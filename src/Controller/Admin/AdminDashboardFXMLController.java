@@ -189,7 +189,7 @@ public class AdminDashboardFXMLController implements Initializable {
 
     @FXML
     private void sortBowners(ActionEvent event) {
-        ObservableList<User> users = us.filterRole("BOwner");
+        ObservableList<User> users = us.filterRole("Bussines Owner");
         tcUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<>("email"));        
         tcRole.setCellValueFactory(new PropertyValueFactory<>("role"));
@@ -224,6 +224,7 @@ public class AdminDashboardFXMLController implements Initializable {
 
     @FXML
     private void banUser(ActionEvent event) {
+        
     }
 
     @FXML

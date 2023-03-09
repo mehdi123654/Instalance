@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dao.WrapperDAO;
-import utils.DataBaseConnection;
+import utils.MyConnection;
 
 
 
@@ -26,7 +26,7 @@ public class Wrapper implements WrapperDAO{
     ResultSet rs;
 
     public Wrapper() throws SQLException {
-        this.conn = DataBaseConnection.getInstance().getConnection();
+        this.conn = MyConnection.getInstance().getCnx();
     }
 
     @Override

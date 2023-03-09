@@ -18,7 +18,7 @@ public interface UserDAO {
     public boolean insertUser(User u)throws SQLException;
     public boolean updateUser(User u)throws SQLException;
     public boolean deleteUser(User u)throws SQLException;
-    public boolean BanUser(int id, boolean ban);
+    public boolean BanUser(int id, int ban);
     public boolean VerifyUser(int id, boolean verify);
     public ObservableList<User> showAllUsers() throws SQLException;
     public User selectOneUserByID(int idUser) throws SQLException;
