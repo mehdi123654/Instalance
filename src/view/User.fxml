@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserController">
+ <Button fx:id="freelancerButton" layoutX="382.0" layoutY="187.0" onAction="#freelancerscreen" text="Freelancer" />
+ <Button fx:id="businessOwnerButton" layoutX="104.0" layoutY="187.0" onAction="#BOscreen" text="Business Owner" />
+</AnchorPane>
