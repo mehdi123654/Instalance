@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dao;
+package dao;
 
-import entities.Packag;
 import java.util.List;
+
+import entity.Packag;
 
 /**
  *

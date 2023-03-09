@@ -6,8 +6,9 @@
 package dao;
 
 import java.sql.SQLException;
+
+import entity.Event;
 import javafx.collections.ObservableList;
-import entities.Event;
 
 /**
  *

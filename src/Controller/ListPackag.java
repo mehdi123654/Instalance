@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
-import Dao.PackagDao;
-import entities.Packag;
+import dao.PackagDao;
+import entity.Packag;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

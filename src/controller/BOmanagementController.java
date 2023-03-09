@@ -1,7 +1,7 @@
 package controller;
 
-import entities.Hackathon;
-import entities.Workshop;
+import entity.Hackathon;
+import entity.Workshop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,6 +18,8 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import entity.Hackathon;
+import entity.Workshop;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -41,9 +43,9 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import services.EventService;
-import services.HackathonService;
-import services.WorkshopService;
+import service.EventService;
+import service.HackathonService;
+import service.WorkshopService;
 import javafx.concurrent.Worker;
 import java.awt.Desktop;
 
@@ -393,7 +395,7 @@ public class BOmanagementController implements Initializable {
         Workshop selectedIndex = workshopsTable.getSelectionModel().getSelectedItem();
         Hackathon selectedIndexHackathon = hackathonsTable.getSelectionModel().getSelectedItem();
         if (selectedIndex != null) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Map.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Map.fxml"));
             Parent root = loader.load();
             MapController mapcontroller = loader.getController();
             mapcontroller.setBOManagementController(this);
@@ -403,7 +405,7 @@ public class BOmanagementController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } else if (selectedIndexHackathon != null) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Map.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Map.fxml"));
             Parent root = loader.load();
             MapController mapcontroller = loader.getController();
             mapcontroller.setBOManagementController(this);
@@ -465,7 +467,7 @@ public class BOmanagementController implements Initializable {
     @FXML
     void addWorkshop(ActionEvent event) throws IOException {
         // Load the FXML file of the UI you want to display
-        Parent root = FXMLLoader.load(getClass().getResource("../view/Workshop.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Workshop.fxml"));
 
         // Create a new dialog with the loaded FXML file as its content
         // Dialog<Void> dialog = new Dialog<>();
@@ -496,7 +498,7 @@ public class BOmanagementController implements Initializable {
     @FXML
     void addHackathon(ActionEvent event) throws IOException {
         // Load the FXML file of the UI you want to display
-        Parent root = FXMLLoader.load(getClass().getResource("../view/Hackathon.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Hackathon.fxml"));
 
         // Create a new scene with the loaded FXML file as its root node
         Scene scene = new Scene(root);
@@ -518,7 +520,7 @@ public class BOmanagementController implements Initializable {
 
         if (selectedWorkshop != null) {
             // Create a new FXMLLoader to load the update workshop UI
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/UpdateWorkshop.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateWorkshop.fxml"));
             Parent root = loader.load();
 
             // Get the controller for the update workshop UI
@@ -548,7 +550,7 @@ public class BOmanagementController implements Initializable {
 
         if (selectedHackathon != null) {
             // Create a new FXMLLoader to load the update workshop UI
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/UpdateHackathon.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateHackathon.fxml"));
             Parent root = loader.load();
 
             // Get the controller for the update workshop UI
@@ -579,7 +581,7 @@ public class BOmanagementController implements Initializable {
         ObservableList<Hackathon> hackathonList = hackathonService.getAllHackathons();
         hackathonsTable.setItems(hackathonList);
     }
-
+/*
     @FXML
     private void pdf(ActionEvent event) {
         WorkshopService workshopService = new WorkshopService();
@@ -644,5 +646,5 @@ public class BOmanagementController implements Initializable {
         }
 
     }
-
+ */
 }

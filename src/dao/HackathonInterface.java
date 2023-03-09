@@ -5,8 +5,9 @@
  */
 package dao;
 
-import entities.Hackathon;
 import java.sql.SQLException;
+
+import entity.Hackathon;
 import javafx.collections.ObservableList;
 
 /**

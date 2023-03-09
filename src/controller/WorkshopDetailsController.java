@@ -8,11 +8,12 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import entities.Workshop;
+import entity.Workshop;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import controller.FreelancermanagementController;
+
 /**
  * FXML Controller class
  *

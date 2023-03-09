@@ -24,12 +24,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import work.enteties.ToggleSwitch;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfWriter;
+
+import entity.ToggleSwitch;
+
 import java.io.File;
 
 import java.io.FileNotFoundException;
@@ -97,7 +100,7 @@ paneMain.getChildren().add(button);
     }
     }
 
-    @FXML
+     @FXML
     private void pdf(ActionEvent event) throws DocumentException, FileNotFoundException {
         
         

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="917.0" prefWidth="1749.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ServController">
+<AnchorPane id="AnchorPane" prefHeight="917.0" prefWidth="1749.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServController">
    <children>
       <Circle fill="DODGERBLUE" layoutX="345.0" layoutY="594.0" radius="202.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="DODGERBLUE" layoutX="1302.0" layoutY="387.0" radius="307.0" stroke="BLACK" strokeType="INSIDE" />

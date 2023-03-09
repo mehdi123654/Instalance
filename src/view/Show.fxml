@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="744.0" prefWidth="1194.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ShowController">
+<AnchorPane id="AnchorPane" prefHeight="744.0" prefWidth="1194.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowController">
    <children>
       <Circle fill="DODGERBLUE" layoutX="750.0" layoutY="440.0" radius="318.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle layoutX="28.0" layoutY="22.0" radius="100.0" stroke="WHITE" strokeType="INSIDE">

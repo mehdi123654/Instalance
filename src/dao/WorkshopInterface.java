@@ -5,8 +5,9 @@
  */
 package dao;
 
-import entities.Workshop;
 import java.sql.SQLException;
+
+import entity.Workshop;
 import javafx.collections.ObservableList;
 
 /**

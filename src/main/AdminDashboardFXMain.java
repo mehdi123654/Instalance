@@ -21,7 +21,7 @@ public class AdminDashboardFXMain extends Application {
      @Override
    public void start(Stage primaryStage) throws Exception {
        try {
-       Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/Admin/AdminDashboardFXML.fxml"));
+       Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/Admin/AdminDashboardFXML.fxml"));
        primaryStage.setScene(new Scene(root));
        primaryStage.show();
     } catch (IOException e){

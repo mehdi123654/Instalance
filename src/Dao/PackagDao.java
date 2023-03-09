@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dao;
-
-import entities.Packag;
+package dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,9 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import entity.Packag;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import utils.ConnexionSingleton;
+import utils.DataBaseConnection;
 
 /**
  *
@@ -32,9 +32,11 @@ public class  PackagDao implements Pdao<Packag>{
     private ResultSet rs;
     
     private PackagDao() {
-        ConnexionSingleton cs=ConnexionSingleton.getInstance();
+       
         try {
-            st=cs.getCnx().createStatement();
+            DataBaseConnection cs = DataBaseConnection.getInstance();
+            st = cs.getConnection().createStatement();
+          
         } catch (SQLException ex) {
             Logger.getLogger(PackagDao.class.getName()).log(Level.SEVERE, null, ex);
         }

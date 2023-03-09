@@ -10,8 +10,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
 
-import entities.Hackathon;
-import entities.Workshop;
+import entity.Hackathon;
+import entity.Workshop;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +23,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import services.HackathonService;
-import services.WorkshopService;
+import service.HackathonService;
+import service.WorkshopService;
 
 
 /**
@@ -96,8 +96,28 @@ public class FreelancermanagementController implements Initializable {
 
     @FXML
     private TableView<Workshop> workshopsTable;
+    @FXML
+   
+    public void handleWorkshopDoubleClick(MouseEvent event) {
+        if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+            Workshop selectedWorkshop = workshopsTable.getSelectionModel().getSelectedItem();
+            if (selectedWorkshop != null) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/WorkshopDetails.fxml"));
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(loader.load()));
+                    WorkshopDetailsController controller = loader.getController();
+                    controller.setWorkshopDetails(selectedWorkshop);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         WorkshopService workshopService = new WorkshopService();
         HackathonService hackathonService = new HackathonService();
         ObservableList<Workshop> WorkshopList = workshopService.getAllWorkshops();
@@ -162,23 +182,6 @@ public class FreelancermanagementController implements Initializable {
         workshopStartDateColumn.setCellValueFactory(new PropertyValueFactory<>("start_date"));
 
     }
-    @FXML
-void handleWorkshopDoubleClicked(MouseEvent event) {
-    if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-        Workshop selectedWorkshop = workshopsTable.getSelectionModel().getSelectedItem();
-        if (selectedWorkshop != null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/WorkshopDetails.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene(loader.load()));
-                WorkshopDetailsController controller = loader.getController();
-                controller.setWorkshopDetails(selectedWorkshop);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
+
     
 }

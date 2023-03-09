@@ -13,6 +13,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+
+import entity.Blog;
+import entity.Comment;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,10 +29,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import work.enteties.Blog;
-import work.enteties.Comment;
-import work.services.CRUDBlog;
-import work.services.CRUDComment;
+import service.CRUDBlog;
+import service.CRUDComment;
 
 /**
  * FXML Controller class

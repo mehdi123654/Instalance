@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
 
-import Dao.PackagDao;
-import Dao.ServiceDao;
-import entities.Packag;
-import entities.Service;
+import entity.Packag;
+import entity.Service;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -43,6 +42,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
+
+import dao.PackagDao;
+import dao.ServiceDao;
 
 /**
  * FXML Controller class

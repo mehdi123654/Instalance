@@ -5,8 +5,9 @@
  */
 package main;
 
-import services.UserService;
 import java.sql.SQLException;
+
+import service.UserService;
 
 /**
  *

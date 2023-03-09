@@ -21,6 +21,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import entity.Blog;
+import entity.ToggleSwitch;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,12 +39,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import work.enteties.Blog;
-import work.services.CRUDBlog;
-import work.enteties.ToggleSwitch;
-
-
-
+import service.CRUDBlog;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.layout.AnchorPane;

@@ -5,7 +5,6 @@
  */
 package controller;
 
-import entities.Hackathon;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,8 +24,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import mail.Mailing;
-import services.HackathonService;
+import service.HackathonService;
+
 import javax.mail.MessagingException;
+
+import entity.Hackathon;
 
 /**
  * FXML Controller class
@@ -282,7 +284,7 @@ public class HackathonController implements Initializable {
     @FXML
 void cancel(ActionEvent event) throws IOException {
     // Load the FXML file of the UI you want to display
-    Parent root = FXMLLoader.load(getClass().getResource("../view/BOmanagement.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/view/BOmanagement.fxml"));
 
     // Create a new scene with the loaded FXML file as its root node
     Scene scene = new Scene(root);

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="537.0" prefWidth="722.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupFXMLController">
+    <stylesheets>
+        <URL value="@registerfxml.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane layoutX="-7.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane layoutX="271.0" prefHeight="552.0" prefWidth="454.0" style="-fx-background-color: #a9a9a9 , white , white;">
+         <children>
+            <Label layoutX="58.0" prefHeight="100.0" prefWidth="309.0" text="Welcome" textFill="#6aa84f">
+               <font>
+                  <Font name="Monospaced Bold" size="72.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfUsername" layoutX="98.0" layoutY="149.0" prefHeight="30.0" prefWidth="250.0" promptText="Username" style="-fx-border-color: #6aa84f; -fx-background-color: #a9a9a9 , white , white;">
+               <font>
+                  <Font name="Monospaced Regular" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tfEmail" layoutX="97.0" layoutY="212.0" prefHeight="30.0" prefWidth="250.0" promptText="Email" style="-fx-border-color: #6aa84f; -fx-background-color: #a9a9a9 , white , white;">
+               <font>
+                  <Font name="Monospaced Regular" size="12.0" />
+               </font></TextField>
+            <PasswordField fx:id="tfPass" layoutX="97.0" layoutY="269.0" prefHeight="30.0" prefWidth="250.0" promptText="Password" style="-fx-border-color: #6aa84f; -fx-background-color: #a9a9a9 , white , white;" />
+            <Label fx:id="newaccout" layoutX="125.0" layoutY="361.0" onDragDetected="#gotoLogin" onMouseClicked="#gotoLogin" prefHeight="15.0" prefWidth="192.0" text="Already have an account ?" textFill="#6aa84f">
+               <font>
+                  <Font name="Monospaced Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="error_numtel" layoutX="98.0" layoutY="397.0" prefHeight="17.0" prefWidth="250.0" />
+            <Button fx:id="btnSignup" layoutX="98.0" layoutY="414.0" mnemonicParsing="false" onAction="#addUser" prefHeight="51.0" prefWidth="118.0" style="-fx-background-color: e8b923;" styleClass="all-btn" stylesheets="@../css/Style.css" text="Signup" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancel" layoutX="229.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="51.0" prefWidth="118.0" styleClass="normal-btn" stylesheets="@../css/Style.css" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="cbRole" layoutX="98.0" layoutY="321.0" prefHeight="26.0" prefWidth="250.0" promptText="Role" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="243.0" fitWidth="211.0" layoutX="27.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@..assets\images\instalance.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="623.0" layoutX="-88.0" layoutY="-69.0" rotate="20.0" stroke="WHITE" strokeType="INSIDE" width="250.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color opacity="0.7294832468032837" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6117647290229797" green="0.1725490242242813" blue="0.46666666865348816" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+   </children>
+</AnchorPane>

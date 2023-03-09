@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
-import Dao.PackagDao;
-import Dao.ServiceDao;
-import entities.Service;
+import entity.Service;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -48,6 +47,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import org.controlsfx.control.Notifications;
+
+import dao.PackagDao;
+import dao.ServiceDao;
 
 
 
@@ -195,10 +197,10 @@ private Stage stage;
             }
         });
         st.setOnAction(event -> {
-                Notifications.create()
+          /*       Notifications.create()
               .title("Statistics Notifications")
               .text("Statics calculating Underway !")
-              .showWarning();
+              .showWarning();*/
  
             try {
                 Parent page1 = FXMLLoader.load(getClass().getResource("/view/Piechart.fxml"));

@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Instalance.UserManagement.dao;
+package dao;
 
-import Instalance.UserManagement.entities.Profile;
-import Instalance.UserManagement.entities.User;
 import java.sql.SQLException;
+
+import entity.Profile;
+import entity.User;
 
 /**
  *

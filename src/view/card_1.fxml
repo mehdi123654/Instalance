@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="350.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@../../../../com.crossify.css/StyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Card_1Controller">
+   <children>
+      <ImageView fx:id="logo" fitHeight="90.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets left="8.0" top="45.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../assets/ieee.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" prefHeight="186.0" prefWidth="262.0" spacing="15.0">
+         <children>
+            <Label fx:id="category" prefHeight="57.0" prefWidth="262.0" text="Category">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="id" text="id" />
+            <Label fx:id="description" prefHeight="88.0" prefWidth="262.0" text="Description...">
+               <font>
+                  <Font name="Microsoft Tai Le" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="emailBO" prefHeight="88.0" prefWidth="262.0" text="contact_info@esprit.tn">
+               <font>
+                  <Font name="Microsoft Tai Le" size="13.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="37.0" prefWidth="254.0">
+               <children>
+                  <Label fx:id="nbCondidats" prefHeight="19.0" prefWidth="99.0" text="X Condidats" textFill="#e70a0a">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="State" prefHeight="19.0" prefWidth="74.0" text="State" textFill="#3ffa0b">
+                     <HBox.margin>
+                        <Insets left="45.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fx:id="apply" fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/apply.png" />
+         </image>
+         <HBox.margin>
+            <Insets top="5.0" />
+         </HBox.margin>
+      </ImageView>
+   </children>
+</HBox>

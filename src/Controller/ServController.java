@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
-import entities.EmailSender;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -43,6 +42,8 @@ import javafx.event.EventHandler;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import javax.mail.MessagingException;
+
+import entity.EmailSender;
  
 /**
  * FXML Controller class
