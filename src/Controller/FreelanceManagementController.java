@@ -186,14 +186,14 @@ public class FreelanceManagementController implements Initializable {
             }
         });
         // Filter BY DEMAND
-        
-          highDemandeLabel.setOnMouseClicked(event -> {
-            searchedOffers.clear();
-            displayedOffers.clear();
-            displayedOffers.setAll(crud.sortByDemand());
-            displayOffers(displayedOffers, 0, 1);
-          });
-         
+        /*
+         * highDemandeLabel.setOnMouseClicked(event -> {
+         * searchedOffers.clear();
+         * displayedOffers.clear();
+         * displayedOffers.setAll(crud.sortByDemand());
+         * displayOffers(displayedOffers, 0, 1);
+         * });
+         */
 
         // afficher kol chy ml all offers label
         allOffersLabel.setOnMouseClicked(event -> {

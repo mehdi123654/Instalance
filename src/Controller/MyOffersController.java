@@ -13,7 +13,6 @@ import static controller.FreelanceManagementController.myOffersScene;
 //import static main.FreelanceManagement.allOffersScene;
 
 import java.io.IOException;
-import javafx.scene.Node;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -33,11 +32,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 //import main.FreelanceManagement;
 import service.CRUDFreelance;
 
@@ -47,9 +41,6 @@ import service.CRUDFreelance;
  * @author emnaa
  */
 public class MyOffersController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     ObservableList<Freelance> allOffersList;
 
@@ -115,22 +106,9 @@ public class MyOffersController implements Initializable {
             javafx.application.Platform.exit();
         });
 
-       allOffers.setOnMouseClicked(event -> {
-            //FreelanceManagement.window.setScene(allOffersScene);
-            try {
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FreelanceManagement.fxml"));
-                root = loader.load();
-
-                
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+       /* allOffers.setOnMouseClicked(event -> {
+            FreelanceManagement.window.setScene(allOffersScene);
+        });*/
         addbtn.setOnAction(event -> {
 
             try {

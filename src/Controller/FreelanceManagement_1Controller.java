@@ -135,12 +135,12 @@ public class FreelanceManagement_1Controller implements Initializable {
             }
         });
         //Filter BY DEMAND
-         highDemandeLabel.setOnMouseClicked(event -> {
+       /*  highDemandeLabel.setOnMouseClicked(event -> {
             searchedOffers.clear();
             displayedOffers.clear();
             displayedOffers.setAll(crud.sortByDemand());
             displayOffers(displayedOffers, 0, 1);
-        });
+        });*/
 
         //show newest always
         for (int i = 0;
