@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HackathonDetailsController">
+     <children>
+    <Label layoutX="38.0" layoutY="32.0" text="Hackathon Name:" />
+    <Label layoutX="38.0" layoutY="75.0" text="Hackathon ID:" />
+    <Label layoutX="38.0" layoutY="118.0" text="Start Date:" />
+    <Label layoutX="38.0" layoutY="161.0" text="End Date:" />
+    <Label layoutX="38.0" layoutY="204.0" text="Registration Deadline:" />
+    <Label layoutX="38.0" layoutY="247.0" text="Location:" />
+    <Label layoutX="38.0" layoutY="290.0" text="Max Attendees:" />
+    <Label layoutX="38.0" layoutY="333.0" text="Submission Deadline:" />
+    <Label layoutX="38.0" layoutY="376.0" text="Prizes:" />
+    <Label layoutX="38.0" layoutY="419.0" text="Description:" />
+    <Label fx:id="hackathonNameLabel" layoutX="200.0" layoutY="32.0" />
+    <Label fx:id="hackathonIDLabel" layoutX="200.0" layoutY="75.0" />
+    <Label fx:id="hackathonStartDateLabel" layoutX="200.0" layoutY="118.0" />
+    <Label fx:id="hackathonEndDateLabel" layoutX="200.0" layoutY="161.0" />
+    <Label fx:id="hackathonRegistrationDeadlineLabel" layoutX="200.0" layoutY="204.0" />
+    <Label fx:id="hackathonLocationLabel" layoutX="200.0" layoutY="247.0" />
+    <Label fx:id="hackathonMaxAttendeesLabel" layoutX="200.0" layoutY="290.0" />
+    <Label fx:id="hackathonSubmissionDeadlineLabel" layoutX="200.0" layoutY="333.0" />
+    <Label fx:id="hackathonPrizesLabel" layoutX="200.0" layoutY="376.0" />
+    <Label fx:id="hackathonDescriptionLabel" layoutX="200.0" layoutY="419.0" />
+    
+</children>
+
+</AnchorPane>
