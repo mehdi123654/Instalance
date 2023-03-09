@@ -250,6 +250,28 @@ public class BOmanagementController implements Initializable {
                 }
             }
         });
+        hackathonsTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // Check if double-clicked
+                Hackathon hackathon = hackathonsTable.getSelectionModel().getSelectedItem(); // Get selected workshop
+                if (hackathon != null) {
+                    // Create and show new window with selected workshop information
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/hackathonDetails.fxml"));
+                    Parent root;
+                    try {
+                        root = loader.load();
+                    
+                    HackathonDetailsController controller = loader.getController();
+                    controller.setHackathonDetails(hackathon);
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                }
+            }
+        });
         loadData();
          //loadMap();
         showLocation();

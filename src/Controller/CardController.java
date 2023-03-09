@@ -116,7 +116,7 @@ public class CardController implements Initializable {
             f = getData();
             found = crud.reaserchById(f);
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/crossify/view/BO/ListApplicants.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/ListApplicants.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 ListApplicantsController listApplicantsController = fxmlLoader.getController();
                 listApplicantsController.setId(found.getId_F());

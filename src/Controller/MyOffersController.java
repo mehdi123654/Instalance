@@ -129,7 +129,7 @@ public class MyOffersController implements Initializable {
         try {
             for (Freelance freelance : allOffersList) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/com/crossify/view/BO/card.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/view/card.fxml"));
                 HBox cardBox = fxmlLoader.load();
                 CardController cardController = fxmlLoader.getController();
                 cardController.modify.setVisible(true);

@@ -154,8 +154,8 @@ public class HackathonController implements Initializable {
             HackathonService hackathonService = new HackathonService();
             hackathonService.addHackathon(hackathon);
 
-            String subject = "Don't miss Our New Workshop!!!!!";
-        String body = "A new workshop has been added:\n\n"
+            String subject = "Don't miss Our New Hackathon!!!!!";
+        String body = "A new hackathon has been added:\n\n"
             + "Event Name: " + hackathon.getEvent_name() + "\n"
             + "Description: " + hackathon.getDescription() + "\n"
             + "Start Date: " + hackathon.getStart_date() + "\n"
@@ -163,7 +163,7 @@ public class HackathonController implements Initializable {
             + "Location: " + hackathon.getLocation() + "\n"
             + "Max Attendees: " + hackathon.getMax_attendees() + "\n"
             + "Registration Deadline: " + hackathon.getRegistrationDeadline() + "\n"
-            + "Submission Deadline: " + hackathon.getSubmissionDeadline()
+            + "Submission Deadline: " + hackathon.getSubmissionDeadline() + "\n"
             + "Prizes: " + hackathon.getPrizes() ;
         Mailing.sendEmail("mehdi.fathallah69@gmail.com",subject,body);
 
