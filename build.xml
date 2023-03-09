@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><!-- You may freely edit this file. See commented blocks below for --><!-- some examples of how to customize the build. --><!-- (If you delete it and reopen the project it will be recreated.) --><!-- By default, only the Clean and Build commands use this build script. --><project name="CourseManagement" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
     <description>Builds, tests, and runs the project CourseManagement.</description>
 =======
@@ -22,11 +23,16 @@
 <project name="Instalance" default="default" basedir=".">
     <description>Builds, tests, and runs the project Instalance.</description>
 >>>>>>> origin/UserMgMt
+=======
+<?xml version="1.0" encoding="UTF-8"?><!-- You may freely edit this file. See commented blocks below for --><!-- some examples of how to customize the build. --><!-- (If you delete it and reopen the project it will be recreated.) --><!-- By default, only the Clean and Build commands use this build script. --><project name="ServiceManage" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
+    <description>Builds, tests, and runs the project ServiceManage.</description>
+>>>>>>> origin/Service
     <import file="nbproject/build-impl.xml"/>
     <!--
 
     There exist several targets which are by default empty and which can be 
     used for execution of your tasks. These targets are usually executed 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     before and after some main targets. Those of them relevant for JavaFX project are: 
@@ -36,6 +42,9 @@
 =======
     before and after some main targets. They are: 
 >>>>>>> origin/UserMgMt
+=======
+    before and after some main targets. Those of them relevant for JavaFX project are: 
+>>>>>>> origin/Service
 
       -pre-init:                 called before initialization of project properties
       -post-init:                called after initialization of project properties
@@ -43,6 +52,9 @@
       -post-compile:             called after javac compilation
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Service
       -pre-compile-test:         called before javac compilation of JUnit tests
       -post-compile-test:        called after javac compilation of JUnit tests
       -pre-jfx-jar:              called before FX SDK specific <fx:jar> task
@@ -51,6 +63,7 @@
       -post-jfx-deploy:          called after FX SDK specific <fx:deploy> task
       -pre-jfx-native:           called just after -pre-jfx-deploy if <fx:deploy> runs in native packaging mode
       -post-jfx-native:          called just after -post-jfx-deploy if <fx:deploy> runs in native packaging mode
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/UserMgMt
@@ -66,12 +79,17 @@
 >>>>>>> Event
 =======
 >>>>>>> origin/UserMgMt
+=======
+>>>>>>> origin/Service
       -post-clean:               called after cleaning build products
 
     (Targets beginning with '-' are not intended to be called on their own.)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Service
     Example of inserting a HTML postprocessor after javaFX SDK deployment:
 
         <target name="-post-jfx-deploy">
@@ -97,6 +115,7 @@
 
     For list of available properties check the files
     nbproject/build-impl.xml and nbproject/jfx-impl.xml.
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/UserMgMt
@@ -144,6 +163,8 @@
 >>>>>>> Event
 =======
 >>>>>>> origin/UserMgMt
+=======
+>>>>>>> origin/Service
 
     -->
 </project>
