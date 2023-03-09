@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ExploreController.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/controller/ListData.java</file>
             <file>file:/C:/Users/user/Desktop/git/Instalance/src/coursebase/dao/LessonDao.java</file>
@@ -86,6 +87,34 @@
             <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/Controller/AddServiceController.java</file>
             <file>file:/C:/Users/belhassan/Documents/NetBeansProjects/ServiceManage/src/test/ConnexionDB.java</file>
 >>>>>>> origin/Service
+=======
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/Card_1Controller.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/utils/MyConnection.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/services/CRUDFreelance.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/Freelancer/FreelanceManagement_1.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/FreelanceManagement_1Controller.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/FreelanceManagementController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/entities/SearchHistory.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/DAO/IServicesApplication.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/CardController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/ListApplicantsController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/services/EmailSender.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com.crossify.css/StyleSheet.css</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/BO/FreelanceManagement.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/BO/addOffer.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/entities/Freelance.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/entities/CombinedResult.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/BO/card.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/DAO/IServicesFreelance.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/ApplicationFormController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/Freelancer/card_1.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/entities/Application.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/view/BO/MyOffers.fxml</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/services/CRUDApplication.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/freelancemanagement/FreelanceManagement.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/MyOffersController.java</file>
+            <file>file:/C:/Users/emnaa/Documents/NetBeansProjects/FreelanceManagement/src/com/crossify/controller/AddOfferController.java</file>
+>>>>>>> origin/emna
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,188 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.crossify.controller;
+
+import com.crossify.entities.Freelance;
+import com.crossify.services.CRUDApplication;
+import com.crossify.services.CRUDFreelance;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+
+/**
+ * FXML Controller class
+ *
+ * @author emnaa
+ */
+public class FreelanceManagement_1Controller implements Initializable {
+
+    @FXML
+    private TextField searchBar;
+    @FXML
+    private ImageView exit;
+    @FXML
+    private HBox allOffers;
+    @FXML
+    private Label allOffersLabel;
+    @FXML
+    private HBox myOffers;
+    @FXML
+    private Label categoriesLabel;
+    @FXML
+    private ListView<String> categoriesList;
+    @FXML
+    private HBox cardLayout;
+    @FXML
+    private GridPane offerContainer;
+    @FXML
+    private Label highDemandeLabel;
+    @FXML
+    private ImageView searchIcon;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        //CRUDApplication crudA = new CRUDApplication();
+        //crudA.sendToPython(20);
+        //affichage
+        CRUDFreelance crud = new CRUDFreelance();
+
+        ObservableList<Freelance> myList = FXCollections.observableArrayList();
+
+        myList = crud.displayNewFreelancee();
+
+        final ObservableList<Freelance> allOffersList = FXCollections.observableArrayList();
+        allOffersList.setAll(crud.displayFreelancee());
+
+        // Create the searchedOffers and displayedOffers lists and initialize them with allOffers
+        ObservableList<Freelance> searchedOffers = FXCollections.observableArrayList(allOffersList);
+        ObservableList<Freelance> displayedOffers = FXCollections.observableArrayList(allOffersList);
+
+        //getting the categories : CALL
+        ObservableList<String> categories = FXCollections.observableArrayList(crud.getAllCategories());
+
+        //adding categories to the list view
+        categoriesList.getItems().addAll(categories);
+        categoriesList.setVisible(false);
+
+        //--------------------------------
+        exit.setOnMouseClicked(event -> {
+            javafx.application.Platform.exit();
+        });
+
+        // advanced search bar
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                displayedOffers.setAll(allOffersList);
+            } else {
+                searchedOffers.clear();
+                displayedOffers.clear();
+                searchedOffers.setAll(crud.advancedreaserch(newValue));
+                displayedOffers.setAll(searchedOffers);
+                displayOffers(displayedOffers, 0, 1);
+            }
+        });
+        //normal search 
+        // Assuming that searchIcon is the name of the search icon control and searchField is the name of the search field control
+        searchIcon.setOnMouseClicked(event -> {
+            String searchQuery = searchBar.getText();
+            ObservableList<Freelance> searched = FXCollections.observableArrayList(crud.simpleSearch(searchQuery, 20));
+        });
+
+        //afficher kol chy ml all offers label
+        allOffersLabel.setOnMouseClicked(event -> {
+            searchedOffers.clear();
+            displayedOffers.clear();
+            displayedOffers.setAll(allOffersList);
+            displayOffers(displayedOffers, 0, 1);
+        });
+
+        //filters
+        //Filter By CATEGORY
+        categoriesLabel.setOnMouseClicked(event -> {
+            if (!categoriesList.isVisible()) {
+                categoriesList.setVisible(true);
+            }
+        });
+        categoriesList.setOnMouseClicked(event -> {
+            String selectedCategory = categoriesList.getSelectionModel().getSelectedItem();
+            if (selectedCategory != null) {
+                searchedOffers.clear();
+                displayedOffers.clear();
+                displayedOffers.setAll(crud.filterByCategory(selectedCategory));
+                displayOffers(displayedOffers, 0, 1);
+                categoriesList.setVisible(false);
+            }
+        });
+        //Filter BY DEMAND
+        highDemandeLabel.setOnMouseClicked(event -> {
+            searchedOffers.clear();
+            displayedOffers.clear();
+            displayedOffers.setAll(crud.sortByDemand());
+            displayOffers(displayedOffers, 0, 1);
+        });
+
+        //show newest always
+        for (int i = 0;
+                i < myList.size();
+                i++) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/crossify/view/Freelancer/card_1.fxml"));
+                HBox cardBox = fxmlLoader.load();
+                Card_1Controller cardController = fxmlLoader.getController();
+                cardController.setData(myList.get(i));
+                cardLayout.getChildren().add(cardBox);
+            } catch (IOException ex) {
+                Logger.getLogger(FreelanceManagement_1Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        //affichage
+        displayOffers(displayedOffers, 0, 1);
+    }
+
+    public void displayOffers(ObservableList<Freelance> list, int column, int row) {
+        try {
+            // clear the offerContainer first
+            offerContainer.getChildren().clear();
+
+            for (Freelance freelance : list) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/crossify/view/Freelancer/card_1.fxml"));
+                HBox cardBox = fxmlLoader.load();
+                Card_1Controller cardController = fxmlLoader.getController();
+                cardController.setData(freelance);
+                if (column == 2) {
+                    column = 0;
+                    ++row;
+                }
+                offerContainer.add(cardBox, column++, row);
+                GridPane.setMargin(cardBox, new Insets(10));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}

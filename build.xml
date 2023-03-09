@@ -1,11 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><!-- You may freely edit this file. See commented blocks below for --><!-- some examples of how to customize the build. --><!-- (If you delete it and reopen the project it will be recreated.) --><!-- By default, only the Clean and Build commands use this build script. --><project name="CourseManagement" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
     <description>Builds, tests, and runs the project CourseManagement.</description>
 =======
 =======
 >>>>>>> origin/UserMgMt
+=======
+>>>>>>> origin/emna
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- You may freely edit this file. See commented blocks below for -->
 <!-- some examples of how to customize the build. -->
@@ -15,6 +18,7 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <project name="PIDEV_DESKTOP_INSTALANCE" default="default" basedir=".">
     <description>Builds, tests, and runs the project PIDEV_DESKTOP_INSTALANCE.</description>
@@ -27,11 +31,16 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- You may freely edit this file. See commented blocks below for --><!-- some examples of how to customize the build. --><!-- (If you delete it and reopen the project it will be recreated.) --><!-- By default, only the Clean and Build commands use this build script. --><project name="ServiceManage" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
     <description>Builds, tests, and runs the project ServiceManage.</description>
 >>>>>>> origin/Service
+=======
+<project name="FreelanceManagement" default="default" basedir=".">
+    <description>Builds, tests, and runs the project FreelanceManagement.</description>
+>>>>>>> origin/emna
     <import file="nbproject/build-impl.xml"/>
     <!--
 
     There exist several targets which are by default empty and which can be 
     used for execution of your tasks. These targets are usually executed 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -45,11 +54,15 @@
 =======
     before and after some main targets. Those of them relevant for JavaFX project are: 
 >>>>>>> origin/Service
+=======
+    before and after some main targets. They are: 
+>>>>>>> origin/emna
 
       -pre-init:                 called before initialization of project properties
       -post-init:                called after initialization of project properties
       -pre-compile:              called before javac compilation
       -post-compile:             called after javac compilation
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -67,6 +80,8 @@
 =======
 =======
 >>>>>>> origin/UserMgMt
+=======
+>>>>>>> origin/emna
       -pre-compile-single:       called before javac compilation of single file
       -post-compile-single:      called after javac compilation of single file
       -pre-compile-test:         called before javac compilation of JUnit tests
@@ -76,15 +91,19 @@
       -pre-jar:                  called before JAR building
       -post-jar:                 called after JAR building
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Event
 =======
 >>>>>>> origin/UserMgMt
 =======
 >>>>>>> origin/Service
+=======
+>>>>>>> origin/emna
       -post-clean:               called after cleaning build products
 
     (Targets beginning with '-' are not intended to be called on their own.)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -119,6 +138,8 @@
 =======
 =======
 >>>>>>> origin/UserMgMt
+=======
+>>>>>>> origin/emna
     Example of inserting an obfuscator after compilation could look like this:
 
         <target name="-post-compile">
@@ -146,10 +167,14 @@
     An example of overriding the target for project execution could look like this:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <target name="run" depends="PIDEV_DESKTOP_INSTALANCE-impl.jar">
 =======
         <target name="run" depends="Instalance-impl.jar">
 >>>>>>> origin/UserMgMt
+=======
+        <target name="run" depends="FreelanceManagement-impl.jar">
+>>>>>>> origin/emna
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>
@@ -160,11 +185,14 @@
     properties which you can use, check the target you are overriding in the
     nbproject/build-impl.xml file. 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Event
 =======
 >>>>>>> origin/UserMgMt
 =======
 >>>>>>> origin/Service
+=======
+>>>>>>> origin/emna
 
     -->
 </project>
