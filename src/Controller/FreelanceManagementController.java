@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.Node;
 
 import entity.Freelance;
 import javafx.collections.FXCollections;
@@ -42,6 +43,10 @@ public class FreelanceManagementController implements Initializable {
     public static Stage addStage;
     public static Scene addOfferScene, myOffersScene;
     private int searchTyped = 1;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     private int showMyOffers = 0, showAll = 1;
 
@@ -79,7 +84,7 @@ public class FreelanceManagementController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //affichage
+        // affichage
         CRUDFreelance crud = new CRUDFreelance();
 
         ObservableList<Freelance> myList = FXCollections.observableArrayList();
@@ -89,14 +94,15 @@ public class FreelanceManagementController implements Initializable {
         final ObservableList<Freelance> allOffersList = FXCollections.observableArrayList();
         allOffersList.setAll(crud.displayFreelancee());
 
-        // Create the searchedOffers and displayedOffers lists and initialize them with allOffers
+        // Create the searchedOffers and displayedOffers lists and initialize them with
+        // allOffers
         ObservableList<Freelance> searchedOffers = FXCollections.observableArrayList(allOffersList);
         ObservableList<Freelance> displayedOffers = FXCollections.observableArrayList(allOffersList);
 
-        //getting the categories : CALL
+        // getting the categories : CALL
         ObservableList<String> categories = FXCollections.observableArrayList(crud.getAllCategories());
 
-        //adding categories to the list view
+        // adding categories to the list view
         categoriesList.getItems().addAll(categories);
         categoriesList.setVisible(false);
 
@@ -121,8 +127,8 @@ public class FreelanceManagementController implements Initializable {
         });
 
         myOffers.setOnMouseClicked(event -> {
-            try {
-              
+            /*try {
+
                 addStage = new Stage();
                 addStage.initStyle(StageStyle.UNDECORATED);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MyOffers.fxml"));
@@ -132,11 +138,24 @@ public class FreelanceManagementController implements Initializable {
                 addStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
+            }*/
+            try {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MyOffers.fxml"));
+                root = loader.load();
+
+                
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         });
 
-        //search bar
+        // search bar
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.isEmpty()) {
                 displayedOffers.setAll(allOffersList);
@@ -149,8 +168,8 @@ public class FreelanceManagementController implements Initializable {
             }
         });
 
-        //filters
-        //Filter By CATEGORY
+        // filters
+        // Filter By CATEGORY
         categoriesLabel.setOnMouseClicked(event -> {
             if (!categoriesList.isVisible()) {
                 categoriesList.setVisible(true);
@@ -166,15 +185,17 @@ public class FreelanceManagementController implements Initializable {
                 categoriesList.setVisible(false);
             }
         });
-        //Filter BY DEMAND
-        /*highDemandeLabel.setOnMouseClicked(event -> {
-            searchedOffers.clear();
-            displayedOffers.clear();
-            displayedOffers.setAll(crud.sortByDemand());
-            displayOffers(displayedOffers, 0, 1);
-        });*/
+        // Filter BY DEMAND
+        /*
+         * highDemandeLabel.setOnMouseClicked(event -> {
+         * searchedOffers.clear();
+         * displayedOffers.clear();
+         * displayedOffers.setAll(crud.sortByDemand());
+         * displayOffers(displayedOffers, 0, 1);
+         * });
+         */
 
-        //afficher kol chy ml all offers label
+        // afficher kol chy ml all offers label
         allOffersLabel.setOnMouseClicked(event -> {
             searchedOffers.clear();
             displayedOffers.clear();
@@ -182,10 +203,8 @@ public class FreelanceManagementController implements Initializable {
             displayOffers(displayedOffers, 0, 1);
         });
 
-        //show newest always
-        for (int i = 0;
-                i < myList.size();
-                i++) {
+        // show newest always
+        for (int i = 0; i < myList.size(); i++) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/card.fxml"));
@@ -198,7 +217,7 @@ public class FreelanceManagementController implements Initializable {
             }
         }
 
-        //affichage
+        // affichage
         displayOffers(displayedOffers, 0, 1);
 
     }
