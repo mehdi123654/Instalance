@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AfficherController">
+   <children>
+      <Text layoutX="84.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+      <Text layoutX="82.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Body" />
+      <TextField fx:id="titleA" layoutX="165.0" layoutY="47.0" />
+      <TextArea fx:id="bodyA" layoutX="165.0" layoutY="124.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="return1" layoutX="24.0" layoutY="360.0" mnemonicParsing="false" onAction="#return1" text="Return" />
+      <AnchorPane fx:id="paneMain" layoutX="503.0" layoutY="18.0" prefHeight="26.0" prefWidth="78.0" />
+      <Text layoutX="439.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode " />
+      <Button fx:id="pdf" layoutX="381.0" layoutY="298.0" mnemonicParsing="false" onAction="#pdf" text="PDF" />
+      <Button layoutX="214.0" layoutY="334.0" mnemonicParsing="false" onAction="#vcomments" text="View Comments" />
+   </children>
+</AnchorPane>
