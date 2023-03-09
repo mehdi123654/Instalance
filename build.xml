@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><!-- You may freely edit this file. See commented blocks below for --><!-- some examples of how to customize the build. --><!-- (If you delete it and reopen the project it will be recreated.) --><!-- By default, only the Clean and Build commands use this build script. --><project name="CourseManagement" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
     <description>Builds, tests, and runs the project CourseManagement.</description>
 =======
+=======
+>>>>>>> origin/UserMgMt
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- You may freely edit this file. See commented blocks below for -->
 <!-- some examples of how to customize the build. -->
@@ -11,24 +14,34 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
+<<<<<<< HEAD
 <project name="PIDEV_DESKTOP_INSTALANCE" default="default" basedir=".">
     <description>Builds, tests, and runs the project PIDEV_DESKTOP_INSTALANCE.</description>
 >>>>>>> Event
+=======
+<project name="Instalance" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Instalance.</description>
+>>>>>>> origin/UserMgMt
     <import file="nbproject/build-impl.xml"/>
     <!--
 
     There exist several targets which are by default empty and which can be 
     used for execution of your tasks. These targets are usually executed 
 <<<<<<< HEAD
+<<<<<<< HEAD
     before and after some main targets. Those of them relevant for JavaFX project are: 
 =======
     before and after some main targets. They are: 
 >>>>>>> Event
+=======
+    before and after some main targets. They are: 
+>>>>>>> origin/UserMgMt
 
       -pre-init:                 called before initialization of project properties
       -post-init:                called after initialization of project properties
       -pre-compile:              called before javac compilation
       -post-compile:             called after javac compilation
+<<<<<<< HEAD
 <<<<<<< HEAD
       -pre-compile-test:         called before javac compilation of JUnit tests
       -post-compile-test:        called after javac compilation of JUnit tests
@@ -39,6 +52,8 @@
       -pre-jfx-native:           called just after -pre-jfx-deploy if <fx:deploy> runs in native packaging mode
       -post-jfx-native:          called just after -post-jfx-deploy if <fx:deploy> runs in native packaging mode
 =======
+=======
+>>>>>>> origin/UserMgMt
       -pre-compile-single:       called before javac compilation of single file
       -post-compile-single:      called after javac compilation of single file
       -pre-compile-test:         called before javac compilation of JUnit tests
@@ -47,11 +62,15 @@
       -post-compile-test-single: called after javac compilation of single JUunit test
       -pre-jar:                  called before JAR building
       -post-jar:                 called after JAR building
+<<<<<<< HEAD
 >>>>>>> Event
+=======
+>>>>>>> origin/UserMgMt
       -post-clean:               called after cleaning build products
 
     (Targets beginning with '-' are not intended to be called on their own.)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     Example of inserting a HTML postprocessor after javaFX SDK deployment:
 
@@ -79,6 +98,8 @@
     For list of available properties check the files
     nbproject/build-impl.xml and nbproject/jfx-impl.xml.
 =======
+=======
+>>>>>>> origin/UserMgMt
     Example of inserting an obfuscator after compilation could look like this:
 
         <target name="-post-compile">
@@ -105,7 +126,11 @@
 
     An example of overriding the target for project execution could look like this:
 
+<<<<<<< HEAD
         <target name="run" depends="PIDEV_DESKTOP_INSTALANCE-impl.jar">
+=======
+        <target name="run" depends="Instalance-impl.jar">
+>>>>>>> origin/UserMgMt
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>
@@ -115,7 +140,10 @@
     the compile target as the regular run target does. Again, for a list of available 
     properties which you can use, check the target you are overriding in the
     nbproject/build-impl.xml file. 
+<<<<<<< HEAD
 >>>>>>> Event
+=======
+>>>>>>> origin/UserMgMt
 
     -->
 </project>
