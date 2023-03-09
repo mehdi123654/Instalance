@@ -228,9 +228,9 @@ public class BOmanagementController implements Initializable {
             });
             hackathonsTable.setItems(filteredHackathons);
         });
-        //loadData();
-        // loadMap();
-        //showLocation();
+        loadData();
+         //loadMap();
+        showLocation();
          //showMap();
     }
 

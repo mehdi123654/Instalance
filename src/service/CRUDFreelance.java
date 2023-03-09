@@ -21,7 +21,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import utils.MyConnectionOffer;
+import utils.MyConnection;
 
 /**
  *
@@ -30,7 +30,7 @@ import utils.MyConnectionOffer;
 public class CRUDFreelance implements IServicesFreelance {
 
     Statement ste;
-    Connection conn = MyConnectionOffer.getInstance().getConnection();
+    Connection conn = MyConnection.getInstance().getConnection();
 
     @Override
     public void addFreelance(Freelance f) {

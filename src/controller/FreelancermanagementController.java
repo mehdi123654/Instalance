@@ -96,8 +96,8 @@ public class FreelancermanagementController implements Initializable {
 
     @FXML
     private TableView<Workshop> workshopsTable;
-    @FXML
-   
+
+    @FXML 
     public void handleWorkshopDoubleClick(MouseEvent event) {
         if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
             Workshop selectedWorkshop = workshopsTable.getSelectionModel().getSelectedItem();

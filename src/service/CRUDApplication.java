@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-import utils.DataBaseConnection;
+import utils.MyConnection;
 
 import com.google.gson.Gson;
 
@@ -45,7 +45,7 @@ import java.io.*;
 public class CRUDApplication implements IServicesApplication {
 
   
-  Connection conn=DataBaseConnection.getInstance().getConnection();
+  Connection conn=MyConnection.getInstance().getConnection();
 
     @Override
     public void addApplication(Application a) {
